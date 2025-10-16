@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **CALIDUS** is an AI-powered Requirements Management & Traceability Assistant for aerospace engineering projects. The system manages 15,000+ requirements in ENOVIA PLM systems with automated traceability, compliance checking, and test coverage analysis across UAE, USA, and EU aerospace regulations.
 
-**Current Status**: Week 1 Complete - Backend API Foundation with 96% Test Coverage ✅
+**Current Status**: Week 1 Complete - Backend API + Frontend Demo with Vercel Deployment Ready ✅
 
 **Repository**: https://github.com/zozisteam/cls-requirement_management
 
@@ -14,10 +14,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Quick Start
 
-### Running the Project
+### Running the Backend
 
 ```bash
-# Start all services
+# Start all backend services (FastAPI + PostgreSQL + Redis)
 docker compose up -d
 
 # Initialize database (first time only)
@@ -33,18 +33,58 @@ docker compose logs -f backend
 docker compose down
 ```
 
+### Running the Frontend
+
+```bash
+# Navigate to frontend directory
+cd frontend
+
+# Install dependencies (first time only)
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm run start
+```
+
+### Running Full Stack
+
+```bash
+# Terminal 1: Start backend
+docker compose up -d
+
+# Terminal 2: Start frontend
+cd frontend && npm run dev
+
+# Access application
+# - Frontend: http://localhost:3000
+# - Backend API: http://localhost:8000
+# - API Docs: http://localhost:8000/docs
+```
+
 ### Demo Credentials
 
 - **Admin**: username: `admin`, password: `demo2024`
 - **Engineer**: username: `engineer`, password: `engineer2024`
 - **Viewer**: username: `viewer`, password: `viewer2024`
 
-### API Endpoints
+### Local URLs
 
+**Backend API:**
 - Health check: http://localhost:8000/health
 - API root: http://localhost:8000/
 - Swagger docs: http://localhost:8000/docs
 - ReDoc: http://localhost:8000/redoc
+
+**Frontend:**
+- Homepage: http://localhost:3000
+- Login: http://localhost:3000/login
+- Demo: http://localhost:3000/demo
 
 ---
 
@@ -77,7 +117,26 @@ CALIDUS/
 │   ├── Dockerfile             # Backend container definition
 │   └── .env.example           # Environment variables template
 │
-├── frontend/                   # React + TypeScript (Coming in Week 1 completion)
+├── frontend/                   # Next.js 14 + TypeScript + Tailwind CSS
+│   ├── app/
+│   │   ├── demo/              # Interactive demo page
+│   │   │   └── page.tsx       # Feature preview with tabs
+│   │   ├── login/             # Login page
+│   │   │   └── page.tsx       # Auth with demo account quick-fill
+│   │   ├── globals.css        # Global styles with Tailwind
+│   │   ├── layout.tsx         # Root layout with metadata
+│   │   └── page.tsx           # Homepage with API status
+│   ├── components/            # Reusable React components
+│   ├── lib/                   # Utilities and helpers
+│   ├── public/                # Static assets
+│   ├── .env.local             # Environment variables (not committed)
+│   ├── .env.example           # Environment template
+│   ├── next.config.js         # Next.js configuration
+│   ├── tailwind.config.ts     # Tailwind CSS configuration
+│   ├── tsconfig.json          # TypeScript configuration
+│   ├── vercel.json            # Vercel deployment config
+│   ├── package.json           # Dependencies and scripts
+│   └── README.md              # Frontend documentation
 │
 ├── docker-compose.yml          # Multi-container orchestration (backend, db, redis)
 ├── .github/workflows/ci.yml    # GitHub Actions CI/CD pipeline
@@ -86,6 +145,7 @@ CALIDUS/
 ├── README.md                   # Main project documentation
 ├── SETUP.md                    # Setup and installation guide
 ├── DOCKER_SETUP_GUIDE.md       # Docker troubleshooting guide
+├── VERCEL_DEPLOYMENT.md        # Vercel deployment guide (frontend)
 ├── WEEK1_SIGN_OFF.md           # Week 1 completion report
 ├── demo_website_plan.md        # 67-page implementation blueprint
 ├── phase1_week1_implementation.md # Week 1 detailed guide
@@ -116,12 +176,18 @@ CALIDUS/
 - **Cache**: Redis 7-alpine
 - **CI/CD**: GitHub Actions
 
-### Frontend (Planned)
-- **Framework**: React 18 + TypeScript
-- **UI Library**: Material-UI (MUI)
-- **Data Viz**: D3.js, Cytoscape.js, Recharts
-- **State**: Redux Toolkit or Zustand
-- **Testing**: Jest + React Testing Library
+### Frontend (Operational ✅)
+- **Framework**: Next.js 14.2.3 (App Router)
+- **Language**: TypeScript 5.4.5
+- **Styling**: Tailwind CSS 3.4.3
+- **HTTP Client**: Axios 1.6.8
+- **Deployment**: Vercel-ready
+- **Features**:
+  - Server-side rendering (SSR)
+  - Static generation
+  - API proxy for CORS handling
+  - Responsive design
+  - Dark mode support (planned)
 
 ---
 
@@ -265,6 +331,30 @@ docker compose exec backend mypy app/ --ignore-missing-imports
 docker compose exec backend black app/ && \
 docker compose exec backend flake8 app/ && \
 docker compose exec backend mypy app/
+```
+
+### Frontend Commands
+
+```bash
+# Install dependencies
+cd frontend && npm install
+
+# Development server (http://localhost:3000)
+npm run dev
+
+# Production build
+npm run build
+
+# Start production server
+npm run start
+
+# Lint code
+npm run lint
+
+# Deploy to Vercel (requires Vercel CLI)
+npm install -g vercel
+vercel                    # Deploy to preview
+vercel --prod             # Deploy to production
 ```
 
 ---
@@ -527,16 +617,95 @@ docker compose exec backend pytest --cov=app --cov-report=html
 
 ---
 
+## Deployment
+
+### Frontend Deployment (Vercel)
+
+The frontend is production-ready and can be deployed to Vercel with zero configuration.
+
+**Prerequisites:**
+- Backend API deployed and publicly accessible
+- Vercel account (free tier available)
+
+**Quick Deploy:**
+
+```bash
+# Install Vercel CLI
+npm install -g vercel
+
+# Navigate to frontend
+cd frontend
+
+# Login to Vercel
+vercel login
+
+# Deploy to production
+vercel --prod
+```
+
+**Environment Variables (Vercel Dashboard):**
+- `NEXT_PUBLIC_API_URL` = Your production backend URL
+
+**See [VERCEL_DEPLOYMENT.md](./VERCEL_DEPLOYMENT.md) for complete deployment guide.**
+
+### Backend Deployment Options
+
+**Option 1: Railway.app** (Recommended for quick deploy)
+```bash
+railway login
+cd backend
+railway up
+```
+
+**Option 2: Render.com** (Free tier available)
+- Connect GitHub repository
+- Select backend directory
+- Use Docker deployment
+
+**Option 3: Fly.io** (Easy CLI deployment)
+```bash
+fly auth login
+cd backend
+fly launch
+```
+
+**Option 4: VPS (DigitalOcean/AWS/Linode)**
+```bash
+# On server
+git clone https://github.com/zozisteam/cls-requirement_management.git
+cd cls-requirement_management
+docker compose up -d
+```
+
+### Local Testing URLs
+
+**Backend:**
+- API: http://localhost:8000
+- Docs: http://localhost:8000/docs
+- Health: http://localhost:8000/health
+
+**Frontend:**
+- App: http://localhost:3000
+- Login: http://localhost:3000/login
+- Demo: http://localhost:3000/demo
+
+---
+
 ## Project Roadmap
 
 ### ✅ Phase 1, Week 1: Foundation (COMPLETE)
-- Backend API with authentication
-- JWT security implementation
-- User management
-- Docker environment
-- 96% test coverage (15/15 tests passing)
-- CI/CD pipeline
-- Comprehensive documentation
+- ✅ Backend API with authentication
+- ✅ JWT security implementation
+- ✅ User management with role-based access
+- ✅ Docker environment (PostgreSQL + Redis)
+- ✅ 96% test coverage (15/15 tests passing)
+- ✅ CI/CD pipeline (GitHub Actions)
+- ✅ Next.js frontend with interactive demo
+- ✅ Vercel deployment ready
+- ✅ Comprehensive documentation
+- ✅ Login page with demo account quick-fill
+- ✅ Homepage with API status monitoring
+- ✅ Responsive UI with Tailwind CSS
 
 ### 📅 Phase 1, Week 2: Core Backend (Next)
 - Requirements CRUD operations
@@ -546,12 +715,12 @@ docker compose exec backend pytest --cov=app --cov-report=html
 - Sample data generation (15,000+ requirements)
 - Performance testing (<200ms response time)
 
-### 📅 Phase 1, Week 3: Core Frontend
-- React + TypeScript setup
-- Login page integration
-- Dashboard layout
-- Requirements list view
-- Basic search and filtering
+### 📅 Phase 1, Week 3: Enhanced Frontend
+- Dashboard with data visualization
+- Requirements list view with filtering
+- Advanced search functionality
+- User management interface (admin)
+- Real-time API integration
 
 ### 📅 Phase 2 (Weeks 4-7): Core Features
 - Interactive traceability visualizations (D3.js, Cytoscape)
