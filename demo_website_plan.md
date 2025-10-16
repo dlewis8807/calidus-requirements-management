@@ -29,7 +29,7 @@ Build a secure, interactive demonstration platform that showcases the CALIDUS ag
 - Secure access with authentication
 - Fast, responsive user experience
 
----
+
 
 ## 2. Technical Architecture
 
@@ -53,15 +53,14 @@ Build a secure, interactive demonstration platform that showcases the CALIDUS ag
 
 #### Backend
 - **Framework**:
-  - **Option 1**: Node.js with Express.js (if team familiar with JavaScript)
-  - **Option 2**: Python FastAPI (recommended for AI/ML integration)
+  -  Node.js with Express.js (if team familiar with JavaScript)
     - Better integration with NLP models
     - Async support
     - Automatic API documentation
 - **Authentication**: JWT (JSON Web Tokens)
   - Secure, stateless authentication
   - Role-based access control (RBAC)
-- **API Layer**: RESTful API with OpenAPI documentation
+- **API Layer**: RESTful API with Claude documentation
 
 #### AI/ML Components
 - **NLP Models**:
@@ -152,7 +151,7 @@ Build a secure, interactive demonstration platform that showcases the CALIDUS ag
 └─────────────────────────────────────────────────────────────┘
 ```
 
----
+
 
 ## 3. Core Features & Functionality
 
