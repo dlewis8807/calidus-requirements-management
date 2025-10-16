@@ -4,37 +4,630 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-CALIDUS is an aerospace engineering project. The repository is in early stages and currently contains documentation and reference materials.
+**CALIDUS** is an AI-powered Requirements Management & Traceability Assistant for aerospace engineering projects. The system manages 15,000+ requirements in ENOVIA PLM systems with automated traceability, compliance checking, and test coverage analysis across UAE, USA, and EU aerospace regulations.
+
+**Current Status**: Week 1 Complete - Backend API Foundation with 96% Test Coverage ✅
+
+**Repository**: https://github.com/zozisteam/cls-requirement_management
+
+---
+
+## Quick Start
+
+### Running the Project
+
+```bash
+# Start all services
+docker compose up -d
+
+# Initialize database (first time only)
+docker compose exec backend python init_db.py
+
+# Run tests (MUST PASS before committing)
+docker compose exec backend pytest -v --cov=app
+
+# View logs
+docker compose logs -f backend
+
+# Stop services
+docker compose down
+```
+
+### Demo Credentials
+
+- **Admin**: username: `admin`, password: `demo2024`
+- **Engineer**: username: `engineer`, password: `engineer2024`
+- **Viewer**: username: `viewer`, password: `viewer2024`
+
+### API Endpoints
+
+- Health check: http://localhost:8000/health
+- API root: http://localhost:8000/
+- Swagger docs: http://localhost:8000/docs
+- ReDoc: http://localhost:8000/redoc
+
+---
 
 ## Repository Structure
 
-- `crmt_rawdata/` - Raw data and reference documentation
-  - `file_extensions.md` - Comprehensive guide to aerospace engineering file extensions covering CAD, simulation, manufacturing, testing, documentation, and compliance files
-- `questions.txt` - Project questions and notes
+```
+CALIDUS/
+├── backend/                    # FastAPI backend (Python 3.11)
+│   ├── app/
+│   │   ├── api/               # API routes (auth, requirements, etc.)
+│   │   │   └── auth.py        # Authentication endpoints (register, login, me)
+│   │   ├── core/              # Core utilities
+│   │   │   ├── security.py    # JWT & password hashing (bcrypt)
+│   │   │   └── dependencies.py # Auth dependencies & middleware
+│   │   ├── models/            # SQLAlchemy ORM models
+│   │   │   └── user.py        # User model with roles
+│   │   ├── schemas/           # Pydantic validation schemas
+│   │   │   └── user.py        # User schemas (Create, Response, Login)
+│   │   ├── tests/             # pytest test suite (96% coverage)
+│   │   │   ├── conftest.py    # Test fixtures & configuration
+│   │   │   ├── test_auth.py   # Authentication tests (11 tests)
+│   │   │   └── test_security.py # Security tests (4 tests)
+│   │   ├── config.py          # Configuration management (pydantic-settings)
+│   │   ├── database.py        # Database connection & session
+│   │   └── main.py            # FastAPI application entry point
+│   ├── init_db.py             # Database initialization & seeding
+│   ├── requirements.txt       # Production dependencies
+│   ├── requirements-dev.txt   # Development dependencies (pytest, black, etc.)
+│   ├── pytest.ini             # pytest configuration
+│   ├── Dockerfile             # Backend container definition
+│   └── .env.example           # Environment variables template
+│
+├── frontend/                   # React + TypeScript (Coming in Week 1 completion)
+│
+├── docker-compose.yml          # Multi-container orchestration (backend, db, redis)
+├── .github/workflows/ci.yml    # GitHub Actions CI/CD pipeline
+├── .gitignore                  # Git ignore patterns
+│
+├── README.md                   # Main project documentation
+├── SETUP.md                    # Setup and installation guide
+├── DOCKER_SETUP_GUIDE.md       # Docker troubleshooting guide
+├── WEEK1_SIGN_OFF.md           # Week 1 completion report
+├── demo_website_plan.md        # 67-page implementation blueprint
+├── phase1_week1_implementation.md # Week 1 detailed guide
+│
+├── objectives.md               # Project objectives and features
+├── regulations.md              # Aerospace regulations reference
+└── file_extensions.md          # Aerospace file formats guide
+```
 
-## Key Reference Information
+---
 
-### Aerospace File Types
-The project deals with aerospace engineering workflows spanning:
-- **Technical Engineering**: CAD files (.CATPART, .SLDPRT, .PRT), simulation files (.BDF, .CDB, .INP), manufacturing files (.NC, .STL)
-- **Software & Control**: Embedded systems code (.C, .CPP, .ADA), VHDL files (.VHD), MATLAB files (.M, .MDL)
-- **Testing & Data**: Test data formats (.TDMS, .HDF5, .MAT, .CSV)
-- **Documentation**: Technical specs (.PDF, .DOCX), diagrams (.VSDX, .DWG)
-- **Project Management**: Scheduling files (.MPP, .XER)
-- **Requirements**: Requirements management formats (.REQIF, .DOORS)
+## Technology Stack
 
-### Regulatory Context
-Aerospace projects must comply with:
-- **DO-178C** - Software considerations in airborne systems
-- **AS9100** - Quality management systems for aerospace
-- **ITAR** - International Traffic in Arms Regulations
-- **FAA/EASA** - Aviation authority requirements
+### Backend (Operational ✅)
+- **Framework**: FastAPI 0.104.1
+- **Server**: uvicorn 0.24.0 with hot-reload
+- **Database**: PostgreSQL 15 via SQLAlchemy 2.0.23
+- **Cache**: Redis 7
+- **Authentication**: JWT (python-jose 3.3.0)
+- **Password Hashing**: bcrypt 4.0.1 (12 rounds)
+- **Validation**: Pydantic 2.5.0 with EmailStr
+- **Testing**: pytest 7.4.3 + pytest-cov 4.1.0
+- **Code Quality**: black, flake8, mypy
 
-## Development Notes
+### Infrastructure
+- **Containerization**: Docker + Docker Compose
+- **Database**: PostgreSQL 15-alpine
+- **Cache**: Redis 7-alpine
+- **CI/CD**: GitHub Actions
 
-As this repository grows, update this file with:
-- Build commands and development workflows
-- Testing procedures
-- Code architecture and module organization
-- Integration points with aerospace tools (CATIA, NASTRAN, MATLAB, etc.)
-- Data processing pipelines for engineering analysis
+### Frontend (Planned)
+- **Framework**: React 18 + TypeScript
+- **UI Library**: Material-UI (MUI)
+- **Data Viz**: D3.js, Cytoscape.js, Recharts
+- **State**: Redux Toolkit or Zustand
+- **Testing**: Jest + React Testing Library
+
+---
+
+## Development Workflow
+
+### Before Making Changes
+
+1. **Pull latest code**: `git pull origin main`
+2. **Check services are running**: `docker compose ps`
+3. **Run tests to ensure baseline**: `docker compose exec backend pytest -v`
+
+### Making Changes
+
+1. **Create feature branch**: `git checkout -b feature/your-feature`
+2. **Write tests first** (TDD approach)
+3. **Implement feature**
+4. **Run tests**: `docker compose exec backend pytest -v --cov=app`
+5. **Ensure coverage ≥80%**: Check coverage report
+6. **Format code**: `docker compose exec backend black app/`
+7. **Check linting**: `docker compose exec backend flake8 app/`
+
+### Committing Changes
+
+**CRITICAL**: All tests MUST pass before committing!
+
+```bash
+# Run full test suite
+docker compose exec backend pytest -v --cov=app --cov-report=term-missing
+
+# Expected: 15/15 PASSED, Coverage ≥ 80%
+
+# If tests pass, commit
+git add .
+git commit -m "feat: Your feature description
+
+🚀 Generated with Claude Code (claude.ai/code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>"
+
+# Push to GitHub
+git push origin your-branch
+```
+
+### Testing Standards
+
+**MUST MEET before merging**:
+- ✅ All tests pass (100% pass rate)
+- ✅ Code coverage ≥ 80%
+- ✅ No flake8 errors
+- ✅ Code formatted with black
+- ✅ Type hints present (mypy compliant)
+
+---
+
+## Key Commands
+
+### Docker Operations
+
+```bash
+# Start services
+docker compose up -d
+
+# Rebuild after dependency changes
+docker compose up -d --build backend
+
+# View logs
+docker compose logs -f backend        # Backend only
+docker compose logs -f                # All services
+
+# Restart a service
+docker compose restart backend
+
+# Stop all services
+docker compose down
+
+# Clean slate (removes volumes)
+docker compose down -v
+
+# Check service health
+docker compose ps
+```
+
+### Database Operations
+
+```bash
+# Initialize database (creates tables + demo users)
+docker compose exec backend python init_db.py
+
+# Access PostgreSQL shell
+docker compose exec db psql -U calidus -d calidus
+
+# Create test database (if not exists)
+docker compose exec db psql -U calidus -c "CREATE DATABASE calidus_test;"
+
+# Backup database
+docker compose exec db pg_dump -U calidus calidus > backup.sql
+
+# Restore database
+docker compose exec -T db psql -U calidus calidus < backup.sql
+```
+
+### Testing Commands
+
+```bash
+# Run all tests with coverage
+docker compose exec backend pytest -v --cov=app --cov-report=term-missing
+
+# Run specific test file
+docker compose exec backend pytest app/tests/test_auth.py -v
+
+# Run specific test function
+docker compose exec backend pytest app/tests/test_auth.py::test_login_success -v
+
+# Generate HTML coverage report
+docker compose exec backend pytest --cov=app --cov-report=html
+# View at: backend/htmlcov/index.html
+
+# Run tests with verbose output
+docker compose exec backend pytest -vv
+
+# Run tests and stop on first failure
+docker compose exec backend pytest -x
+```
+
+### Code Quality Commands
+
+```bash
+# Format code with black
+docker compose exec backend black app/
+
+# Check formatting without changes
+docker compose exec backend black --check app/
+
+# Run flake8 linting
+docker compose exec backend flake8 app/ --max-line-length=120
+
+# Run mypy type checking
+docker compose exec backend mypy app/ --ignore-missing-imports
+
+# Run all quality checks
+docker compose exec backend black app/ && \
+docker compose exec backend flake8 app/ && \
+docker compose exec backend mypy app/
+```
+
+---
+
+## Database Schema
+
+### Current Models (Week 1)
+
+#### User Model
+```python
+class User:
+    id: int                    # Primary key
+    username: str              # Unique, indexed
+    email: str                 # Unique, indexed, validated
+    hashed_password: str       # bcrypt hashed (never plain text)
+    is_active: bool            # Default: True
+    role: str                  # 'admin', 'engineer', or 'viewer'
+    created_at: datetime       # Auto-generated
+    updated_at: datetime       # Auto-updated on change
+```
+
+### Upcoming Models (Week 2)
+
+- **Requirement**: Technical, System, Certification, AHLR types
+- **TestCase**: Test procedures linked to requirements
+- **TraceLink**: Relationships between requirements, tests, design
+- **Regulation**: FAA, EASA, UAE GCAA regulations
+- **ComplianceMapping**: Requirement-to-regulation mappings
+
+---
+
+## API Endpoints
+
+### Authentication (`/api/auth`)
+
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|---------------|
+| POST | `/api/auth/register` | Register new user | ❌ |
+| POST | `/api/auth/login` | Login and get JWT token | ❌ |
+| GET | `/api/auth/me` | Get current user info | ✅ |
+
+### System
+
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|---------------|
+| GET | `/` | API root and status | ❌ |
+| GET | `/health` | Health check | ❌ |
+| GET | `/docs` | Swagger UI | ❌ |
+| GET | `/redoc` | ReDoc documentation | ❌ |
+
+### Upcoming (Week 2)
+
+- `/api/requirements` - CRUD operations for requirements
+- `/api/tests` - CRUD operations for test cases
+- `/api/traceability` - Traceability link management
+- `/api/compliance` - Compliance checking and gap analysis
+
+---
+
+## Testing Philosophy
+
+### Test-Driven Development (TDD)
+
+1. **Write test first** - Define expected behavior
+2. **Run test** - It should fail (red)
+3. **Write minimal code** - Make test pass (green)
+4. **Refactor** - Improve code while tests pass
+5. **Repeat** - For each new feature
+
+### Test Structure
+
+```python
+# Test file: app/tests/test_feature.py
+
+def test_feature_success(client):
+    """Test successful case with valid data"""
+    response = client.post("/api/endpoint", json={"key": "value"})
+    assert response.status_code == 200
+    assert response.json()["key"] == "value"
+
+def test_feature_validation_error(client):
+    """Test validation with invalid data"""
+    response = client.post("/api/endpoint", json={"invalid": "data"})
+    assert response.status_code == 422  # Validation error
+
+def test_feature_unauthorized(client):
+    """Test auth protection"""
+    response = client.get("/api/protected")
+    assert response.status_code == 401
+```
+
+### Current Test Coverage (Week 1)
+
+- **Total Tests**: 15
+- **Pass Rate**: 100%
+- **Coverage**: 96%
+- **Modules Covered**: auth, security, models, schemas, config, main
+
+---
+
+## Common Tasks
+
+### Adding a New API Endpoint
+
+1. **Define Pydantic schema** in `app/schemas/`
+2. **Create SQLAlchemy model** in `app/models/` (if needed)
+3. **Write tests** in `app/tests/test_*.py`
+4. **Create route** in `app/api/`
+5. **Include router** in `app/main.py`
+6. **Run tests** - ensure 100% pass rate
+7. **Check coverage** - ensure ≥80%
+
+### Adding a New Database Model
+
+1. **Create model** in `app/models/your_model.py`
+2. **Import in** `app/models/__init__.py`
+3. **Create schemas** in `app/schemas/your_model.py`
+4. **Write tests** for CRUD operations
+5. **Create migration** (Week 2: Alembic)
+6. **Run tests** to validate
+
+### Debugging Failed Tests
+
+```bash
+# Run tests with verbose output
+docker compose exec backend pytest -vv
+
+# Run specific failing test
+docker compose exec backend pytest app/tests/test_file.py::test_name -vv
+
+# Add breakpoint in code
+import pdb; pdb.set_trace()
+
+# Check test database state
+docker compose exec db psql -U calidus -d calidus_test -c "SELECT * FROM users;"
+
+# View backend logs
+docker compose logs backend --tail=50
+```
+
+---
+
+## Aerospace Domain Context
+
+### Regulatory Compliance
+
+CALIDUS must support compliance across multiple jurisdictions:
+
+**UAE (GCAA)**:
+- General Civil Aviation Regulations (CAR)
+- UAEMAR-21 (Certification)
+- UAEMAR-M (Continuing Airworthiness)
+
+**USA (FAA)**:
+- 14 CFR Part 21 (Certification Procedures)
+- 14 CFR Part 23 (Normal Category Airplanes)
+- 14 CFR Part 25 (Transport Category)
+- 14 CFR Part 33 (Aircraft Engines)
+- DO-178C (Software considerations)
+- MIL-HDBK-516C (Airworthiness certification)
+
+**EU (EASA)**:
+- Part-21 (Certification)
+- CS-23 (Normal, Utility, Acrobatic, Commuter)
+- CS-25 (Large Aeroplanes)
+- EMAR-21 (Military certification)
+
+**International**:
+- ICAO Annexes (various)
+- NATO STANAGs (military standards)
+
+### Requirement Types
+
+1. **AHLR** (Aircraft High-Level Requirements)
+   - Top-level system requirements
+   - Maps to certification basis
+
+2. **System Requirements**
+   - Derived from AHLR
+   - Subsystem-level specifications
+
+3. **Technical Specifications**
+   - Detailed design requirements
+   - Component-level specs
+
+4. **Certification Requirements**
+   - Regulatory compliance requirements
+   - Tied to specific regulations
+
+### File Formats
+
+CALIDUS will integrate with aerospace tools producing:
+- **Requirements**: .REQIF, .DOORS, .JSON, .XML, .CSV
+- **CAD**: .CATPART, .SLDPRT, .STEP, .IGES
+- **Simulation**: .BDF (NASTRAN), .CDB (ANSYS), .INP (ABAQUS)
+- **Testing**: .TDMS (LabVIEW), .HDF5, .MAT, .CSV
+- **Documentation**: .PDF, .DOCX, .PPTX
+
+---
+
+## Troubleshooting
+
+### Tests Failing
+
+**Issue**: Tests fail with database connection errors
+
+```bash
+# Ensure test database exists
+docker compose exec db psql -U calidus -c "CREATE DATABASE IF NOT EXISTS calidus_test;"
+
+# Restart backend
+docker compose restart backend
+
+# Re-run tests
+docker compose exec backend pytest -v
+```
+
+**Issue**: Import errors or missing dependencies
+
+```bash
+# Rebuild container with latest requirements
+docker compose up -d --build backend
+```
+
+### Docker Issues
+
+**Issue**: Port already in use (8000, 5432, 6379)
+
+```bash
+# Check what's using the port
+lsof -i :8000
+
+# Kill process or change port in docker-compose.yml
+```
+
+**Issue**: Services not healthy
+
+```bash
+# Check logs
+docker compose logs backend
+docker compose logs db
+
+# Restart services
+docker compose restart
+
+# Nuclear option: clean slate
+docker compose down -v
+docker compose up -d --build
+```
+
+### Code Coverage Below 80%
+
+```bash
+# Generate detailed coverage report
+docker compose exec backend pytest --cov=app --cov-report=html
+
+# Open htmlcov/index.html to see which lines are missing coverage
+# Add tests for uncovered code paths
+```
+
+---
+
+## Project Roadmap
+
+### ✅ Phase 1, Week 1: Foundation (COMPLETE)
+- Backend API with authentication
+- JWT security implementation
+- User management
+- Docker environment
+- 96% test coverage (15/15 tests passing)
+- CI/CD pipeline
+- Comprehensive documentation
+
+### 📅 Phase 1, Week 2: Core Backend (Next)
+- Requirements CRUD operations
+- Test cases CRUD operations
+- Traceability link management
+- Database migrations (Alembic)
+- Sample data generation (15,000+ requirements)
+- Performance testing (<200ms response time)
+
+### 📅 Phase 1, Week 3: Core Frontend
+- React + TypeScript setup
+- Login page integration
+- Dashboard layout
+- Requirements list view
+- Basic search and filtering
+
+### 📅 Phase 2 (Weeks 4-7): Core Features
+- Interactive traceability visualizations (D3.js, Cytoscape)
+- Compliance dashboard
+- Impact analysis tool
+- Test coverage analyzer
+- Ambiguity detection
+
+### 📅 Phase 3 (Weeks 8-10): AI/ML Integration
+- NLP models (Sentence Transformers)
+- Vector database (Weaviate)
+- AI-powered trace link suggestions
+- Requirement categorization
+- Duplication detection
+
+### 📅 Phase 4 (Weeks 11-12): Polish & Deployment
+- Production deployment (AWS/Azure/GCP)
+- Performance optimization
+- Security audit
+- User acceptance testing
+- Documentation finalization
+
+---
+
+## Important Notes
+
+### Security Considerations
+
+- ✅ **Never commit** `.env` files with real credentials
+- ✅ **Change `SECRET_KEY`** in production (see `config.py`)
+- ✅ **Passwords are never stored in plain text** (bcrypt hashed)
+- ✅ **JWT tokens expire** after 60 minutes (configurable)
+- ✅ **CORS is whitelisted** (see `config.py`)
+- ✅ **SQL injection protected** (SQLAlchemy ORM only)
+
+### Performance Notes
+
+- Database connection pooling is enabled (SQLAlchemy)
+- Redis caching ready (not yet implemented)
+- Response times should be < 200ms (Week 2 testing)
+- Pagination required for large datasets (Week 2)
+
+### Code Style
+
+- **Python**: Follow PEP 8 (enforced by black + flake8)
+- **Line length**: 120 characters max
+- **Imports**: Sorted (isort)
+- **Type hints**: Required for all functions
+- **Docstrings**: Required for all public functions
+- **Comments**: Explain "why", not "what"
+
+---
+
+## Resources
+
+### Documentation
+- [README.md](README.md) - Project overview
+- [SETUP.md](SETUP.md) - Installation guide
+- [DOCKER_SETUP_GUIDE.md](DOCKER_SETUP_GUIDE.md) - Docker troubleshooting
+- [WEEK1_SIGN_OFF.md](WEEK1_SIGN_OFF.md) - Week 1 completion report
+- [demo_website_plan.md](demo_website_plan.md) - Full implementation plan
+
+### External Documentation
+- FastAPI: https://fastapi.tiangolo.com/
+- SQLAlchemy: https://docs.sqlalchemy.org/
+- Pydantic: https://docs.pydantic.dev/
+- pytest: https://docs.pytest.org/
+- Docker Compose: https://docs.docker.com/compose/
+
+### GitHub
+- Repository: https://github.com/zozisteam/cls-requirement_management
+- Issues: https://github.com/zozisteam/cls-requirement_management/issues
+- Actions (CI/CD): https://github.com/zozisteam/cls-requirement_management/actions
+
+---
+
+**Last Updated**: October 16, 2025
+**Current Phase**: Week 1 Complete, Week 2 Planning
+**Status**: Production-ready backend with 96% test coverage ✅
