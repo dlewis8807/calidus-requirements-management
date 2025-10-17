@@ -71,3 +71,13 @@ Thumbs.db
 *.pem
 *.key
 secrets/
+
+# Raw Data - Exclude large source documents but keep documentation
+rawdata/*.pdf
+rawdata/*.docx
+rawdata/*.xlsx
+rawdata/*.zip
+rawdata/*.tar.gz
+# But keep markdown documentation
+!rawdata/*.md
+!rawdata/README.md
