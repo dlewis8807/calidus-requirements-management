@@ -1,0 +1,45 @@
+{
+  "requirement_id": "TECH-105",
+  "type": "Technical_Specification",
+  "category": "Hardware",
+  "component": "FireSuppressionSystem",
+  "title": "FireSuppressionSystem Technical Specification",
+  "description": "The FireSuppressionSystem SHALL discharge suppressant within 1 second of activation",
+  "rationale": "Technical specification for implementing SYS-066",
+  "priority": "Medium",
+  "status": "Approved",
+  "regulatory_source": {
+    "document": "14 CFR Part 23",
+    "section": "\u00a723.363",
+    "title": "Side load on engine mount",
+    "file_path": "/Users/z/Documents/CALIDUS/rawdata/14 CFR Part 23 (in effect on 3-31-2017).pdf",
+    "page": 89
+  },
+  "traces_to": [
+    "SYS-066"
+  ],
+  "traced_by": [
+    "CERT-134"
+  ],
+  "verification_method": "Test",
+  "test_cases": [
+    "TC-305",
+    "TC-306",
+    "TC-307"
+  ],
+  "compliance_status": "Compliant",
+  "issues": [],
+  "created_date": "2025-03-20",
+  "last_modified": "2025-10-17",
+  "owner": "Design Engineering",
+  "version": "3.2",
+  "interfaces": [
+    "ICD-105"
+  ],
+  "performance_requirements": {
+    "response_time_ms": 210,
+    "reliability": 0.9999,
+    "operating_temp_range": "-40C to +85C",
+    "power_consumption_w": 37
+  }
+}

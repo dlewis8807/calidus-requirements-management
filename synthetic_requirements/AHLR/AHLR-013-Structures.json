@@ -1,0 +1,27 @@
+{
+  "requirement_id": "AHLR-013",
+  "type": "Aircraft_High_Level_Requirement",
+  "category": "Structures",
+  "title": "Structures Requirement 4",
+  "description": "The aircraft SHALL provide crash survivability through energy-absorbing structures",
+  "rationale": "Required for structures safety and certification compliance",
+  "priority": "High",
+  "status": "Approved",
+  "regulatory_source": {
+    "document": "14 CFR Part 23",
+    "section": "\u00a723.181",
+    "title": "Dynamic stability",
+    "file_path": "/Users/z/Documents/CALIDUS/rawdata/14 CFR Part 23 (in effect on 3-31-2017).pdf",
+    "page": 40
+  },
+  "traces_to": [],
+  "traced_by": [],
+  "verification_method": "Analysis",
+  "test_cases": [],
+  "compliance_status": "Compliant",
+  "issues": [],
+  "created_date": "2025-01-15",
+  "last_modified": "2025-10-15",
+  "owner": "System Safety Engineering",
+  "version": "2.1"
+}

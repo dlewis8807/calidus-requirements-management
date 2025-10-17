@@ -1,0 +1,45 @@
+{
+  "requirement_id": "TECH-100",
+  "type": "Technical_Specification",
+  "category": "Software",
+  "component": "AntiIceSystem",
+  "title": "AntiIceSystem Technical Specification",
+  "description": "The AntiIceSystem SHALL prevent ice accumulation on critical surfaces",
+  "rationale": "Technical specification for implementing SYS-061",
+  "priority": "Medium",
+  "status": "Approved",
+  "regulatory_source": {
+    "document": "14 CFR Part 23",
+    "section": "\u00a723.341",
+    "title": "Gust and turbulence loads",
+    "file_path": "/Users/z/Documents/CALIDUS/rawdata/14 CFR Part 23 (in effect on 3-31-2017).pdf",
+    "page": 82
+  },
+  "traces_to": [
+    "SYS-061"
+  ],
+  "traced_by": [
+    "CERT-129"
+  ],
+  "verification_method": "Test",
+  "test_cases": [
+    "TC-300",
+    "TC-301",
+    "TC-302"
+  ],
+  "compliance_status": "Compliant",
+  "issues": [],
+  "created_date": "2025-03-20",
+  "last_modified": "2025-10-17",
+  "owner": "Design Engineering",
+  "version": "3.2",
+  "interfaces": [
+    "ICD-100"
+  ],
+  "performance_requirements": {
+    "response_time_ms": 160,
+    "reliability": 0.9999,
+    "operating_temp_range": "-40C to +85C",
+    "power_consumption_w": 27
+  }
+}

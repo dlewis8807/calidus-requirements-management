@@ -1,0 +1,45 @@
+{
+  "requirement_id": "TECH-106",
+  "type": "Technical_Specification",
+  "category": "Software",
+  "component": "CommunicationsRadio",
+  "title": "CommunicationsRadio Technical Specification",
+  "description": "The CommunicationsRadio SHALL communicate on VHF 118-136 MHz with 25kHz spacing",
+  "rationale": "Technical specification for implementing SYS-067",
+  "priority": "Medium",
+  "status": "Approved",
+  "regulatory_source": {
+    "document": "14 CFR Part 23",
+    "section": "\u00a723.365",
+    "title": "Pressurized cabin loads",
+    "file_path": "/Users/z/Documents/CALIDUS/rawdata/14 CFR Part 23 (in effect on 3-31-2017).pdf",
+    "page": 90
+  },
+  "traces_to": [
+    "SYS-067"
+  ],
+  "traced_by": [
+    "CERT-135"
+  ],
+  "verification_method": "Test",
+  "test_cases": [
+    "TC-306",
+    "TC-307",
+    "TC-308"
+  ],
+  "compliance_status": "Compliant",
+  "issues": [],
+  "created_date": "2025-03-20",
+  "last_modified": "2025-10-17",
+  "owner": "Design Engineering",
+  "version": "3.2",
+  "interfaces": [
+    "ICD-106"
+  ],
+  "performance_requirements": {
+    "response_time_ms": 220,
+    "reliability": 0.9999,
+    "operating_temp_range": "-40C to +85C",
+    "power_consumption_w": 39
+  }
+}

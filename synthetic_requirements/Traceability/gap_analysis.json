@@ -1,0 +1,41 @@
+{
+  "document_title": "Requirements Gap Analysis",
+  "generated_date": "2025-10-17",
+  "summary": {
+    "total_requirements": 100,
+    "complete_traces": 85,
+    "gaps_found": 5,
+    "orphans_found": 1,
+    "conflicts_found": 1,
+    "ambiguities_found": 1
+  },
+  "gaps": [
+    {
+      "id": "GAP-001",
+      "type": "Missing_Downstream",
+      "requirement": "AHLR-015",
+      "description": "AHLR-015 has no derived system requirements",
+      "impact": "Cannot verify compliance with AHLR-015",
+      "recommendation": "Create SYS requirements to implement AHLR-015",
+      "priority": "High"
+    },
+    {
+      "id": "GAP-002",
+      "type": "Missing_Upstream",
+      "requirement": "SYS-089",
+      "description": "SYS-089 has no parent AHLR",
+      "impact": "Unclear regulatory basis for SYS-089",
+      "recommendation": "Link SYS-089 to appropriate AHLR or remove if not needed",
+      "priority": "Critical"
+    },
+    {
+      "id": "GAP-003",
+      "type": "Missing_Verification",
+      "requirement": "CERT-045",
+      "description": "CERT-045 has no defined test cases",
+      "impact": "Cannot demonstrate compliance",
+      "recommendation": "Develop test plan for CERT-045",
+      "priority": "High"
+    }
+  ]
+}

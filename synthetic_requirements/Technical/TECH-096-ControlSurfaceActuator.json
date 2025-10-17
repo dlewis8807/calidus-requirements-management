@@ -1,0 +1,45 @@
+{
+  "requirement_id": "TECH-096",
+  "type": "Technical_Specification",
+  "category": "Software",
+  "component": "ControlSurfaceActuator",
+  "title": "ControlSurfaceActuator Technical Specification",
+  "description": "The ControlSurfaceActuator SHALL position control surfaces with \u00b10.5\u00b0 accuracy",
+  "rationale": "Technical specification for implementing SYS-057",
+  "priority": "Medium",
+  "status": "Approved",
+  "regulatory_source": {
+    "document": "14 CFR Part 23",
+    "section": "\u00a723.331",
+    "title": "Symmetric maneuvering conditions",
+    "file_path": "/Users/z/Documents/CALIDUS/rawdata/14 CFR Part 23 (in effect on 3-31-2017).pdf",
+    "page": 78
+  },
+  "traces_to": [
+    "SYS-057"
+  ],
+  "traced_by": [
+    "CERT-125"
+  ],
+  "verification_method": "Test",
+  "test_cases": [
+    "TC-296",
+    "TC-297",
+    "TC-298"
+  ],
+  "compliance_status": "Compliant",
+  "issues": [],
+  "created_date": "2025-03-20",
+  "last_modified": "2025-10-17",
+  "owner": "Design Engineering",
+  "version": "3.2",
+  "interfaces": [
+    "ICD-096"
+  ],
+  "performance_requirements": {
+    "response_time_ms": 120,
+    "reliability": 0.9999,
+    "operating_temp_range": "-40C to +85C",
+    "power_consumption_w": 19
+  }
+}

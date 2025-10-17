@@ -1,0 +1,45 @@
+{
+  "requirement_id": "TECH-092",
+  "type": "Technical_Specification",
+  "category": "Software",
+  "component": "NavigationComputer",
+  "title": "NavigationComputer Technical Specification",
+  "description": "The NavigationComputer SHALL compute navigation solution with <10m position accuracy",
+  "rationale": "Technical specification for implementing SYS-053",
+  "priority": "Medium",
+  "status": "Approved",
+  "regulatory_source": {
+    "document": "14 CFR Part 23",
+    "section": "\u00a723.303",
+    "title": "Factor of safety",
+    "file_path": "/Users/z/Documents/CALIDUS/rawdata/14 CFR Part 23 (in effect on 3-31-2017).pdf",
+    "page": 71
+  },
+  "traces_to": [
+    "SYS-053"
+  ],
+  "traced_by": [
+    "CERT-121"
+  ],
+  "verification_method": "Test",
+  "test_cases": [
+    "TC-292",
+    "TC-293",
+    "TC-294"
+  ],
+  "compliance_status": "Compliant",
+  "issues": [],
+  "created_date": "2025-03-20",
+  "last_modified": "2025-10-17",
+  "owner": "Design Engineering",
+  "version": "3.2",
+  "interfaces": [
+    "ICD-092"
+  ],
+  "performance_requirements": {
+    "response_time_ms": 80,
+    "reliability": 0.9999,
+    "operating_temp_range": "-40C to +85C",
+    "power_consumption_w": 11
+  }
+}

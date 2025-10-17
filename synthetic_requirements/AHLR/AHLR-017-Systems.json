@@ -1,0 +1,27 @@
+{
+  "requirement_id": "AHLR-017",
+  "type": "Aircraft_High_Level_Requirement",
+  "category": "Systems",
+  "title": "Systems Requirement 3",
+  "description": "The aircraft SHALL monitor system health and alert crew of failures",
+  "rationale": "Required for systems safety and certification compliance",
+  "priority": "High",
+  "status": "Approved",
+  "regulatory_source": {
+    "document": "14 CFR Part 23",
+    "section": "\u00a723.221",
+    "title": "Spinning",
+    "file_path": "/Users/z/Documents/CALIDUS/rawdata/14 CFR Part 23 (in effect on 3-31-2017).pdf",
+    "page": 50
+  },
+  "traces_to": [],
+  "traced_by": [],
+  "verification_method": "Test",
+  "test_cases": [],
+  "compliance_status": "Compliant",
+  "issues": [],
+  "created_date": "2025-01-15",
+  "last_modified": "2025-10-15",
+  "owner": "System Safety Engineering",
+  "version": "2.1"
+}

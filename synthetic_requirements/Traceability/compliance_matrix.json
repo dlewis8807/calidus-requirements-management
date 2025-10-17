@@ -1,0 +1,413 @@
+{
+  "document_title": "14 CFR Part 23 Compliance Matrix",
+  "generated_date": "2025-10-17",
+  "regulation": "14 CFR Part 23",
+  "total_sections": 98,
+  "compliant_sections": 88,
+  "non_compliant_sections": 9,
+  "compliance_percentage": 90.0,
+  "sections": [
+    {
+      "section": "\u00a723.143",
+      "title": "General",
+      "page": 23,
+      "status": "Compliant",
+      "requirements": [
+        "AHLR-001"
+      ],
+      "test_cases": [
+        "TC-100",
+        "TC-101"
+      ],
+      "notes": ""
+    },
+    {
+      "section": "\u00a723.145",
+      "title": "Longitudinal control",
+      "page": 24,
+      "status": "Compliant",
+      "requirements": [
+        "AHLR-002"
+      ],
+      "test_cases": [
+        "TC-101",
+        "TC-102"
+      ],
+      "notes": ""
+    },
+    {
+      "section": "\u00a723.147",
+      "title": "Directional and lateral control",
+      "page": 25,
+      "status": "Compliant",
+      "requirements": [
+        "AHLR-003"
+      ],
+      "test_cases": [
+        "TC-102",
+        "TC-103"
+      ],
+      "notes": ""
+    },
+    {
+      "section": "\u00a723.149",
+      "title": "Minimum control speed",
+      "page": 26,
+      "status": "Partially_Compliant",
+      "requirements": [
+        "AHLR-004"
+      ],
+      "test_cases": [],
+      "notes": "Requires additional verification"
+    },
+    {
+      "section": "\u00a723.151",
+      "title": "Acrobatic maneuvers",
+      "page": 27,
+      "status": "Compliant",
+      "requirements": [
+        "AHLR-005"
+      ],
+      "test_cases": [
+        "TC-104",
+        "TC-105"
+      ],
+      "notes": ""
+    },
+    {
+      "section": "\u00a723.153",
+      "title": "Control during landings",
+      "page": 28,
+      "status": "Compliant",
+      "requirements": [
+        "AHLR-006"
+      ],
+      "test_cases": [
+        "TC-105",
+        "TC-106"
+      ],
+      "notes": ""
+    },
+    {
+      "section": "\u00a723.155",
+      "title": "Elevator control force in maneuvers",
+      "page": 29,
+      "status": "Compliant",
+      "requirements": [
+        "AHLR-007"
+      ],
+      "test_cases": [
+        "TC-106",
+        "TC-107"
+      ],
+      "notes": ""
+    },
+    {
+      "section": "\u00a723.161",
+      "title": "Trim",
+      "page": 32,
+      "status": "Non_Compliant",
+      "requirements": [
+        "AHLR-008"
+      ],
+      "test_cases": [],
+      "notes": "Requires additional verification"
+    },
+    {
+      "section": "\u00a723.171",
+      "title": "General",
+      "page": 35,
+      "status": "Compliant",
+      "requirements": [
+        "AHLR-009"
+      ],
+      "test_cases": [
+        "TC-108",
+        "TC-109"
+      ],
+      "notes": ""
+    },
+    {
+      "section": "\u00a723.173",
+      "title": "Static longitudinal stability",
+      "page": 36,
+      "status": "Compliant",
+      "requirements": [
+        "AHLR-010"
+      ],
+      "test_cases": [
+        "TC-109",
+        "TC-110"
+      ],
+      "notes": ""
+    },
+    {
+      "section": "\u00a723.175",
+      "title": "Demonstration of static longitudinal stability",
+      "page": 37,
+      "status": "Compliant",
+      "requirements": [
+        "AHLR-011"
+      ],
+      "test_cases": [
+        "TC-110",
+        "TC-111"
+      ],
+      "notes": ""
+    },
+    {
+      "section": "\u00a723.177",
+      "title": "Static directional and lateral stability",
+      "page": 38,
+      "status": "Compliant",
+      "requirements": [
+        "AHLR-012"
+      ],
+      "test_cases": [
+        "TC-111",
+        "TC-112"
+      ],
+      "notes": ""
+    },
+    {
+      "section": "\u00a723.181",
+      "title": "Dynamic stability",
+      "page": 40,
+      "status": "Compliant",
+      "requirements": [
+        "AHLR-013"
+      ],
+      "test_cases": [
+        "TC-112",
+        "TC-113"
+      ],
+      "notes": ""
+    },
+    {
+      "section": "\u00a723.201",
+      "title": "Wings level stall",
+      "page": 45,
+      "status": "Partially_Compliant",
+      "requirements": [
+        "AHLR-014"
+      ],
+      "test_cases": [],
+      "notes": "Requires additional verification"
+    },
+    {
+      "section": "\u00a723.203",
+      "title": "Turning flight and accelerated turning stalls",
+      "page": 46,
+      "status": "Compliant",
+      "requirements": [
+        "AHLR-015"
+      ],
+      "test_cases": [
+        "TC-114",
+        "TC-115"
+      ],
+      "notes": ""
+    },
+    {
+      "section": "\u00a723.207",
+      "title": "Stall warning",
+      "page": 47,
+      "status": "Compliant",
+      "requirements": [
+        "AHLR-016"
+      ],
+      "test_cases": [
+        "TC-115",
+        "TC-116"
+      ],
+      "notes": ""
+    },
+    {
+      "section": "\u00a723.221",
+      "title": "Spinning",
+      "page": 50,
+      "status": "Compliant",
+      "requirements": [
+        "AHLR-017"
+      ],
+      "test_cases": [
+        "TC-116",
+        "TC-117"
+      ],
+      "notes": ""
+    },
+    {
+      "section": "\u00a723.231",
+      "title": "Longitudinal stability and control",
+      "page": 55,
+      "status": "Non_Compliant",
+      "requirements": [
+        "AHLR-018"
+      ],
+      "test_cases": [],
+      "notes": "Requires additional verification"
+    },
+    {
+      "section": "\u00a723.233",
+      "title": "Directional stability and control",
+      "page": 56,
+      "status": "Compliant",
+      "requirements": [
+        "AHLR-019"
+      ],
+      "test_cases": [
+        "TC-118",
+        "TC-119"
+      ],
+      "notes": ""
+    },
+    {
+      "section": "\u00a723.235",
+      "title": "Operation on unpaved surfaces",
+      "page": 57,
+      "status": "Compliant",
+      "requirements": [
+        "AHLR-020"
+      ],
+      "test_cases": [
+        "TC-119",
+        "TC-120"
+      ],
+      "notes": ""
+    },
+    {
+      "section": "\u00a723.251",
+      "title": "Vibration and buffeting",
+      "page": 60,
+      "status": "Compliant",
+      "requirements": [
+        "AHLR-021"
+      ],
+      "test_cases": [
+        "TC-120",
+        "TC-121"
+      ],
+      "notes": ""
+    },
+    {
+      "section": "\u00a723.253",
+      "title": "High speed characteristics",
+      "page": 61,
+      "status": "Compliant",
+      "requirements": [
+        "AHLR-022"
+      ],
+      "test_cases": [
+        "TC-121",
+        "TC-122"
+      ],
+      "notes": ""
+    },
+    {
+      "section": "\u00a723.301",
+      "title": "Loads",
+      "page": 70,
+      "status": "Compliant",
+      "requirements": [
+        "AHLR-023"
+      ],
+      "test_cases": [
+        "TC-122",
+        "TC-123"
+      ],
+      "notes": ""
+    },
+    {
+      "section": "\u00a723.303",
+      "title": "Factor of safety",
+      "page": 71,
+      "status": "Partially_Compliant",
+      "requirements": [
+        "AHLR-024"
+      ],
+      "test_cases": [],
+      "notes": "Requires additional verification"
+    },
+    {
+      "section": "\u00a723.305",
+      "title": "Strength and deformation",
+      "page": 72,
+      "status": "Compliant",
+      "requirements": [
+        "AHLR-025"
+      ],
+      "test_cases": [
+        "TC-124",
+        "TC-125"
+      ],
+      "notes": ""
+    },
+    {
+      "section": "\u00a723.307",
+      "title": "Proof of structure",
+      "page": 73,
+      "status": "Compliant",
+      "requirements": [
+        "AHLR-001"
+      ],
+      "test_cases": [
+        "TC-125",
+        "TC-126"
+      ],
+      "notes": ""
+    },
+    {
+      "section": "\u00a723.321",
+      "title": "General",
+      "page": 75,
+      "status": "Compliant",
+      "requirements": [
+        "AHLR-002"
+      ],
+      "test_cases": [
+        "TC-126",
+        "TC-127"
+      ],
+      "notes": ""
+    },
+    {
+      "section": "\u00a723.331",
+      "title": "Symmetric maneuvering conditions",
+      "page": 78,
+      "status": "Non_Compliant",
+      "requirements": [
+        "AHLR-003"
+      ],
+      "test_cases": [],
+      "notes": "Requires additional verification"
+    },
+    {
+      "section": "\u00a723.333",
+      "title": "Flight envelope",
+      "page": 79,
+      "status": "Compliant",
+      "requirements": [
+        "AHLR-004"
+      ],
+      "test_cases": [
+        "TC-128",
+        "TC-129"
+      ],
+      "notes": ""
+    },
+    {
+      "section": "\u00a723.335",
+      "title": "Design airspeeds",
+      "page": 80,
+      "status": "Compliant",
+      "requirements": [
+        "AHLR-005"
+      ],
+      "test_cases": [
+        "TC-129",
+        "TC-130"
+      ],
+      "notes": ""
+    }
+  ]
+}

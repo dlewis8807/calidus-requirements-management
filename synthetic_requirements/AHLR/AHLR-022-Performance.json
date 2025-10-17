@@ -1,0 +1,27 @@
+{
+  "requirement_id": "AHLR-022",
+  "type": "Aircraft_High_Level_Requirement",
+  "category": "Performance",
+  "title": "Performance Requirement 4",
+  "description": "The aircraft SHALL achieve certified cruise performance and range",
+  "rationale": "Required for performance safety and certification compliance",
+  "priority": "High",
+  "status": "Approved",
+  "regulatory_source": {
+    "document": "14 CFR Part 23",
+    "section": "\u00a723.253",
+    "title": "High speed characteristics",
+    "file_path": "/Users/z/Documents/CALIDUS/rawdata/14 CFR Part 23 (in effect on 3-31-2017).pdf",
+    "page": 61
+  },
+  "traces_to": [],
+  "traced_by": [],
+  "verification_method": "Analysis",
+  "test_cases": [],
+  "compliance_status": "Compliant",
+  "issues": [],
+  "created_date": "2025-01-15",
+  "last_modified": "2025-10-15",
+  "owner": "System Safety Engineering",
+  "version": "2.1"
+}

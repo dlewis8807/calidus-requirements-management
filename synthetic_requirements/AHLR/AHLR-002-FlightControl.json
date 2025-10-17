@@ -1,0 +1,27 @@
+{
+  "requirement_id": "AHLR-002",
+  "type": "Aircraft_High_Level_Requirement",
+  "category": "FlightControl",
+  "title": "FlightControl Requirement 2",
+  "description": "The aircraft SHALL maintain controllability in all flight conditions and configurations",
+  "rationale": "Required for flightcontrol safety and certification compliance",
+  "priority": "Critical",
+  "status": "Approved",
+  "regulatory_source": {
+    "document": "14 CFR Part 23",
+    "section": "\u00a723.145",
+    "title": "Longitudinal control",
+    "file_path": "/Users/z/Documents/CALIDUS/rawdata/14 CFR Part 23 (in effect on 3-31-2017).pdf",
+    "page": 24
+  },
+  "traces_to": [],
+  "traced_by": [],
+  "verification_method": "Analysis",
+  "test_cases": [],
+  "compliance_status": "Compliant",
+  "issues": [],
+  "created_date": "2025-01-15",
+  "last_modified": "2025-10-15",
+  "owner": "System Safety Engineering",
+  "version": "2.1"
+}

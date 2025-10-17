@@ -1,0 +1,35 @@
+{
+  "requirement_id": "SYS-071",
+  "type": "System_Requirement",
+  "category": "Electrical-Power",
+  "title": "Electrical Power System Requirement 3",
+  "description": "The Electrical system SHALL protect power circuits from overcurrent",
+  "rationale": "Derived from AHLR-019 to implement electrical-power functionality",
+  "priority": "Medium",
+  "status": "Approved",
+  "regulatory_source": {
+    "document": "14 CFR Part 23",
+    "section": "\u00a723.369",
+    "title": "Rear lift truss",
+    "file_path": "/Users/z/Documents/CALIDUS/rawdata/14 CFR Part 23 (in effect on 3-31-2017).pdf",
+    "page": 92
+  },
+  "traces_to": [
+    "AHLR-019"
+  ],
+  "traced_by": [],
+  "verification_method": "Test",
+  "test_cases": [
+    "TC-171",
+    "TC-172"
+  ],
+  "compliance_status": "Compliant",
+  "issues": [],
+  "created_date": "2025-02-10",
+  "last_modified": "2025-10-16",
+  "owner": "Systems Engineering",
+  "version": "1.8",
+  "interfaces": [
+    "ICD-071"
+  ]
+}

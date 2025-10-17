@@ -1,0 +1,35 @@
+{
+  "requirement_id": "CERT-137",
+  "type": "Certification_Requirement",
+  "category": "Documentation",
+  "title": "Documentation Certification Requirement",
+  "description": "The aircraft SHALL demonstrate compliance with 14 CFR Part 23 through submission of Type Certificate Data Sheet and documentation",
+  "rationale": "Required for FAA Type Certification",
+  "priority": "Critical",
+  "status": "Approved",
+  "regulatory_source": {
+    "document": "14 CFR Part 23",
+    "section": "\u00a723.415",
+    "title": "Ground gust conditions",
+    "file_path": "/Users/z/Documents/CALIDUS/rawdata/14 CFR Part 23 (in effect on 3-31-2017).pdf",
+    "page": 102
+  },
+  "traces_to": [
+    "TECH-108"
+  ],
+  "traced_by": [],
+  "verification_method": "Inspection",
+  "test_cases": [
+    "TC-237",
+    "TC-238"
+  ],
+  "compliance_status": "Compliant",
+  "issues": [],
+  "created_date": "2025-04-01",
+  "last_modified": "2025-10-17",
+  "owner": "Certification Engineering",
+  "version": "1.0",
+  "certification_basis": "14 CFR Part 23 Amendment 64",
+  "approved_by": "FAA",
+  "approval_date": "2025-09-15"
+}

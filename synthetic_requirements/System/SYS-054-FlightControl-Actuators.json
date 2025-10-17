@@ -1,0 +1,35 @@
+{
+  "requirement_id": "SYS-054",
+  "type": "System_Requirement",
+  "category": "FlightControl-Actuators",
+  "title": "FlightControl Actuators System Requirement 4",
+  "description": "The FlightControl system SHALL interface with pilot controls with less than 50ms latency",
+  "rationale": "Derived from AHLR-004 to implement flightcontrol-actuators functionality",
+  "priority": "Medium",
+  "status": "Approved",
+  "regulatory_source": {
+    "document": "14 CFR Part 23",
+    "section": "\u00a723.301",
+    "title": "Loads",
+    "file_path": "/Users/z/Documents/CALIDUS/rawdata/14 CFR Part 23 (in effect on 3-31-2017).pdf",
+    "page": 70
+  },
+  "traces_to": [
+    "AHLR-004"
+  ],
+  "traced_by": [],
+  "verification_method": "Test",
+  "test_cases": [
+    "TC-154",
+    "TC-155"
+  ],
+  "compliance_status": "Compliant",
+  "issues": [],
+  "created_date": "2025-02-10",
+  "last_modified": "2025-10-16",
+  "owner": "Systems Engineering",
+  "version": "1.8",
+  "interfaces": [
+    "ICD-054"
+  ]
+}

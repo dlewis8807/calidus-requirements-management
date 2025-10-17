@@ -1,0 +1,27 @@
+{
+  "requirement_id": "AHLR-007",
+  "type": "Aircraft_High_Level_Requirement",
+  "category": "Powerplant",
+  "title": "Powerplant Requirement 2",
+  "description": "The aircraft SHALL prevent engine failure from causing unsafe conditions",
+  "rationale": "Required for powerplant safety and certification compliance",
+  "priority": "Critical",
+  "status": "Approved",
+  "regulatory_source": {
+    "document": "14 CFR Part 23",
+    "section": "\u00a723.155",
+    "title": "Elevator control force in maneuvers",
+    "file_path": "/Users/z/Documents/CALIDUS/rawdata/14 CFR Part 23 (in effect on 3-31-2017).pdf",
+    "page": 29
+  },
+  "traces_to": [],
+  "traced_by": [],
+  "verification_method": "Analysis",
+  "test_cases": [],
+  "compliance_status": "Compliant",
+  "issues": [],
+  "created_date": "2025-01-15",
+  "last_modified": "2025-10-15",
+  "owner": "System Safety Engineering",
+  "version": "2.1"
+}
