@@ -1,0 +1,35 @@
+{
+  "requirement_id": "SYS-072",
+  "type": "System_Requirement",
+  "category": "Electrical-Distribution",
+  "title": "Electrical Distribution System Requirement 1",
+  "description": "The Electrical system SHALL provide distribution at 28VDC \u00b12V",
+  "rationale": "Derived from AHLR-019 to implement electrical-distribution functionality",
+  "priority": "High",
+  "status": "Approved",
+  "regulatory_source": {
+    "document": "14 CFR Part 23",
+    "section": "\u00a723.371",
+    "title": "Gyroscopic and aerodynamic loads",
+    "file_path": "/Users/z/Documents/CALIDUS/rawdata/14 CFR Part 23 (in effect on 3-31-2017).pdf",
+    "page": 93
+  },
+  "traces_to": [
+    "AHLR-019"
+  ],
+  "traced_by": [],
+  "verification_method": "Test",
+  "test_cases": [
+    "TC-172",
+    "TC-173"
+  ],
+  "compliance_status": "Compliant",
+  "issues": [],
+  "created_date": "2025-02-10",
+  "last_modified": "2025-10-16",
+  "owner": "Systems Engineering",
+  "version": "1.8",
+  "interfaces": [
+    "ICD-072"
+  ]
+}

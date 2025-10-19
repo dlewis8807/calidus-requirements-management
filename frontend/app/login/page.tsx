@@ -27,7 +27,9 @@ export default function Login() {
 
       if (response.ok) {
         const data = await response.json();
+        // Store both for compatibility
         localStorage.setItem('access_token', data.access_token);
+        localStorage.setItem('token', data.access_token);
         router.push('/dashboard');
       } else {
         const errorData = await response.json();
@@ -51,19 +53,18 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100 flex items-center justify-center px-4">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 flex items-center justify-center px-4">
       <div className="max-w-md w-full">
         {/* Logo */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl mb-4">
-            <span className="text-white font-bold text-3xl">C</span>
-          </div>
-          <h1 className="text-3xl font-bold text-gray-900">CALIDUS</h1>
-          <p className="text-gray-600 mt-2">Requirements Management Platform</p>
+          <Link href="/" className="inline-block mb-4">
+            <img src="/images/CLS-AEROSPACE-LOGO.svg" alt="CALIDUS Aerospace" className="h-20 mx-auto" />
+          </Link>
+          <p className="text-calidus-gray mt-2">Requirements Management Platform</p>
         </div>
 
         {/* Login Form */}
-        <div className="bg-white rounded-2xl shadow-xl p-8 border border-blue-100">
+        <div className="bg-white rounded-2xl shadow-xl p-8 border border-calidus-silver-light">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Sign In</h2>
 
           {error && (
@@ -106,7 +107,8 @@ export default function Login() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors disabled:bg-blue-400 disabled:cursor-not-allowed"
+              className="w-full py-3 text-white rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              style={{backgroundColor: loading ? '#88898D' : '#3B7DDD'}}
             >
               {loading ? 'Signing in...' : 'Sign In'}
             </button>
@@ -118,19 +120,22 @@ export default function Login() {
             <div className="grid grid-cols-3 gap-2">
               <button
                 onClick={() => fillDemoAccount('admin')}
-                className="px-3 py-2 bg-purple-50 text-purple-700 rounded-lg text-xs font-medium hover:bg-purple-100 transition-colors border border-purple-200"
+                className="px-3 py-2 rounded-lg text-xs font-medium transition-colors border"
+                style={{backgroundColor: '#EBF3FE', color: '#3B7DDD', borderColor: '#3B7DDD'}}
               >
                 Admin
               </button>
               <button
                 onClick={() => fillDemoAccount('engineer')}
-                className="px-3 py-2 bg-blue-50 text-blue-700 rounded-lg text-xs font-medium hover:bg-blue-100 transition-colors border border-blue-200"
+                className="px-3 py-2 rounded-lg text-xs font-medium transition-colors border"
+                style={{backgroundColor: '#EBF3FE', color: '#3B7DDD', borderColor: '#3B7DDD'}}
               >
                 Engineer
               </button>
               <button
                 onClick={() => fillDemoAccount('viewer')}
-                className="px-3 py-2 bg-green-50 text-green-700 rounded-lg text-xs font-medium hover:bg-green-100 transition-colors border border-green-200"
+                className="px-3 py-2 rounded-lg text-xs font-medium transition-colors border"
+                style={{backgroundColor: '#EBF3FE', color: '#3B7DDD', borderColor: '#3B7DDD'}}
               >
                 Viewer
               </button>

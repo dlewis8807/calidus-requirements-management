@@ -1,0 +1,50 @@
+{
+  "test_case_id": "TC-008",
+  "title": "Battery Charging System Test",
+  "description": "Comprehensive test to verify battery charging system maintains proper voltage",
+  "requirement_id": "AHLR-003",
+  "test_type": "Unit",
+  "priority": "Medium",
+  "status": "In_Progress",
+  "objective": "Verify battery charging system maintains proper voltage",
+  "preconditions": [
+    "Aircraft in maintenance configuration",
+    "Main electrical bus energized and stable",
+    "All required test equipment calibrated and available",
+    "Test personnel trained and certified",
+    "Safety protocols reviewed and in place"
+  ],
+  "test_steps": [
+    "1. Power on all aircraft systems",
+    "2. Perform pre-test system checks",
+    "3. Configure test environment parameters",
+    "4. Execute primary test procedure",
+    "5. Monitor system response",
+    "6. Record test results",
+    "7. Verify against specifications",
+    "8. Document any anomalies",
+    "9. Power down and secure test setup"
+  ],
+  "expected_results": [
+    "System shall verify battery charging system maintains proper voltage",
+    "No error messages or warnings displayed",
+    "All parameters within acceptable tolerances",
+    "System returns to normal operation"
+  ],
+  "actual_results": null,
+  "test_data": {
+    "temperature": "32\u00b0C",
+    "humidity": "35%",
+    "pressure": "981 hPa",
+    "test_duration": "178 minutes"
+  },
+  "environment": "Test Laboratory - Environmental Chamber",
+  "tester": "David Chen",
+  "execution_date": "2025-10-19",
+  "duration_minutes": 34,
+  "automated": false,
+  "notes": "Test execution ongoing. Preliminary results look promising.",
+  "created_date": "2025-01-15",
+  "last_modified": "2025-10-19",
+  "version": "1.0"
+}

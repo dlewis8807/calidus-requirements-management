@@ -1,0 +1,50 @@
+{
+  "test_case_id": "TC-019",
+  "title": "Temperature Control Test",
+  "description": "Comprehensive test to validate cabin temperature control range",
+  "requirement_id": "AHLR-024",
+  "test_type": "Environmental",
+  "priority": "High",
+  "status": "Not_Executed",
+  "objective": "Validate cabin temperature control range",
+  "preconditions": [
+    "Aircraft in maintenance configuration",
+    "Cabin sealed and pressurization system operational",
+    "All required test equipment calibrated and available",
+    "Test personnel trained and certified",
+    "Safety protocols reviewed and in place"
+  ],
+  "test_steps": [
+    "1. Power on all aircraft systems",
+    "2. Perform pre-test system checks",
+    "3. Configure test environment parameters",
+    "4. Execute primary test procedure",
+    "5. Monitor system response",
+    "6. Record test results",
+    "7. Verify against specifications",
+    "8. Document any anomalies",
+    "9. Power down and secure test setup"
+  ],
+  "expected_results": [
+    "System shall validate cabin temperature control range",
+    "No error messages or warnings displayed",
+    "All parameters within acceptable tolerances",
+    "System returns to normal operation"
+  ],
+  "actual_results": null,
+  "test_data": {
+    "temperature": "22\u00b0C",
+    "humidity": "33%",
+    "pressure": "920 hPa",
+    "test_duration": "165 minutes"
+  },
+  "environment": "Test Laboratory - Environmental Chamber",
+  "tester": "Maria Garcia",
+  "execution_date": null,
+  "duration_minutes": 214,
+  "automated": true,
+  "notes": "Scheduled for execution in next test cycle.",
+  "created_date": "2025-01-15",
+  "last_modified": "2025-10-19",
+  "version": "1.0"
+}

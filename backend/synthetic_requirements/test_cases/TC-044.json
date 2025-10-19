@@ -1,0 +1,55 @@
+{
+  "test_case_id": "TC-044",
+  "title": "Hydraulic Filter Bypass Test",
+  "description": "Comprehensive test to test filter bypass indication system",
+  "requirement_id": "AHLR-013",
+  "test_type": "Performance",
+  "priority": "High",
+  "status": "Passed",
+  "objective": "Test filter bypass indication system",
+  "preconditions": [
+    "Aircraft in maintenance configuration",
+    "Hydraulic fluid level within normal range",
+    "All required test equipment calibrated and available",
+    "Test personnel trained and certified",
+    "Safety protocols reviewed and in place"
+  ],
+  "test_steps": [
+    "1. Power on all aircraft systems",
+    "2. Perform pre-test system checks",
+    "3. Configure test environment parameters",
+    "4. Execute primary test procedure",
+    "5. Monitor system response",
+    "6. Record test results",
+    "7. Verify against specifications",
+    "8. Document any anomalies",
+    "9. Power down and secure test setup"
+  ],
+  "expected_results": [
+    "System shall test filter bypass indication system",
+    "No error messages or warnings displayed",
+    "All parameters within acceptable tolerances",
+    "System returns to normal operation"
+  ],
+  "actual_results": [
+    "System successfully test filter bypass indication system",
+    "No errors observed during test execution",
+    "All measurements within specifications",
+    "System behavior nominal"
+  ],
+  "test_data": {
+    "temperature": "-7\u00b0C",
+    "humidity": "78%",
+    "pressure": "950 hPa",
+    "test_duration": "163 minutes"
+  },
+  "environment": "Test Laboratory - Environmental Chamber",
+  "tester": "Sarah Johnson",
+  "execution_date": "2025-09-25",
+  "duration_minutes": 184,
+  "automated": true,
+  "notes": "Test completed successfully. All acceptance criteria met.",
+  "created_date": "2025-01-15",
+  "last_modified": "2025-10-19",
+  "version": "1.0"
+}

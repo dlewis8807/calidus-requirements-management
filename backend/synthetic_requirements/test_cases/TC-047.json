@@ -1,0 +1,50 @@
+{
+  "test_case_id": "TC-047",
+  "title": "Bleed Air System Test",
+  "description": "Comprehensive test to verify bleed air temperature regulation",
+  "requirement_id": "AHLR-023",
+  "test_type": "Functional",
+  "priority": "Critical",
+  "status": "Not_Executed",
+  "objective": "Verify bleed air temperature regulation",
+  "preconditions": [
+    "Aircraft in maintenance configuration",
+    "Cabin sealed and pressurization system operational",
+    "All required test equipment calibrated and available",
+    "Test personnel trained and certified",
+    "Safety protocols reviewed and in place"
+  ],
+  "test_steps": [
+    "1. Power on all aircraft systems",
+    "2. Perform pre-test system checks",
+    "3. Configure test environment parameters",
+    "4. Execute primary test procedure",
+    "5. Monitor system response",
+    "6. Record test results",
+    "7. Verify against specifications",
+    "8. Document any anomalies",
+    "9. Power down and secure test setup"
+  ],
+  "expected_results": [
+    "System shall verify bleed air temperature regulation",
+    "No error messages or warnings displayed",
+    "All parameters within acceptable tolerances",
+    "System returns to normal operation"
+  ],
+  "actual_results": null,
+  "test_data": {
+    "temperature": "19\u00b0C",
+    "humidity": "55%",
+    "pressure": "1078 hPa",
+    "test_duration": "132 minutes"
+  },
+  "environment": "Test Laboratory - Environmental Chamber",
+  "tester": "Sarah Johnson",
+  "execution_date": null,
+  "duration_minutes": 192,
+  "automated": false,
+  "notes": "Scheduled for execution in next test cycle.",
+  "created_date": "2025-01-15",
+  "last_modified": "2025-10-19",
+  "version": "1.0"
+}

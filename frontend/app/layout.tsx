@@ -5,8 +5,11 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "CALIDUS - Requirements Management & Traceability",
+  title: "CALIDUS | AEROSPACE - Requirements Management & Traceability",
   description: "AI-Powered Requirements Management & Traceability Assistant for Aerospace Engineering",
+  icons: {
+    icon: '/images/CLS-ICON-LOGO.png',
+  },
 };
 
 export default function RootLayout({

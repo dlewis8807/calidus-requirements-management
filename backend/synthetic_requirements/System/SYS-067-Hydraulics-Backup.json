@@ -1,0 +1,41 @@
+{
+  "requirement_id": "SYS-067",
+  "type": "System_Requirement",
+  "category": "Hydraulics-Backup",
+  "title": "Hydraulics Backup System Requirement 2",
+  "description": "The Hydraulics system SHALL provide backup system redundancy",
+  "rationale": "Derived from AHLR-021 to implement hydraulics-backup functionality",
+  "priority": "High",
+  "status": "Approved",
+  "regulatory_source": {
+    "document": "14 CFR Part 23",
+    "section": "\u00a723.361",
+    "title": "Engine torque",
+    "file_path": "/Users/z/Documents/CALIDUS/rawdata/14 CFR Part 23 (in effect on 3-31-2017).pdf",
+    "page": 88
+  },
+  "traces_to": [
+    "AHLR-021"
+  ],
+  "traced_by": [],
+  "verification_method": "Test",
+  "test_cases": [
+    "TC-167",
+    "TC-168"
+  ],
+  "compliance_status": "Non_Compliant",
+  "issues": [
+    {
+      "type": "Conflict",
+      "severity": "High",
+      "description": "Conflicts with SYS-089 - contradictory requirements"
+    }
+  ],
+  "created_date": "2025-02-10",
+  "last_modified": "2025-10-16",
+  "owner": "Systems Engineering",
+  "version": "1.8",
+  "interfaces": [
+    "ICD-067"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "test_case_id": "TC-007",
+  "title": "Power Distribution Load Test",
+  "description": "Comprehensive test to test electrical distribution under maximum load",
+  "requirement_id": "AHLR-012",
+  "test_type": "Unit",
+  "priority": "Critical",
+  "status": "Not_Executed",
+  "objective": "Test electrical distribution under maximum load",
+  "preconditions": [
+    "Aircraft in maintenance configuration",
+    "Main electrical bus energized and stable",
+    "All required test equipment calibrated and available",
+    "Test personnel trained and certified",
+    "Safety protocols reviewed and in place"
+  ],
+  "test_steps": [
+    "1. Power on all aircraft systems",
+    "2. Perform pre-test system checks",
+    "3. Configure test environment parameters",
+    "4. Execute primary test procedure",
+    "5. Monitor system response",
+    "6. Record test results",
+    "7. Verify against specifications",
+    "8. Document any anomalies",
+    "9. Power down and secure test setup"
+  ],
+  "expected_results": [
+    "System shall test electrical distribution under maximum load",
+    "No error messages or warnings displayed",
+    "All parameters within acceptable tolerances",
+    "System returns to normal operation"
+  ],
+  "actual_results": null,
+  "test_data": {
+    "temperature": "4\u00b0C",
+    "humidity": "33%",
+    "pressure": "903 hPa",
+    "test_duration": "140 minutes"
+  },
+  "environment": "Test Laboratory - Environmental Chamber",
+  "tester": "Maria Garcia",
+  "execution_date": null,
+  "duration_minutes": 187,
+  "automated": true,
+  "notes": "Scheduled for execution in next test cycle.",
+  "created_date": "2025-01-15",
+  "last_modified": "2025-10-19",
+  "version": "1.0"
+}

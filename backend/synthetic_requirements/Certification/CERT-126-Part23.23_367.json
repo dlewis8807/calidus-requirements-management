@@ -1,0 +1,35 @@
+{
+  "requirement_id": "CERT-126",
+  "type": "Certification_Requirement",
+  "category": "EMITest",
+  "title": "EMITest Certification Requirement",
+  "description": "The aircraft SHALL demonstrate compliance with 14 CFR Part 23 through EMI/EMC testing per DO-160 Category H",
+  "rationale": "Required for FAA Type Certification",
+  "priority": "Critical",
+  "status": "Approved",
+  "regulatory_source": {
+    "document": "14 CFR Part 23",
+    "section": "\u00a723.367",
+    "title": "Unsymmetrical loads due to engine failure",
+    "file_path": "/Users/z/Documents/CALIDUS/rawdata/14 CFR Part 23 (in effect on 3-31-2017).pdf",
+    "page": 91
+  },
+  "traces_to": [
+    "TECH-097"
+  ],
+  "traced_by": [],
+  "verification_method": "Test",
+  "test_cases": [
+    "TC-226",
+    "TC-227"
+  ],
+  "compliance_status": "Compliant",
+  "issues": [],
+  "created_date": "2025-04-01",
+  "last_modified": "2025-10-17",
+  "owner": "Certification Engineering",
+  "version": "1.0",
+  "certification_basis": "14 CFR Part 23 Amendment 64",
+  "approved_by": "FAA",
+  "approval_date": "2025-09-15"
+}

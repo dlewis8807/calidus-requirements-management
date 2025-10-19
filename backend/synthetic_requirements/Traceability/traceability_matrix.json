@@ -1,0 +1,298 @@
+{
+  "document_title": "CALIDUS Requirements Traceability Matrix",
+  "generated_date": "2025-10-17",
+  "project": "Synthetic Requirements Demonstration",
+  "total_requirements": 600,
+  "total_links": 275,
+  "coverage_percentage": 90.0,
+  "trace_links": [
+    {
+      "ahlr": "AHLR-001",
+      "system": "SYS-044",
+      "technical": "TECH-091",
+      "certification": "CERT-120",
+      "status": "Complete",
+      "cfr_reference": "\u00a723.143"
+    },
+    {
+      "ahlr": "AHLR-001",
+      "system": "SYS-045",
+      "technical": "TECH-092",
+      "certification": "CERT-121",
+      "status": "Complete",
+      "cfr_reference": "\u00a723.143"
+    },
+    {
+      "ahlr": "AHLR-002",
+      "system": "SYS-046",
+      "technical": "TECH-093",
+      "certification": "CERT-122",
+      "status": "Complete",
+      "cfr_reference": "\u00a723.145"
+    },
+    {
+      "ahlr": "AHLR-002",
+      "system": "SYS-047",
+      "technical": "TECH-094",
+      "certification": "CERT-123",
+      "status": "Complete",
+      "cfr_reference": "\u00a723.145"
+    },
+    {
+      "ahlr": "AHLR-003",
+      "system": "SYS-048",
+      "technical": "TECH-095",
+      "certification": "CERT-124",
+      "status": "Complete",
+      "cfr_reference": "\u00a723.147"
+    },
+    {
+      "ahlr": "AHLR-003",
+      "system": "SYS-049",
+      "technical": "TECH-096",
+      "certification": "CERT-125",
+      "status": "Complete",
+      "cfr_reference": "\u00a723.147"
+    },
+    {
+      "ahlr": "AHLR-004",
+      "system": "SYS-050",
+      "technical": "TECH-097",
+      "certification": "CERT-126",
+      "status": "Complete",
+      "cfr_reference": "\u00a723.149"
+    },
+    {
+      "ahlr": "AHLR-004",
+      "system": "SYS-051",
+      "technical": "TECH-098",
+      "certification": "CERT-127",
+      "status": "Complete",
+      "cfr_reference": "\u00a723.149"
+    },
+    {
+      "ahlr": "AHLR-005",
+      "system": "SYS-052",
+      "technical": "TECH-099",
+      "certification": "CERT-128",
+      "status": "Complete",
+      "cfr_reference": "\u00a723.151"
+    },
+    {
+      "ahlr": "AHLR-005",
+      "system": "SYS-053",
+      "technical": "TECH-100",
+      "certification": "CERT-129",
+      "status": "Complete",
+      "cfr_reference": "\u00a723.151"
+    },
+    {
+      "ahlr": "AHLR-006",
+      "system": "SYS-054",
+      "technical": "TECH-101",
+      "certification": "CERT-130",
+      "status": "Complete",
+      "cfr_reference": "\u00a723.153"
+    },
+    {
+      "ahlr": "AHLR-006",
+      "system": "SYS-055",
+      "technical": "TECH-102",
+      "certification": "CERT-131",
+      "status": "Complete",
+      "cfr_reference": "\u00a723.153"
+    },
+    {
+      "ahlr": "AHLR-007",
+      "system": "SYS-056",
+      "technical": "TECH-103",
+      "certification": "CERT-132",
+      "status": "Complete",
+      "cfr_reference": "\u00a723.155"
+    },
+    {
+      "ahlr": "AHLR-007",
+      "system": "SYS-057",
+      "technical": "TECH-104",
+      "certification": "CERT-133",
+      "status": "Complete",
+      "cfr_reference": "\u00a723.155"
+    },
+    {
+      "ahlr": "AHLR-008",
+      "system": "SYS-058",
+      "technical": "TECH-105",
+      "certification": "CERT-134",
+      "status": "Complete",
+      "cfr_reference": "\u00a723.161"
+    },
+    {
+      "ahlr": "AHLR-008",
+      "system": "SYS-059",
+      "technical": "TECH-106",
+      "certification": "CERT-135",
+      "status": "Complete",
+      "cfr_reference": "\u00a723.161"
+    },
+    {
+      "ahlr": "AHLR-009",
+      "system": "SYS-060",
+      "technical": "TECH-107",
+      "certification": "CERT-136",
+      "status": "Complete",
+      "cfr_reference": "\u00a723.171"
+    },
+    {
+      "ahlr": "AHLR-009",
+      "system": "SYS-061",
+      "technical": "TECH-108",
+      "certification": "CERT-137",
+      "status": "Complete",
+      "cfr_reference": "\u00a723.171"
+    },
+    {
+      "ahlr": "AHLR-010",
+      "system": "SYS-062",
+      "technical": "TECH-089",
+      "certification": "CERT-118",
+      "status": "Complete",
+      "cfr_reference": "\u00a723.173"
+    },
+    {
+      "ahlr": "AHLR-010",
+      "system": "SYS-063",
+      "technical": "TECH-090",
+      "certification": "CERT-119",
+      "status": "Complete",
+      "cfr_reference": "\u00a723.173"
+    },
+    {
+      "ahlr": "AHLR-011",
+      "system": "SYS-064",
+      "technical": "TECH-091",
+      "certification": "CERT-120",
+      "status": "Complete",
+      "cfr_reference": "\u00a723.175"
+    },
+    {
+      "ahlr": "AHLR-011",
+      "system": "SYS-065",
+      "technical": "TECH-092",
+      "certification": "CERT-121",
+      "status": "Complete",
+      "cfr_reference": "\u00a723.175"
+    },
+    {
+      "ahlr": "AHLR-012",
+      "system": "SYS-066",
+      "technical": "TECH-093",
+      "certification": "CERT-122",
+      "status": "Complete",
+      "cfr_reference": "\u00a723.177"
+    },
+    {
+      "ahlr": "AHLR-012",
+      "system": "SYS-067",
+      "technical": "TECH-094",
+      "certification": "CERT-123",
+      "status": "Complete",
+      "cfr_reference": "\u00a723.177"
+    },
+    {
+      "ahlr": "AHLR-013",
+      "system": "SYS-068",
+      "technical": "TECH-095",
+      "certification": "CERT-124",
+      "status": "Complete",
+      "cfr_reference": "\u00a723.181"
+    },
+    {
+      "ahlr": "AHLR-013",
+      "system": "SYS-069",
+      "technical": "TECH-096",
+      "certification": "CERT-125",
+      "status": "Complete",
+      "cfr_reference": "\u00a723.181"
+    },
+    {
+      "ahlr": "AHLR-014",
+      "system": "SYS-070",
+      "technical": "TECH-097",
+      "certification": "CERT-126",
+      "status": "Complete",
+      "cfr_reference": "\u00a723.201"
+    },
+    {
+      "ahlr": "AHLR-014",
+      "system": "SYS-071",
+      "technical": "TECH-098",
+      "certification": "CERT-127",
+      "status": "Complete",
+      "cfr_reference": "\u00a723.201"
+    },
+    {
+      "ahlr": "AHLR-016",
+      "system": "SYS-074",
+      "technical": "TECH-101",
+      "certification": "CERT-130",
+      "status": "Complete",
+      "cfr_reference": "\u00a723.207"
+    },
+    {
+      "ahlr": "AHLR-016",
+      "system": "SYS-075",
+      "technical": "TECH-102",
+      "certification": "CERT-131",
+      "status": "Complete",
+      "cfr_reference": "\u00a723.207"
+    },
+    {
+      "ahlr": "AHLR-017",
+      "system": "SYS-076",
+      "technical": "TECH-103",
+      "certification": "CERT-132",
+      "status": "Complete",
+      "cfr_reference": "\u00a723.221"
+    }
+  ],
+  "issues": [
+    {
+      "type": "Gap",
+      "requirement": "AHLR-015",
+      "description": "No system requirements defined",
+      "severity": "High",
+      "action_required": "Define SYS requirements for AHLR-015"
+    },
+    {
+      "type": "Orphan",
+      "requirement": "SYS-089",
+      "description": "No parent AHLR",
+      "severity": "Critical",
+      "action_required": "Link SYS-089 to appropriate AHLR"
+    },
+    {
+      "type": "Conflict",
+      "requirements": [
+        "SYS-067",
+        "SYS-089"
+      ],
+      "description": "Contradictory requirements",
+      "severity": "High",
+      "action_required": "Resolve conflict between SYS-067 and SYS-089"
+    },
+    {
+      "type": "Ambiguity",
+      "requirement": "TECH-034",
+      "description": "Unclear acceptance criteria",
+      "severity": "Medium",
+      "action_required": "Clarify TECH-034 acceptance criteria"
+    },
+    {
+      "type": "Missing_Verification",
+      "requirement": "CERT-045",
+      "description": "No test cases defined",
+      "severity": "High",
+      "action_required": "Define test cases for CERT-045"
+    }
+  ]
+}

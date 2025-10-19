@@ -1,0 +1,55 @@
+{
+  "test_case_id": "TC-013",
+  "title": "Gear Extension Time Test",
+  "description": "Comprehensive test to measure landing gear extension time",
+  "requirement_id": "AHLR-003",
+  "test_type": "Functional",
+  "priority": "High",
+  "status": "Passed",
+  "objective": "Measure landing gear extension time",
+  "preconditions": [
+    "Aircraft in maintenance configuration",
+    "Aircraft on jacks with gear safety pins installed",
+    "All required test equipment calibrated and available",
+    "Test personnel trained and certified",
+    "Safety protocols reviewed and in place"
+  ],
+  "test_steps": [
+    "1. Power on all aircraft systems",
+    "2. Perform pre-test system checks",
+    "3. Configure test environment parameters",
+    "4. Execute primary test procedure",
+    "5. Monitor system response",
+    "6. Record test results",
+    "7. Verify against specifications",
+    "8. Document any anomalies",
+    "9. Power down and secure test setup"
+  ],
+  "expected_results": [
+    "System shall measure landing gear extension time",
+    "No error messages or warnings displayed",
+    "All parameters within acceptable tolerances",
+    "System returns to normal operation"
+  ],
+  "actual_results": [
+    "System successfully measure landing gear extension time",
+    "No errors observed during test execution",
+    "All measurements within specifications",
+    "System behavior nominal"
+  ],
+  "test_data": {
+    "temperature": "36\u00b0C",
+    "humidity": "29%",
+    "pressure": "937 hPa",
+    "test_duration": "176 minutes"
+  },
+  "environment": "Test Laboratory - Environmental Chamber",
+  "tester": "John Smith",
+  "execution_date": "2025-10-01",
+  "duration_minutes": 135,
+  "automated": true,
+  "notes": "Test completed successfully. All acceptance criteria met.",
+  "created_date": "2025-01-15",
+  "last_modified": "2025-10-19",
+  "version": "1.0"
+}

@@ -1,0 +1,35 @@
+{
+  "requirement_id": "SYS-048",
+  "type": "System_Requirement",
+  "category": "FlightControl-FlyByWire",
+  "title": "FlightControl FlyByWire System Requirement 2",
+  "description": "The FlightControl system SHALL detect and isolate flybywire failures within 100ms",
+  "rationale": "Derived from AHLR-003 to implement flightcontrol-flybywire functionality",
+  "priority": "High",
+  "status": "Approved",
+  "regulatory_source": {
+    "document": "14 CFR Part 23",
+    "section": "\u00a723.221",
+    "title": "Spinning",
+    "file_path": "/Users/z/Documents/CALIDUS/rawdata/14 CFR Part 23 (in effect on 3-31-2017).pdf",
+    "page": 50
+  },
+  "traces_to": [
+    "AHLR-003"
+  ],
+  "traced_by": [],
+  "verification_method": "Test",
+  "test_cases": [
+    "TC-148",
+    "TC-149"
+  ],
+  "compliance_status": "Compliant",
+  "issues": [],
+  "created_date": "2025-02-10",
+  "last_modified": "2025-10-16",
+  "owner": "Systems Engineering",
+  "version": "1.8",
+  "interfaces": [
+    "ICD-048"
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "test_case_id": "TC-021",
+  "title": "De-Ice Boot Inflation Test",
+  "description": "Comprehensive test to verify de-ice boots inflate properly",
+  "requirement_id": "AHLR-024",
+  "test_type": "Safety",
+  "priority": "Medium",
+  "status": "Passed",
+  "objective": "Verify de-ice boots inflate properly",
+  "preconditions": [
+    "Aircraft in maintenance configuration",
+    "Aircraft in cold chamber at -15\u00b0C",
+    "All required test equipment calibrated and available",
+    "Test personnel trained and certified",
+    "Safety protocols reviewed and in place"
+  ],
+  "test_steps": [
+    "1. Power on all aircraft systems",
+    "2. Perform pre-test system checks",
+    "3. Configure test environment parameters",
+    "4. Execute primary test procedure",
+    "5. Monitor system response",
+    "6. Record test results",
+    "7. Verify against specifications",
+    "8. Document any anomalies",
+    "9. Power down and secure test setup"
+  ],
+  "expected_results": [
+    "System shall verify de-ice boots inflate properly",
+    "No error messages or warnings displayed",
+    "All parameters within acceptable tolerances",
+    "System returns to normal operation"
+  ],
+  "actual_results": [
+    "System successfully verify de-ice boots inflate properly",
+    "No errors observed during test execution",
+    "All measurements within specifications",
+    "System behavior nominal"
+  ],
+  "test_data": {
+    "temperature": "34\u00b0C",
+    "humidity": "71%",
+    "pressure": "1001 hPa",
+    "test_duration": "134 minutes"
+  },
+  "environment": "Test Laboratory - Environmental Chamber",
+  "tester": "Sarah Johnson",
+  "execution_date": "2025-10-05",
+  "duration_minutes": 168,
+  "automated": true,
+  "notes": "Test completed successfully. All acceptance criteria met.",
+  "created_date": "2025-01-15",
+  "last_modified": "2025-10-19",
+  "version": "1.0"
+}

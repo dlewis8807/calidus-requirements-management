@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Cases Page - Modal Click Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .success { background-color: #d4edda; border-color: #c3e6cb; }
+        .error { background-color: #f8d7da; border-color: #f5c6cb; }
+        .info { background-color: #d1ecf1; border-color: #bee5eb; }
+        pre { background: #f5f5f5; padding: 10px; overflow-x: auto; }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+        button:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <h1>Test Cases Page - Modal Click Test</h1>
+
+    <div class="test-section info">
+        <h2>Instructions</h2>
+        <ol>
+            <li>Ensure backend is running at http://localhost:8000</li>
+            <li>Ensure frontend is running at http://localhost:3000</li>
+            <li>Login to the application at http://localhost:3000/login (admin / demo2024)</li>
+            <li>Navigate to Test Cases page: http://localhost:3000/dashboard/test-cases</li>
+            <li>Click on any blue requirement ID in the "Requirement" column</li>
+            <li>Check if the modal opens</li>
+        </ol>
+    </div>
+
+    <div class="test-section">
+        <h2>Quick Tests</h2>
+        <button onclick="testBackend()">Test Backend API</button>
+        <button onclick="testFrontend()">Test Frontend</button>
+        <button onclick="openTestCasesPage()">Open Test Cases Page</button>
+        <div id="testResults"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Browser Console Checks</h2>
+        <p>Open browser DevTools (F12) and check for:</p>
+        <ul>
+            <li><strong>Errors:</strong> Any red errors when clicking requirement IDs</li>
+            <li><strong>Network:</strong> Check if API calls to /api/requirements/by-req-id/ are made</li>
+            <li><strong>Console logs:</strong> Any warnings or errors related to modal</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>Common Issues to Check</h2>
+        <ul>
+            <li>Is the requirement ID text blue and has hover effect?</li>
+            <li>Does clicking change the cursor to pointer?</li>
+            <li>Is there a token in localStorage? (Check Application tab → Local Storage)</li>
+            <li>Are there any TypeScript/React errors in the browser console?</li>
+        </ul>
+    </div>
+
+    <script>
+        async function testBackend() {
+            const results = document.getElementById('testResults');
+            results.innerHTML = '<p>Testing backend...</p>';
+
+            try {
+                // Test health endpoint
+                const healthResponse = await fetch('http://localhost:8000/health');
+                const healthData = await healthResponse.json();
+
+                results.innerHTML += `<div class="success">✅ Backend health: ${healthData.status}</div>`;
+
+                // Try to get a test case to check if requirement_id_str is populated
+                const token = prompt('Enter your access token (from localStorage):');
+                if (token) {
+                    const tcResponse = await fetch('http://localhost:8000/api/test-cases?page=1&page_size=5', {
+                        headers: { 'Authorization': `Bearer ${token}` }
+                    });
+                    const tcData = await tcResponse.json();
+
+                    results.innerHTML += `<pre>${JSON.stringify(tcData, null, 2)}</pre>`;
+                }
+            } catch (error) {
+                results.innerHTML += `<div class="error">❌ Backend error: ${error.message}</div>`;
+            }
+        }
+
+        async function testFrontend() {
+            const results = document.getElementById('testResults');
+            results.innerHTML = '<p>Testing frontend...</p>';
+
+            try {
+                const response = await fetch('http://localhost:3000');
+                if (response.ok) {
+                    results.innerHTML += '<div class="success">✅ Frontend is running</div>';
+                } else {
+                    results.innerHTML += `<div class="error">❌ Frontend returned: ${response.status}</div>`;
+                }
+            } catch (error) {
+                results.innerHTML += `<div class="error">❌ Frontend error: ${error.message}</div>`;
+            }
+        }
+
+        function openTestCasesPage() {
+            window.open('http://localhost:3000/dashboard/test-cases', '_blank');
+        }
+    </script>
+</body>
+</html>

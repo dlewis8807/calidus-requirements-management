@@ -1,0 +1,55 @@
+{
+  "test_case_id": "TC-022",
+  "title": "Radio Communication Range Test",
+  "description": "Comprehensive test to verify radio communication range meets specifications",
+  "requirement_id": "AHLR-017",
+  "test_type": "System",
+  "priority": "Medium",
+  "status": "Passed",
+  "objective": "Verify radio communication range meets specifications",
+  "preconditions": [
+    "Aircraft in maintenance configuration",
+    "Radio interference minimized in test area",
+    "All required test equipment calibrated and available",
+    "Test personnel trained and certified",
+    "Safety protocols reviewed and in place"
+  ],
+  "test_steps": [
+    "1. Power on all aircraft systems",
+    "2. Perform pre-test system checks",
+    "3. Configure test environment parameters",
+    "4. Execute primary test procedure",
+    "5. Monitor system response",
+    "6. Record test results",
+    "7. Verify against specifications",
+    "8. Document any anomalies",
+    "9. Power down and secure test setup"
+  ],
+  "expected_results": [
+    "System shall verify radio communication range meets specifications",
+    "No error messages or warnings displayed",
+    "All parameters within acceptable tolerances",
+    "System returns to normal operation"
+  ],
+  "actual_results": [
+    "System successfully verify radio communication range meets specifications",
+    "No errors observed during test execution",
+    "All measurements within specifications",
+    "System behavior nominal"
+  ],
+  "test_data": {
+    "temperature": "35\u00b0C",
+    "humidity": "56%",
+    "pressure": "1023 hPa",
+    "test_duration": "35 minutes"
+  },
+  "environment": "Test Laboratory - Environmental Chamber",
+  "tester": "John Smith",
+  "execution_date": "2025-10-14",
+  "duration_minutes": 133,
+  "automated": false,
+  "notes": "Test completed successfully. All acceptance criteria met.",
+  "created_date": "2025-01-15",
+  "last_modified": "2025-10-19",
+  "version": "1.0"
+}

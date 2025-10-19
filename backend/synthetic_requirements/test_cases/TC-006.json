@@ -1,0 +1,50 @@
+{
+  "test_case_id": "TC-006",
+  "title": "TCAS Alert Response Test",
+  "description": "Comprehensive test to verify traffic collision avoidance system alert timing",
+  "requirement_id": "AHLR-005",
+  "test_type": "System",
+  "priority": "Medium",
+  "status": "Not_Executed",
+  "objective": "Verify Traffic Collision Avoidance System alert timing",
+  "preconditions": [
+    "Aircraft in maintenance configuration",
+    "Avionics bay temperature stabilized at 20\u00b0C",
+    "All required test equipment calibrated and available",
+    "Test personnel trained and certified",
+    "Safety protocols reviewed and in place"
+  ],
+  "test_steps": [
+    "1. Power on all aircraft systems",
+    "2. Perform pre-test system checks",
+    "3. Configure test environment parameters",
+    "4. Set baseline system state",
+    "5. Apply test stimulus",
+    "6. Measure response time",
+    "7. Verify response within tolerance",
+    "8. Repeat for statistical significance",
+    "9. Power down and secure test setup"
+  ],
+  "expected_results": [
+    "System shall verify traffic collision avoidance system alert timing",
+    "No error messages or warnings displayed",
+    "All parameters within acceptable tolerances",
+    "System returns to normal operation"
+  ],
+  "actual_results": null,
+  "test_data": {
+    "temperature": "-4\u00b0C",
+    "humidity": "28%",
+    "pressure": "906 hPa",
+    "test_duration": "97 minutes"
+  },
+  "environment": "Test Laboratory - Environmental Chamber",
+  "tester": "John Smith",
+  "execution_date": null,
+  "duration_minutes": 54,
+  "automated": true,
+  "notes": "Scheduled for execution in next test cycle.",
+  "created_date": "2025-01-15",
+  "last_modified": "2025-10-19",
+  "version": "1.0"
+}

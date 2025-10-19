@@ -1,0 +1,50 @@
+{
+  "test_case_id": "TC-023",
+  "title": "Emergency Locator Beacon Test",
+  "description": "Comprehensive test to test elt beacon signal strength",
+  "requirement_id": "AHLR-010",
+  "test_type": "System",
+  "priority": "Low",
+  "status": "Not_Executed",
+  "objective": "Test ELT beacon signal strength",
+  "preconditions": [
+    "Aircraft in maintenance configuration",
+    "Radio interference minimized in test area",
+    "All required test equipment calibrated and available",
+    "Test personnel trained and certified",
+    "Safety protocols reviewed and in place"
+  ],
+  "test_steps": [
+    "1. Power on all aircraft systems",
+    "2. Perform pre-test system checks",
+    "3. Configure test environment parameters",
+    "4. Execute primary test procedure",
+    "5. Monitor system response",
+    "6. Record test results",
+    "7. Verify against specifications",
+    "8. Document any anomalies",
+    "9. Power down and secure test setup"
+  ],
+  "expected_results": [
+    "System shall test elt beacon signal strength",
+    "No error messages or warnings displayed",
+    "All parameters within acceptable tolerances",
+    "System returns to normal operation"
+  ],
+  "actual_results": null,
+  "test_data": {
+    "temperature": "16\u00b0C",
+    "humidity": "31%",
+    "pressure": "1032 hPa",
+    "test_duration": "46 minutes"
+  },
+  "environment": "Test Laboratory - Environmental Chamber",
+  "tester": "David Chen",
+  "execution_date": null,
+  "duration_minutes": 193,
+  "automated": false,
+  "notes": "Scheduled for execution in next test cycle.",
+  "created_date": "2025-01-15",
+  "last_modified": "2025-10-19",
+  "version": "1.0"
+}

@@ -1,0 +1,55 @@
+{
+  "test_case_id": "TC-042",
+  "title": "Hydraulic Pump Performance Test",
+  "description": "Comprehensive test to test hydraulic pump output under load",
+  "requirement_id": "AHLR-002",
+  "test_type": "Performance",
+  "priority": "Critical",
+  "status": "Failed",
+  "objective": "Test hydraulic pump output under load",
+  "preconditions": [
+    "Aircraft in maintenance configuration",
+    "Hydraulic fluid level within normal range",
+    "All required test equipment calibrated and available",
+    "Test personnel trained and certified",
+    "Safety protocols reviewed and in place"
+  ],
+  "test_steps": [
+    "1. Power on all aircraft systems",
+    "2. Perform pre-test system checks",
+    "3. Configure test environment parameters",
+    "4. Execute primary test procedure",
+    "5. Monitor system response",
+    "6. Record test results",
+    "7. Verify against specifications",
+    "8. Document any anomalies",
+    "9. Power down and secure test setup"
+  ],
+  "expected_results": [
+    "System shall test hydraulic pump output under load",
+    "No error messages or warnings displayed",
+    "All parameters within acceptable tolerances",
+    "System returns to normal operation"
+  ],
+  "actual_results": [
+    "System partially test hydraulic pump output under load",
+    "Intermittent warning message observed",
+    "Response time exceeded specification by 12%",
+    "Requires investigation and retest"
+  ],
+  "test_data": {
+    "temperature": "26\u00b0C",
+    "humidity": "20%",
+    "pressure": "905 hPa",
+    "test_duration": "33 minutes"
+  },
+  "environment": "Test Laboratory - Environmental Chamber",
+  "tester": "David Chen",
+  "execution_date": "2025-09-23",
+  "duration_minutes": 188,
+  "automated": false,
+  "notes": "Test failed due to response time exceeding specification. Defect report DR-2025-0123 filed.",
+  "created_date": "2025-01-15",
+  "last_modified": "2025-10-19",
+  "version": "1.0"
+}

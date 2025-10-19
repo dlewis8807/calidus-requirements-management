@@ -1,0 +1,55 @@
+{
+  "test_case_id": "TC-043",
+  "title": "Hydraulic Reservoir Level Test",
+  "description": "Comprehensive test to verify reservoir level sensing accuracy",
+  "requirement_id": "AHLR-002",
+  "test_type": "Performance",
+  "priority": "High",
+  "status": "Passed",
+  "objective": "Verify reservoir level sensing accuracy",
+  "preconditions": [
+    "Aircraft in maintenance configuration",
+    "Hydraulic fluid level within normal range",
+    "All required test equipment calibrated and available",
+    "Test personnel trained and certified",
+    "Safety protocols reviewed and in place"
+  ],
+  "test_steps": [
+    "1. Power on all aircraft systems",
+    "2. Perform pre-test system checks",
+    "3. Configure test environment parameters",
+    "4. Execute primary test procedure",
+    "5. Monitor system response",
+    "6. Record test results",
+    "7. Verify against specifications",
+    "8. Document any anomalies",
+    "9. Power down and secure test setup"
+  ],
+  "expected_results": [
+    "System shall verify reservoir level sensing accuracy",
+    "No error messages or warnings displayed",
+    "All parameters within acceptable tolerances",
+    "System returns to normal operation"
+  ],
+  "actual_results": [
+    "System successfully verify reservoir level sensing accuracy",
+    "No errors observed during test execution",
+    "All measurements within specifications",
+    "System behavior nominal"
+  ],
+  "test_data": {
+    "temperature": "-6\u00b0C",
+    "humidity": "43%",
+    "pressure": "1024 hPa",
+    "test_duration": "55 minutes"
+  },
+  "environment": "Test Laboratory - Environmental Chamber",
+  "tester": "Maria Garcia",
+  "execution_date": "2025-10-05",
+  "duration_minutes": 132,
+  "automated": true,
+  "notes": "Test completed successfully. All acceptance criteria met.",
+  "created_date": "2025-01-15",
+  "last_modified": "2025-10-19",
+  "version": "1.0"
+}

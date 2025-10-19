@@ -1,0 +1,35 @@
+{
+  "requirement_id": "CERT-122",
+  "type": "Certification_Requirement",
+  "category": "HardwareVerification",
+  "title": "HardwareVerification Certification Requirement",
+  "description": "The aircraft SHALL demonstrate compliance with 14 CFR Part 23 through DO-254 hardware verification and validation",
+  "rationale": "Required for FAA Type Certification",
+  "priority": "Critical",
+  "status": "Approved",
+  "regulatory_source": {
+    "document": "14 CFR Part 23",
+    "section": "\u00a723.351",
+    "title": "Yawing conditions",
+    "file_path": "/Users/z/Documents/CALIDUS/rawdata/14 CFR Part 23 (in effect on 3-31-2017).pdf",
+    "page": 87
+  },
+  "traces_to": [
+    "TECH-093"
+  ],
+  "traced_by": [],
+  "verification_method": "Inspection",
+  "test_cases": [
+    "TC-222",
+    "TC-223"
+  ],
+  "compliance_status": "Compliant",
+  "issues": [],
+  "created_date": "2025-04-01",
+  "last_modified": "2025-10-17",
+  "owner": "Certification Engineering",
+  "version": "1.0",
+  "certification_basis": "14 CFR Part 23 Amendment 64",
+  "approved_by": "FAA",
+  "approval_date": "2025-09-15"
+}

@@ -6,9 +6,43 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **CALIDUS** is an AI-powered Requirements Management & Traceability Assistant for aerospace engineering projects. The system manages 15,000+ requirements in ENOVIA PLM systems with automated traceability, compliance checking, and test coverage analysis across UAE, USA, and EU aerospace regulations.
 
-**Current Status**: Week 1 Complete - Backend API + Frontend Demo with Vercel Deployment Ready ✅
+**Current Status**: Phase 2, Week 4 (80% Complete) - Interactive Traceability Graph Implemented ✅
 
 **Repository**: https://github.com/zozisteam/cls-requirement_management
+
+**Last Updated**: October 19, 2025
+
+---
+
+## Current System Status
+
+### Database Statistics
+- **Requirements**: 16,600 (AHLR: 500, System: 5,000, Technical: 10,000, Certification: 1,100)
+- **Test Cases**: 28,523 (linked to requirements)
+- **Traceability Links**: 15,093 (parent/child relationships)
+- **Users**: 3 (admin, engineer, viewer)
+
+### Live Pages
+**Frontend** (http://localhost:3000):
+- ✅ `/` - Homepage with API status
+- ✅ `/login` - Authentication
+- ✅ `/demo` - Interactive demo with ENOVIA PLM import
+- ✅ `/dashboard` - Main dashboard with statistics
+- ✅ `/dashboard/requirements` - Requirements list with filters
+- ✅ `/dashboard/requirements/[id]` - Requirement detail view
+- ✅ `/dashboard/test-cases` - Test cases management
+- ✅ `/dashboard/traceability` - Traceability matrix and gap analysis
+- ✅ `/dashboard/traceability/graph` - Interactive network graph (NEW)
+- ✅ `/dashboard/admin/users` - User management (admin only)
+
+**Backend** (http://localhost:8000):
+- ✅ `/api/auth/*` - Authentication endpoints
+- ✅ `/api/requirements/*` - Requirements CRUD
+- ✅ `/api/test-cases/*` - Test cases CRUD
+- ✅ `/api/traceability/*` - Traceability operations & graph
+- ✅ `/api/users/*` - User management
+- ✅ `/docs` - Swagger API documentation
+- ✅ `/redoc` - ReDoc API documentation
 
 ---
 
@@ -361,7 +395,7 @@ vercel --prod             # Deploy to production
 
 ## Database Schema
 
-### Current Models (Week 1)
+### Current Models (Implemented)
 
 #### User Model
 ```python
@@ -376,13 +410,65 @@ class User:
     updated_at: datetime       # Auto-updated on change
 ```
 
-### Upcoming Models (Week 2)
+#### Requirement Model
+```python
+class Requirement:
+    id: int                    # Primary key
+    requirement_id: str        # Unique identifier (e.g., "AHLR-001")
+    title: str                 # Requirement title
+    description: str           # Detailed description
+    type: str                  # AHLR, System, Technical, Certification
+    status: str                # Draft, Approved, Under Review, Deprecated
+    priority: str              # Critical, High, Medium, Low
+    category: str              # FlightControl, Structures, etc.
+    verification_method: str   # Test, Analysis, Inspection, Demonstration
+    regulatory_document: str   # e.g., "14 CFR Part 23"
+    regulatory_section: str    # e.g., "§23.143"
+    regulatory_page: int       # Page number
+    version: str               # Version number
+    created_by_id: int         # Foreign key to User
+    created_at: datetime
+    updated_at: datetime
+```
 
-- **Requirement**: Technical, System, Certification, AHLR types
-- **TestCase**: Test procedures linked to requirements
-- **TraceLink**: Relationships between requirements, tests, design
-- **Regulation**: FAA, EASA, UAE GCAA regulations
-- **ComplianceMapping**: Requirement-to-regulation mappings
+#### TestCase Model
+```python
+class TestCase:
+    id: int                    # Primary key
+    test_case_id: str          # Unique identifier (e.g., "TC-001")
+    requirement_id: int        # Foreign key to Requirement
+    title: str                 # Test case title
+    description: str           # Test procedure
+    test_type: str             # Unit, Integration, System, Acceptance
+    status: str                # Pending, Passed, Failed, Blocked
+    priority: str              # Critical, High, Medium, Low
+    automated: bool            # Is this test automated?
+    expected_result: str       # Expected outcome
+    actual_result: str         # Actual test result
+    execution_duration_sec: int
+    executed_by_id: int        # Foreign key to User
+    created_at: datetime
+    updated_at: datetime
+```
+
+#### TraceabilityLink Model
+```python
+class TraceabilityLink:
+    id: int                    # Primary key
+    source_id: int             # Source requirement ID
+    target_id: int             # Target requirement ID
+    link_type: str             # Derives From, Satisfies, Verifies, etc.
+    description: str           # Link description
+    created_by_id: int         # Foreign key to User
+    created_at: datetime
+```
+
+### Upcoming Models (Phase 2+)
+
+- **RegulationMapping**: Detailed regulation-to-requirement mappings
+- **CoverageHistory**: Historical test coverage tracking
+- **ChangeRequest**: Impact analysis change requests
+- **ComplianceReport**: Compliance audit reports
 
 ---
 
@@ -405,12 +491,61 @@ class User:
 | GET | `/docs` | Swagger UI | ❌ |
 | GET | `/redoc` | ReDoc documentation | ❌ |
 
-### Upcoming (Week 2)
+### Requirements (`/api/requirements`)
 
-- `/api/requirements` - CRUD operations for requirements
-- `/api/tests` - CRUD operations for test cases
-- `/api/traceability` - Traceability link management
-- `/api/compliance` - Compliance checking and gap analysis
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|---------------|
+| GET | `/api/requirements` | List requirements (with filters) | ✅ |
+| GET | `/api/requirements/{id}` | Get requirement by ID | ✅ |
+| GET | `/api/requirements/by-req-id/{req_id}` | Get by requirement_id string | ✅ |
+| GET | `/api/requirements/stats` | Get statistics | ✅ |
+| POST | `/api/requirements` | Create requirement | ✅ |
+| PUT | `/api/requirements/{id}` | Update requirement | ✅ |
+| DELETE | `/api/requirements/{id}` | Delete requirement | ✅ |
+
+### Test Cases (`/api/test-cases`)
+
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|---------------|
+| GET | `/api/test-cases` | List test cases (with filters) | ✅ |
+| GET | `/api/test-cases/{id}` | Get test case by ID | ✅ |
+| GET | `/api/test-cases/stats` | Get statistics | ✅ |
+| POST | `/api/test-cases` | Create test case | ✅ |
+| PUT | `/api/test-cases/{id}` | Update test case | ✅ |
+| PATCH | `/api/test-cases/{id}/execute` | Record test execution | ✅ |
+| DELETE | `/api/test-cases/{id}` | Delete test case | ✅ |
+
+### Traceability (`/api/traceability`)
+
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|---------------|
+| GET | `/api/traceability` | List traceability links | ✅ |
+| GET | `/api/traceability/{id}` | Get link by ID | ✅ |
+| GET | `/api/traceability/matrix/{req_id}` | Get traceability matrix | ✅ |
+| GET | `/api/traceability/graph` | Get graph data (NEW) | ✅ |
+| GET | `/api/traceability/orphaned` | Get orphaned requirements | ✅ |
+| GET | `/api/traceability/gaps` | Get traceability gaps | ✅ |
+| GET | `/api/traceability/report` | Get full report | ✅ |
+| POST | `/api/traceability` | Create link | ✅ |
+| POST | `/api/traceability/bulk` | Bulk create links | ✅ |
+| PUT | `/api/traceability/{id}` | Update link | ✅ |
+| DELETE | `/api/traceability/{id}` | Delete link | ✅ |
+
+### Users (`/api/users`) - Admin Only
+
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|---------------|
+| GET | `/api/users` | List users | ✅ (Admin) |
+| GET | `/api/users/{id}` | Get user by ID | ✅ (Admin) |
+| POST | `/api/users` | Create user | ✅ (Admin) |
+| PUT | `/api/users/{id}` | Update user | ✅ (Admin) |
+| DELETE | `/api/users/{id}` | Delete user | ✅ (Admin) |
+
+### Upcoming (Phase 2, Weeks 5-7)
+
+- `/api/compliance/*` - Compliance checking and regulation mapping
+- `/api/coverage/*` - Test coverage analysis and heatmaps
+- `/api/impact-analysis/*` - Impact analysis and change requests
 
 ---
 
@@ -707,27 +842,51 @@ docker compose up -d
 - ✅ Homepage with API status monitoring
 - ✅ Responsive UI with Tailwind CSS
 
-### 📅 Phase 1, Week 2: Core Backend (Next)
-- Requirements CRUD operations
-- Test cases CRUD operations
-- Traceability link management
-- Database migrations (Alembic)
-- Sample data generation (15,000+ requirements)
-- Performance testing (<200ms response time)
+### ✅ Phase 1, Week 2: Core Backend (COMPLETE)
+- ✅ Requirements CRUD operations (16,600 requirements)
+- ✅ Test cases CRUD operations (28,523 test cases)
+- ✅ Traceability link management (15,093 links)
+- ✅ Database migrations (Alembic)
+- ✅ Sample data generation (synthetic aerospace data from 14 CFR Part 23)
+- ✅ Performance testing (<200ms response time)
 
-### 📅 Phase 1, Week 3: Enhanced Frontend
-- Dashboard with data visualization
-- Requirements list view with filtering
-- Advanced search functionality
-- User management interface (admin)
-- Real-time API integration
+### ✅ Phase 1, Week 3: Enhanced Frontend (COMPLETE)
+- ✅ Dashboard with data visualization
+- ✅ Requirements list view with filtering
+- ✅ Advanced search functionality
+- ✅ User management interface (admin)
+- ✅ Real-time API integration
+- ✅ Requirement modal with traceability navigation
+- ✅ Test cases page with execution tracking
+- ✅ Production build optimized
 
-### 📅 Phase 2 (Weeks 4-7): Core Features
-- Interactive traceability visualizations (D3.js, Cytoscape)
-- Compliance dashboard
-- Impact analysis tool
-- Test coverage analyzer
-- Ambiguity detection
+### 🟡 Phase 2, Week 4: Interactive Traceability (80% COMPLETE)
+- ✅ Backend graph API (`/api/traceability/graph`)
+- ✅ Orphaned requirements detection
+- ✅ Gap analysis endpoint
+- ✅ Interactive graph visualization (Cytoscape.js)
+- ✅ Zoom/pan/filter controls
+- ✅ Node coloring by requirement type
+- ⏳ Export to PNG/SVG (pending)
+- ⏳ Export matrix to Excel (pending)
+
+### 📅 Phase 2, Week 5: Compliance Dashboard (NOT STARTED)
+- Compliance API endpoints
+- Regulation mapping (14 CFR Part 23, EASA CS-23, UAE GCAA)
+- Coverage metrics and gap analysis
+- Compliance reporting
+
+### 📅 Phase 2, Week 6: Impact Analysis (NOT STARTED)
+- Impact analysis algorithm
+- Upstream/downstream traversal
+- Risk scoring
+- Change request workflow
+
+### 📅 Phase 2, Week 7: Test Coverage Analyzer (NOT STARTED)
+- Coverage heatmap (type × priority)
+- Gap identification
+- Test suggestions
+- Coverage trends
 
 ### 📅 Phase 3 (Weeks 8-10): AI/ML Integration
 - NLP models (Sentence Transformers)
@@ -797,6 +956,6 @@ docker compose up -d
 
 ---
 
-**Last Updated**: October 16, 2025
-**Current Phase**: Week 1 Complete, Week 2 Planning
-**Status**: Production-ready backend with 96% test coverage ✅
+**Last Updated**: October 19, 2025
+**Current Phase**: Phase 2, Week 4 (80% Complete) - Interactive Traceability Graph Implemented
+**Status**: 16,600 requirements | 28,523 test cases | 15,093 trace links | Interactive graph visualization ✅

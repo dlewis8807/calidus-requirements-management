@@ -1,0 +1,55 @@
+{
+  "test_case_id": "TC-036",
+  "title": "Fuel Crossfeed Test",
+  "description": "Comprehensive test to verify fuel crossfeed system operation",
+  "requirement_id": "AHLR-011",
+  "test_type": "Safety",
+  "priority": "Critical",
+  "status": "Failed",
+  "objective": "Verify fuel crossfeed system operation",
+  "preconditions": [
+    "Aircraft in maintenance configuration",
+    "Fuel tanks filled to test level",
+    "All required test equipment calibrated and available",
+    "Test personnel trained and certified",
+    "Safety protocols reviewed and in place"
+  ],
+  "test_steps": [
+    "1. Power on all aircraft systems",
+    "2. Perform pre-test system checks",
+    "3. Configure test environment parameters",
+    "4. Execute primary test procedure",
+    "5. Monitor system response",
+    "6. Record test results",
+    "7. Verify against specifications",
+    "8. Document any anomalies",
+    "9. Power down and secure test setup"
+  ],
+  "expected_results": [
+    "System shall verify fuel crossfeed system operation",
+    "No error messages or warnings displayed",
+    "All parameters within acceptable tolerances",
+    "System returns to normal operation"
+  ],
+  "actual_results": [
+    "System partially verify fuel crossfeed system operation",
+    "Intermittent warning message observed",
+    "Response time exceeded specification by 12%",
+    "Requires investigation and retest"
+  ],
+  "test_data": {
+    "temperature": "28\u00b0C",
+    "humidity": "57%",
+    "pressure": "1082 hPa",
+    "test_duration": "137 minutes"
+  },
+  "environment": "Test Laboratory - Environmental Chamber",
+  "tester": "Maria Garcia",
+  "execution_date": "2025-10-16",
+  "duration_minutes": 227,
+  "automated": false,
+  "notes": "Test failed due to response time exceeding specification. Defect report DR-2025-0123 filed.",
+  "created_date": "2025-01-15",
+  "last_modified": "2025-10-19",
+  "version": "1.0"
+}

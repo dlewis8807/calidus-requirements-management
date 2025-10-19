@@ -1,0 +1,55 @@
+{
+  "test_case_id": "TC-032",
+  "title": "Flight Director Accuracy Test",
+  "description": "Comprehensive test to verify flight director guidance accuracy",
+  "requirement_id": "AHLR-021",
+  "test_type": "Integration",
+  "priority": "High",
+  "status": "Failed",
+  "objective": "Verify flight director guidance accuracy",
+  "preconditions": [
+    "Aircraft in maintenance configuration",
+    "Avionics bay temperature stabilized at 20\u00b0C",
+    "All required test equipment calibrated and available",
+    "Test personnel trained and certified",
+    "Safety protocols reviewed and in place"
+  ],
+  "test_steps": [
+    "1. Power on all aircraft systems",
+    "2. Perform pre-test system checks",
+    "3. Configure test environment parameters",
+    "4. Establish reference measurements",
+    "5. Operate system under test conditions",
+    "6. Record system output values",
+    "7. Compare against reference standards",
+    "8. Calculate accuracy deviation",
+    "9. Power down and secure test setup"
+  ],
+  "expected_results": [
+    "System shall verify flight director guidance accuracy",
+    "No error messages or warnings displayed",
+    "All parameters within acceptable tolerances",
+    "System returns to normal operation"
+  ],
+  "actual_results": [
+    "System partially verify flight director guidance accuracy",
+    "Intermittent warning message observed",
+    "Response time exceeded specification by 12%",
+    "Requires investigation and retest"
+  ],
+  "test_data": {
+    "temperature": "5\u00b0C",
+    "humidity": "58%",
+    "pressure": "1093 hPa",
+    "test_duration": "73 minutes"
+  },
+  "environment": "Test Laboratory - Environmental Chamber",
+  "tester": "Maria Garcia",
+  "execution_date": "2025-09-20",
+  "duration_minutes": 130,
+  "automated": false,
+  "notes": "Test failed due to response time exceeding specification. Defect report DR-2025-0123 filed.",
+  "created_date": "2025-01-15",
+  "last_modified": "2025-10-19",
+  "version": "1.0"
+}

@@ -1,0 +1,35 @@
+{
+  "requirement_id": "SYS-043",
+  "type": "System_Requirement",
+  "category": "FlightControl-Autopilot",
+  "title": "FlightControl Autopilot System Requirement 2",
+  "description": "The FlightControl system SHALL detect and isolate autopilot failures within 100ms",
+  "rationale": "Derived from AHLR-002 to implement flightcontrol-autopilot functionality",
+  "priority": "High",
+  "status": "Approved",
+  "regulatory_source": {
+    "document": "14 CFR Part 23",
+    "section": "\u00a723.177",
+    "title": "Static directional and lateral stability",
+    "file_path": "/Users/z/Documents/CALIDUS/rawdata/14 CFR Part 23 (in effect on 3-31-2017).pdf",
+    "page": 38
+  },
+  "traces_to": [
+    "AHLR-002"
+  ],
+  "traced_by": [],
+  "verification_method": "Test",
+  "test_cases": [
+    "TC-143",
+    "TC-144"
+  ],
+  "compliance_status": "Compliant",
+  "issues": [],
+  "created_date": "2025-02-10",
+  "last_modified": "2025-10-16",
+  "owner": "Systems Engineering",
+  "version": "1.8",
+  "interfaces": [
+    "ICD-043"
+  ]
+}

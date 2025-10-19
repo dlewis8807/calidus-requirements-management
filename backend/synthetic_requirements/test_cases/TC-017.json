@@ -1,0 +1,50 @@
+{
+  "test_case_id": "TC-017",
+  "title": "Hydraulic Leak Detection Test",
+  "description": "Comprehensive test to test hydraulic leak detection system sensitivity",
+  "requirement_id": "AHLR-008",
+  "test_type": "Performance",
+  "priority": "Critical",
+  "status": "Not_Executed",
+  "objective": "Test hydraulic leak detection system sensitivity",
+  "preconditions": [
+    "Aircraft in maintenance configuration",
+    "Hydraulic fluid level within normal range",
+    "All required test equipment calibrated and available",
+    "Test personnel trained and certified",
+    "Safety protocols reviewed and in place"
+  ],
+  "test_steps": [
+    "1. Power on all aircraft systems",
+    "2. Perform pre-test system checks",
+    "3. Configure test environment parameters",
+    "4. Execute primary test procedure",
+    "5. Monitor system response",
+    "6. Record test results",
+    "7. Verify against specifications",
+    "8. Document any anomalies",
+    "9. Power down and secure test setup"
+  ],
+  "expected_results": [
+    "System shall test hydraulic leak detection system sensitivity",
+    "No error messages or warnings displayed",
+    "All parameters within acceptable tolerances",
+    "System returns to normal operation"
+  ],
+  "actual_results": null,
+  "test_data": {
+    "temperature": "-11\u00b0C",
+    "humidity": "34%",
+    "pressure": "929 hPa",
+    "test_duration": "58 minutes"
+  },
+  "environment": "Test Laboratory - Environmental Chamber",
+  "tester": "John Smith",
+  "execution_date": null,
+  "duration_minutes": 108,
+  "automated": true,
+  "notes": "Scheduled for execution in next test cycle.",
+  "created_date": "2025-01-15",
+  "last_modified": "2025-10-19",
+  "version": "1.0"
+}

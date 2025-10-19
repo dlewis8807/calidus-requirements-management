@@ -1,0 +1,35 @@
+{
+  "requirement_id": "SYS-045",
+  "type": "System_Requirement",
+  "category": "FlightControl-Autopilot",
+  "title": "FlightControl Autopilot System Requirement 4",
+  "description": "The FlightControl system SHALL interface with pilot controls with less than 50ms latency",
+  "rationale": "Derived from AHLR-002 to implement flightcontrol-autopilot functionality",
+  "priority": "Medium",
+  "status": "Approved",
+  "regulatory_source": {
+    "document": "14 CFR Part 23",
+    "section": "\u00a723.201",
+    "title": "Wings level stall",
+    "file_path": "/Users/z/Documents/CALIDUS/rawdata/14 CFR Part 23 (in effect on 3-31-2017).pdf",
+    "page": 45
+  },
+  "traces_to": [
+    "AHLR-002"
+  ],
+  "traced_by": [],
+  "verification_method": "Test",
+  "test_cases": [
+    "TC-145",
+    "TC-146"
+  ],
+  "compliance_status": "Compliant",
+  "issues": [],
+  "created_date": "2025-02-10",
+  "last_modified": "2025-10-16",
+  "owner": "Systems Engineering",
+  "version": "1.8",
+  "interfaces": [
+    "ICD-045"
+  ]
+}

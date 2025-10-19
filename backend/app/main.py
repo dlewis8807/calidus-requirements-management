@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.config import get_settings
-from app.api import auth
+from app.api import auth, requirements, test_cases, traceability, users
 
 settings = get_settings()
 
@@ -37,3 +37,7 @@ async def health_check():
 
 # Include routers
 app.include_router(auth.router, prefix="/api/auth", tags=["authentication"])
+app.include_router(users.router, prefix="/api/users", tags=["users"])
+app.include_router(requirements.router, prefix="/api")
+app.include_router(test_cases.router, prefix="/api")
+app.include_router(traceability.router, prefix="/api")

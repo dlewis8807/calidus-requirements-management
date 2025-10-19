@@ -1,0 +1,35 @@
+{
+  "requirement_id": "SYS-057",
+  "type": "System_Requirement",
+  "category": "Avionics-Display",
+  "title": "Avionics Display System Requirement 3",
+  "description": "The Avionics system SHALL provide display backup capability in case of primary failure",
+  "rationale": "Derived from AHLR-014 to implement avionics-display functionality",
+  "priority": "Medium",
+  "status": "Approved",
+  "regulatory_source": {
+    "document": "14 CFR Part 23",
+    "section": "\u00a723.307",
+    "title": "Proof of structure",
+    "file_path": "/Users/z/Documents/CALIDUS/rawdata/14 CFR Part 23 (in effect on 3-31-2017).pdf",
+    "page": 73
+  },
+  "traces_to": [
+    "AHLR-014"
+  ],
+  "traced_by": [],
+  "verification_method": "Test",
+  "test_cases": [
+    "TC-157",
+    "TC-158"
+  ],
+  "compliance_status": "Compliant",
+  "issues": [],
+  "created_date": "2025-02-10",
+  "last_modified": "2025-10-16",
+  "owner": "Systems Engineering",
+  "version": "1.8",
+  "interfaces": [
+    "ICD-057"
+  ]
+}

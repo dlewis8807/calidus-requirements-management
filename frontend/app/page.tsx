@@ -30,20 +30,14 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b border-blue-100">
+      <header className="bg-white shadow-sm border-b border-calidus-silver-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">C</span>
-              </div>
-              <div>
-                <h1 className="text-2xl font-bold text-gray-900">CALIDUS</h1>
-                <p className="text-xs text-gray-500">Requirements Management & Traceability</p>
-              </div>
-            </div>
+            <Link href="/" className="flex items-center">
+              <img src="/images/CLS-AEROSPACE-LOGO.svg" alt="CALIDUS Aerospace" className="h-14" />
+            </Link>
             <div className="flex items-center space-x-2">
               <div className={`w-2 h-2 rounded-full ${apiStatus === 'healthy' ? 'bg-green-500' : apiStatus === 'error' ? 'bg-red-500' : 'bg-yellow-500'} animate-pulse`}></div>
               <span className="text-sm text-gray-600">
@@ -66,13 +60,15 @@ export default function Home() {
           <div className="flex justify-center gap-4">
             <Link
               href="/demo"
-              className="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl"
+              className="px-6 py-3 text-white rounded-lg font-semibold transition-colors shadow-lg hover:shadow-xl hover:bg-[#2C5DBB]"
+              style={{backgroundColor: '#3B7DDD'}}
             >
               Try Interactive Demo
             </Link>
             <Link
               href="/login"
-              className="px-6 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-colors border-2 border-blue-600"
+              className="px-6 py-3 bg-white rounded-lg font-semibold hover:bg-gray-50 transition-colors border-2"
+              style={{color: '#3B7DDD', borderColor: '#3B7DDD'}}
             >
               Sign In
             </Link>
@@ -81,9 +77,9 @@ export default function Home() {
 
         {/* Features Grid */}
         <div className="grid md:grid-cols-3 gap-8 mb-16">
-          <div className="bg-white p-6 rounded-xl shadow-lg border border-blue-100 hover:shadow-xl transition-shadow">
-            <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-              <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="bg-white p-6 rounded-xl shadow-lg border border-calidus-silver-light hover:shadow-xl transition-shadow">
+            <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style={{backgroundColor: '#EBF3FE'}}>
+              <svg className="w-6 h-6" style={{color: '#3B7DDD'}} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
             </div>
@@ -93,9 +89,9 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-xl shadow-lg border border-blue-100 hover:shadow-xl transition-shadow">
-            <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-              <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="bg-white p-6 rounded-xl shadow-lg border border-calidus-silver-light hover:shadow-xl transition-shadow">
+            <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style={{backgroundColor: '#C8C9CD'}}>
+              <svg className="w-6 h-6" style={{color: '#3B7DDD'}} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
               </svg>
             </div>
@@ -105,9 +101,9 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-xl shadow-lg border border-blue-100 hover:shadow-xl transition-shadow">
-            <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-              <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="bg-white p-6 rounded-xl shadow-lg border border-calidus-silver-light hover:shadow-xl transition-shadow">
+            <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style={{backgroundColor: '#EBF3FE'}}>
+              <svg className="w-6 h-6" style={{color: '#3B7DDD'}} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
@@ -119,30 +115,30 @@ export default function Home() {
         </div>
 
         {/* Stats Section */}
-        <div className="bg-white rounded-xl shadow-lg border border-blue-100 p-8 mb-16">
+        <div className="bg-white rounded-xl shadow-lg border border-calidus-silver-light p-8 mb-16">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-blue-600 mb-2">15,000+</div>
-              <div className="text-gray-600">Requirements Managed</div>
+              <div className="text-4xl font-bold mb-2" style={{color: '#3B7DDD'}}>15,000+</div>
+              <div className="text-calidus-gray">Requirements Managed</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-green-600 mb-2">99.9%</div>
-              <div className="text-gray-600">Compliance Accuracy</div>
+              <div className="text-4xl font-bold mb-2" style={{color: '#3B7DDD'}}>99.9%</div>
+              <div className="text-calidus-gray">Compliance Accuracy</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-purple-600 mb-2">10+</div>
-              <div className="text-gray-600">File Formats Supported</div>
+              <div className="text-4xl font-bold mb-2" style={{color: '#A8A9AD'}}>10+</div>
+              <div className="text-calidus-gray">File Formats Supported</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-orange-600 mb-2">24/7</div>
-              <div className="text-gray-600">AI Assistant Available</div>
+              <div className="text-4xl font-bold mb-2" style={{color: '#A8A9AD'}}>24/7</div>
+              <div className="text-calidus-gray">AI Assistant Available</div>
             </div>
           </div>
         </div>
 
         {/* API Status Section */}
         {apiInfo && (
-          <div className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl p-6 border border-blue-200">
+          <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl p-6 border border-calidus-silver-light">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">System Status</h3>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="bg-white rounded-lg p-4">
@@ -167,11 +163,14 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t border-blue-100 mt-16">
+      <footer className="bg-white border-t border-calidus-silver-light mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="text-center text-gray-600 text-sm">
-            <p className="mb-2">CALIDUS - Requirements Management & Traceability Assistant</p>
-            <p className="text-xs text-gray-500">
+          <div className="text-center text-calidus-gray text-sm">
+            <p className="mb-2 font-semibold" style={{color: '#3B7DDD'}}>CALIDUS | AEROSPACE</p>
+            <p className="text-xs text-calidus-silver-dark">
+              Requirements Management & Traceability Assistant
+            </p>
+            <p className="text-xs text-calidus-silver-dark mt-2">
               Compliant with DO-178C, AS9100, FAA, EASA, and UAE GCAA regulations
             </p>
           </div>

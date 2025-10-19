@@ -1,0 +1,55 @@
+{
+  "test_case_id": "TC-026",
+  "title": "Empennage Stress Test",
+  "description": "Comprehensive test to test tail structure under design loads",
+  "requirement_id": "AHLR-022",
+  "test_type": "Stress",
+  "priority": "High",
+  "status": "Passed",
+  "objective": "Test tail structure under design loads",
+  "preconditions": [
+    "Aircraft in maintenance configuration",
+    "Strain gauges installed at critical points",
+    "All required test equipment calibrated and available",
+    "Test personnel trained and certified",
+    "Safety protocols reviewed and in place"
+  ],
+  "test_steps": [
+    "1. Power on all aircraft systems",
+    "2. Perform pre-test system checks",
+    "3. Configure test environment parameters",
+    "4. Execute primary test procedure",
+    "5. Monitor system response",
+    "6. Record test results",
+    "7. Verify against specifications",
+    "8. Document any anomalies",
+    "9. Power down and secure test setup"
+  ],
+  "expected_results": [
+    "System shall test tail structure under design loads",
+    "No error messages or warnings displayed",
+    "All parameters within acceptable tolerances",
+    "System returns to normal operation"
+  ],
+  "actual_results": [
+    "System successfully test tail structure under design loads",
+    "No errors observed during test execution",
+    "All measurements within specifications",
+    "System behavior nominal"
+  ],
+  "test_data": {
+    "temperature": "18\u00b0C",
+    "humidity": "43%",
+    "pressure": "1057 hPa",
+    "test_duration": "125 minutes"
+  },
+  "environment": "Test Laboratory - Environmental Chamber",
+  "tester": "David Chen",
+  "execution_date": "2025-10-03",
+  "duration_minutes": 128,
+  "automated": true,
+  "notes": "Test completed successfully. All acceptance criteria met.",
+  "created_date": "2025-01-15",
+  "last_modified": "2025-10-19",
+  "version": "1.0"
+}

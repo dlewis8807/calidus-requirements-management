@@ -3,8 +3,8 @@ Database initialization script for CALIDUS
 Creates tables and optionally seeds demo data
 """
 
-from app.database import engine, SessionLocal
-from app.models import Base, User
+from app.database import engine, SessionLocal, Base
+from app.models.user import User
 from app.core.security import get_password_hash
 
 

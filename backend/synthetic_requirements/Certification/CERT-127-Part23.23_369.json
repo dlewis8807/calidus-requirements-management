@@ -1,0 +1,35 @@
+{
+  "requirement_id": "CERT-127",
+  "type": "Certification_Requirement",
+  "category": "LightningTest",
+  "title": "LightningTest Certification Requirement",
+  "description": "The aircraft SHALL demonstrate compliance with 14 CFR Part 23 through lightning strike testing and analysis",
+  "rationale": "Required for FAA Type Certification",
+  "priority": "Critical",
+  "status": "Approved",
+  "regulatory_source": {
+    "document": "14 CFR Part 23",
+    "section": "\u00a723.369",
+    "title": "Rear lift truss",
+    "file_path": "/Users/z/Documents/CALIDUS/rawdata/14 CFR Part 23 (in effect on 3-31-2017).pdf",
+    "page": 92
+  },
+  "traces_to": [
+    "TECH-098"
+  ],
+  "traced_by": [],
+  "verification_method": "Test",
+  "test_cases": [
+    "TC-227",
+    "TC-228"
+  ],
+  "compliance_status": "Compliant",
+  "issues": [],
+  "created_date": "2025-04-01",
+  "last_modified": "2025-10-17",
+  "owner": "Certification Engineering",
+  "version": "1.0",
+  "certification_basis": "14 CFR Part 23 Amendment 64",
+  "approved_by": "FAA",
+  "approval_date": "2025-09-15"
+}

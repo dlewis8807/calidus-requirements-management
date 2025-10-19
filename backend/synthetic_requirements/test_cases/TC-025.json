@@ -1,0 +1,50 @@
+{
+  "test_case_id": "TC-025",
+  "title": "Fuselage Pressure Test",
+  "description": "Comprehensive test to test fuselage pressure vessel integrity",
+  "requirement_id": "AHLR-018",
+  "test_type": "Stress",
+  "priority": "Low",
+  "status": "Not_Executed",
+  "objective": "Test fuselage pressure vessel integrity",
+  "preconditions": [
+    "Aircraft in maintenance configuration",
+    "Strain gauges installed at critical points",
+    "All required test equipment calibrated and available",
+    "Test personnel trained and certified",
+    "Safety protocols reviewed and in place"
+  ],
+  "test_steps": [
+    "1. Power on all aircraft systems",
+    "2. Perform pre-test system checks",
+    "3. Configure test environment parameters",
+    "4. Execute primary test procedure",
+    "5. Monitor system response",
+    "6. Record test results",
+    "7. Verify against specifications",
+    "8. Document any anomalies",
+    "9. Power down and secure test setup"
+  ],
+  "expected_results": [
+    "System shall test fuselage pressure vessel integrity",
+    "No error messages or warnings displayed",
+    "All parameters within acceptable tolerances",
+    "System returns to normal operation"
+  ],
+  "actual_results": null,
+  "test_data": {
+    "temperature": "35\u00b0C",
+    "humidity": "37%",
+    "pressure": "931 hPa",
+    "test_duration": "33 minutes"
+  },
+  "environment": "Test Laboratory - Environmental Chamber",
+  "tester": "John Smith",
+  "execution_date": null,
+  "duration_minutes": 174,
+  "automated": false,
+  "notes": "Scheduled for execution in next test cycle.",
+  "created_date": "2025-01-15",
+  "last_modified": "2025-10-19",
+  "version": "1.0"
+}
