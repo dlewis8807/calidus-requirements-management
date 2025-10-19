@@ -33,6 +33,13 @@ from app.schemas.traceability import (
     TraceabilityLinkFilter, BulkTraceabilityCreate, BulkTraceabilityResponse
 )
 
+# Compliance schemas
+from app.schemas.compliance import (
+    ComplianceOverview, ComplianceMetrics, RegulationCoverage,
+    RegulationListResponse, RegulationResponse, RegulationDetail,
+    RegulationSection, GapAnalysisResponse, ComplianceGap, ComplianceStats
+)
+
 __all__ = [
     # User
     "UserCreate", "UserUpdate", "UserResponse", "UserInDB",
@@ -55,4 +62,9 @@ __all__ = [
     "TraceabilityLinkWithRequirements", "RequirementTraceNode", "RequirementTraceTree",
     "TraceabilityMatrix", "TraceabilityGap", "TraceabilityReport",
     "TraceabilityLinkFilter", "BulkTraceabilityCreate", "BulkTraceabilityResponse",
+
+    # Compliance
+    "ComplianceOverview", "ComplianceMetrics", "RegulationCoverage",
+    "RegulationListResponse", "RegulationResponse", "RegulationDetail",
+    "RegulationSection", "GapAnalysisResponse", "ComplianceGap", "ComplianceStats",
 ]

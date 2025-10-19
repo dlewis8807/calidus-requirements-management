@@ -179,23 +179,9 @@ export default function TraceabilityGraphPage() {
       ],
       layout: {
         name: 'fcose',
-        quality: 'default',
-        randomize: true,
-        animate: true,
-        animationDuration: 1000,
         fit: true,
-        padding: 30,
-        nodeDimensionsIncludeLabels: true,
-        idealEdgeLength: 100,
-        edgeElasticity: 0.45,
-        nestingFactor: 0.1,
-        gravity: 0.25,
-        numIter: 2500,
-        tile: true,
-        tilingPaddingVertical: 10,
-        tilingPaddingHorizontal: 10
-      }
-    });
+        padding: 30
+      } as any,    });
 
     // Add event listeners
     cy.on('tap', 'node', (evt) => {
