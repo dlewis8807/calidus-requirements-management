@@ -85,28 +85,25 @@ export default function CompliancePage() {
     <DashboardLayout title="Compliance Dashboard">
       <div className="space-y-6">
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-            <p className="text-sm font-medium text-gray-600">Total Requirements</p>
-            <p className="mt-2 text-3xl font-semibold text-gray-900">{stats.total_requirements.toLocaleString()}</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
+            <p className="text-xs font-medium text-gray-600 uppercase tracking-wider">Total Requirements</p>
+            <p className="mt-2 text-2xl font-bold text-gray-900">{stats.total_requirements.toLocaleString()}</p>
           </div>
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-            <p className="text-sm font-medium text-gray-600">Mapped Requirements</p>
-            <p className="mt-2 text-3xl font-semibold text-gray-900">{stats.mapped_requirements.toLocaleString()}</p>
-            <p className="mt-1 text-sm text-gray-500">{stats.coverage_percentage.toFixed(1)}% coverage</p>
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
+            <p className="text-xs font-medium text-gray-600 uppercase tracking-wider">Mapped Requirements</p>
+            <p className="mt-2 text-2xl font-bold text-green-600">{stats.mapped_requirements.toLocaleString()}</p>
+            <p className="mt-1 text-xs text-gray-500">{stats.coverage_percentage.toFixed(1)}% coverage</p>
           </div>
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-            <p className="text-sm font-medium text-gray-600">Unmapped Requirements</p>
-            <p className="mt-2 text-3xl font-semibold text-gray-900">{stats.unmapped_requirements.toLocaleString()}</p>
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
+            <p className="text-xs font-medium text-gray-600 uppercase tracking-wider">Unmapped Requirements</p>
+            <p className="mt-2 text-2xl font-bold text-orange-600">{stats.unmapped_requirements.toLocaleString()}</p>
           </div>
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-            <p className="text-sm font-medium text-gray-600">Regulations</p>
-            <p className="mt-2 text-3xl font-semibold text-gray-900">{stats.regulations_count}</p>
-            <p className="mt-1 text-sm text-gray-500">{stats.sections_count} sections</p>
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
+            <p className="text-xs font-medium text-gray-600 uppercase tracking-wider">Regulations</p>
+            <p className="mt-2 text-2xl font-bold text-purple-600">{stats.regulations_count}</p>
+            <p className="mt-1 text-xs text-gray-500">{stats.sections_count} sections</p>
           </div>
-        </div>
         </div>
 
         {/* Charts Row */}

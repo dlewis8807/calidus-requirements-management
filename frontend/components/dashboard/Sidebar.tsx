@@ -10,6 +10,7 @@ import {
   UserGroupIcon,
   Cog6ToothIcon,
   ArrowLeftOnRectangleIcon,
+  ExclamationTriangleIcon,
 } from '@heroicons/react/24/outline';
 
 interface SidebarProps {
@@ -22,6 +23,7 @@ const navigation = [
   { name: 'Requirements', href: '/dashboard/requirements', icon: DocumentTextIcon },
   { name: 'Test Cases', href: '/dashboard/test-cases', icon: BeakerIcon },
   { name: 'Traceability', href: '/dashboard/traceability', icon: ArrowsRightLeftIcon },
+  { name: 'Conflicts', href: '/dashboard/conflicts', icon: ExclamationTriangleIcon },
   { name: 'Compliance', href: '/dashboard/compliance', icon: DocumentTextIcon },
   { name: 'Users', href: '/dashboard/admin/users', icon: UserGroupIcon, adminOnly: true },
   { name: 'Settings', href: '/dashboard/settings', icon: Cog6ToothIcon },
