@@ -644,6 +644,158 @@ async def get_traceability_report(
     )
 
 
+@router.get("/conflicts")
+async def get_requirement_conflicts(
+    priority: Optional[str] = None,
+    requirement_type: Optional[str] = None,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user)
+):
+    """
+    Detect and return requirements with conflicts or inconsistencies
+
+    Returns:
+    - Explicit conflicts (conflicts_with link type)
+    - Potential contradictions (same verification method, different priorities)
+    - Duplicate requirements (similar titles)
+    """
+    from sqlalchemy import or_, and_
+
+    # Get explicit conflicts
+    conflict_links = db.query(TraceabilityLink).filter(
+        TraceabilityLink.link_type == TraceLinkType.CONFLICTS_WITH
+    ).all()
+
+    explicit_conflicts = []
+    for link in conflict_links:
+        source = db.query(Requirement).filter(Requirement.id == link.source_id).first()
+        target = db.query(Requirement).filter(Requirement.id == link.target_id).first()
+
+        if source and target:
+            explicit_conflicts.append({
+                "conflict_id": link.id,
+                "type": "explicit",
+                "severity": "high",
+                "source": {
+                    "id": source.id,
+                    "requirement_id": source.requirement_id,
+                    "title": source.title,
+                    "priority": source.priority.value,
+                    "status": source.status.value
+                },
+                "target": {
+                    "id": target.id,
+                    "requirement_id": target.requirement_id,
+                    "title": target.title,
+                    "priority": target.priority.value,
+                    "status": target.status.value
+                },
+                "description": link.description or "Explicit conflict detected",
+                "rationale": link.rationale
+            })
+
+    # Detect priority inconsistencies within same category
+    priority_conflicts = []
+    categories = db.query(Requirement.category).distinct().all()
+
+    for (category,) in categories:
+        if not category:
+            continue
+
+        reqs = db.query(Requirement).filter(
+            Requirement.category == category,
+            Requirement.status == RequirementStatus.APPROVED
+        ).all()
+
+        # Group by verification method
+        by_verification = {}
+        for req in reqs:
+            vm = req.verification_method.value if req.verification_method else "UNSPECIFIED"
+            if vm not in by_verification:
+                by_verification[vm] = []
+            by_verification[vm].append(req)
+
+        # Check for priority inconsistencies
+        for vm, req_list in by_verification.items():
+            priorities = set(r.priority.value for r in req_list if r.priority)
+            if len(priorities) > 2:  # More than 2 different priorities for same verification method
+                priority_conflicts.append({
+                    "type": "priority_inconsistency",
+                    "severity": "medium",
+                    "category": category,
+                    "verification_method": vm,
+                    "priorities": list(priorities),
+                    "count": len(req_list),
+                    "description": f"{len(req_list)} requirements in {category} with {vm} verification have inconsistent priorities",
+                    "requirements": [
+                        {
+                            "id": r.id,
+                            "requirement_id": r.requirement_id,
+                            "title": r.title[:100],
+                            "priority": r.priority.value
+                        } for r in req_list[:5]  # Show first 5
+                    ]
+                })
+
+    # Detect potential duplicates (similar titles)
+    potential_duplicates = []
+    all_requirements = db.query(Requirement).filter(
+        or_(
+            Requirement.status == RequirementStatus.APPROVED,
+            Requirement.status == RequirementStatus.UNDER_REVIEW
+        )
+    ).all()
+
+    # Simple title similarity check (first 50 chars)
+    title_groups = {}
+    for req in all_requirements:
+        title_start = req.title[:50].lower().strip()
+        if len(title_start) < 10:  # Skip very short titles
+            continue
+        if title_start not in title_groups:
+            title_groups[title_start] = []
+        title_groups[title_start].append(req)
+
+    for title, reqs in title_groups.items():
+        if len(reqs) > 1:
+            potential_duplicates.append({
+                "type": "potential_duplicate",
+                "severity": "low",
+                "title_prefix": title,
+                "count": len(reqs),
+                "description": f"{len(reqs)} requirements with similar titles detected",
+                "requirements": [
+                    {
+                        "id": r.id,
+                        "requirement_id": r.requirement_id,
+                        "title": r.title,
+                        "type": r.type.value,
+                        "status": r.status.value
+                    } for r in reqs
+                ]
+            })
+
+    # Summary statistics
+    total_conflicts = len(explicit_conflicts) + len(priority_conflicts) + len(potential_duplicates)
+
+    return {
+        "total_conflicts": total_conflicts,
+        "explicit_conflicts": len(explicit_conflicts),
+        "priority_inconsistencies": len(priority_conflicts),
+        "potential_duplicates": len(potential_duplicates),
+        "conflicts": {
+            "explicit": explicit_conflicts,
+            "priority_inconsistencies": priority_conflicts[:10],  # Limit to 10
+            "potential_duplicates": potential_duplicates[:20]  # Limit to 20
+        },
+        "summary": {
+            "high_severity": len(explicit_conflicts),
+            "medium_severity": len(priority_conflicts),
+            "low_severity": len(potential_duplicates)
+        }
+    }
+
+
 @router.get("/{link_id}", response_model=TraceabilityLinkWithRequirements)
 async def get_traceability_link(
     link_id: int,
@@ -770,152 +922,3 @@ async def delete_traceability_link(
     db.commit()
 
     return None
-
-
-@router.get("/conflicts")
-async def get_requirement_conflicts(
-    priority: Optional[str] = None,
-    requirement_type: Optional[str] = None,
-    db: Session = Depends(get_db),
-    current_user: User = Depends(get_current_user)
-):
-    """
-    Detect and return requirements with conflicts or inconsistencies
-    
-    Returns:
-    - Explicit conflicts (conflicts_with link type)
-    - Potential contradictions (same verification method, different priorities)
-    - Duplicate requirements (similar titles)
-    """
-    from sqlalchemy import or_, and_
-    
-    # Get explicit conflicts
-    conflict_links = db.query(TraceabilityLink).filter(
-        TraceabilityLink.link_type == "conflicts_with"
-    ).all()
-    
-    explicit_conflicts = []
-    for link in conflict_links:
-        source = db.query(Requirement).filter(Requirement.id == link.source_id).first()
-        target = db.query(Requirement).filter(Requirement.id == link.target_id).first()
-        
-        if source and target:
-            explicit_conflicts.append({
-                "conflict_id": link.id,
-                "type": "explicit",
-                "severity": "high",
-                "source": {
-                    "id": source.id,
-                    "requirement_id": source.requirement_id,
-                    "title": source.title,
-                    "priority": source.priority,
-                    "status": source.status
-                },
-                "target": {
-                    "id": target.id,
-                    "requirement_id": target.requirement_id,
-                    "title": target.title,
-                    "priority": target.priority,
-                    "status": target.status
-                },
-                "description": link.description or "Explicit conflict detected",
-                "rationale": link.rationale
-            })
-    
-    # Detect priority inconsistencies within same category
-    priority_conflicts = []
-    categories = db.query(Requirement.category).distinct().all()
-    
-    for (category,) in categories:
-        if not category:
-            continue
-            
-        reqs = db.query(Requirement).filter(
-            Requirement.category == category,
-            Requirement.status == "approved"
-        ).all()
-        
-        # Group by verification method
-        by_verification = {}
-        for req in reqs:
-            vm = req.verification_method or "UNSPECIFIED"
-            if vm not in by_verification:
-                by_verification[vm] = []
-            by_verification[vm].append(req)
-        
-        # Check for priority inconsistencies
-        for vm, req_list in by_verification.items():
-            priorities = set(r.priority for r in req_list if r.priority)
-            if len(priorities) > 2:  # More than 2 different priorities for same verification method
-                priority_conflicts.append({
-                    "type": "priority_inconsistency",
-                    "severity": "medium",
-                    "category": category,
-                    "verification_method": vm,
-                    "priorities": list(priorities),
-                    "count": len(req_list),
-                    "description": f"{len(req_list)} requirements in {category} with {vm} verification have inconsistent priorities",
-                    "requirements": [
-                        {
-                            "id": r.id,
-                            "requirement_id": r.requirement_id,
-                            "title": r.title[:100],
-                            "priority": r.priority
-                        } for r in req_list[:5]  # Show first 5
-                    ]
-                })
-    
-    # Detect potential duplicates (similar titles)
-    potential_duplicates = []
-    all_requirements = db.query(Requirement).filter(
-        Requirement.status.in_(["approved", "under_review"])
-    ).all()
-    
-    # Simple title similarity check (first 50 chars)
-    title_groups = {}
-    for req in all_requirements:
-        title_start = req.title[:50].lower().strip()
-        if len(title_start) < 10:  # Skip very short titles
-            continue
-        if title_start not in title_groups:
-            title_groups[title_start] = []
-        title_groups[title_start].append(req)
-    
-    for title, reqs in title_groups.items():
-        if len(reqs) > 1:
-            potential_duplicates.append({
-                "type": "potential_duplicate",
-                "severity": "low",
-                "title_prefix": title,
-                "count": len(reqs),
-                "description": f"{len(reqs)} requirements with similar titles detected",
-                "requirements": [
-                    {
-                        "id": r.id,
-                        "requirement_id": r.requirement_id,
-                        "title": r.title,
-                        "type": r.type,
-                        "status": r.status
-                    } for r in reqs
-                ]
-            })
-    
-    # Summary statistics
-    total_conflicts = len(explicit_conflicts) + len(priority_conflicts) + len(potential_duplicates)
-    
-    return {
-        "total_conflicts": total_conflicts,
-        "explicit_conflicts": len(explicit_conflicts),
-        "priority_inconsistencies": len(priority_conflicts),
-        "potential_duplicates": len(potential_duplicates),
-        "conflicts": {
-            "explicit": explicit_conflicts,
-            "priority_inconsistencies": priority_conflicts[:10],  # Limit to 10
-            "potential_duplicates": potential_duplicates[:20]  # Limit to 20
-        },
-        "summary": {
-            "high_severity": len(explicit_conflicts),
-            "medium_severity": len(priority_conflicts),
-            "low_severity": len(potential_duplicates)
-        }
-    }

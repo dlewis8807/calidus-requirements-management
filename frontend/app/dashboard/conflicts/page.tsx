@@ -148,24 +148,24 @@ export default function ConflictsPage() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="border-l-4 border-red-500 pl-4">
                       <div className="text-sm font-semibold text-gray-900">{conflict.source?.requirement_id}</div>
-                      <div className="text-sm text-gray-700 mt-1">{conflict.source?.title}</div>
+                      <div className="text-sm text-gray-800 mt-1">{conflict.source?.title}</div>
                       <div className="mt-2 flex gap-2">
-                        <span className="px-2 py-1 bg-white text-xs rounded">{conflict.source?.priority}</span>
-                        <span className="px-2 py-1 bg-white text-xs rounded">{conflict.source?.status}</span>
+                        <span className="px-2 py-1 bg-white text-xs font-medium text-gray-900 rounded border border-gray-200">{conflict.source?.priority}</span>
+                        <span className="px-2 py-1 bg-white text-xs font-medium text-gray-900 rounded border border-gray-200">{conflict.source?.status}</span>
                       </div>
                     </div>
                     <div className="border-l-4 border-red-500 pl-4">
                       <div className="text-sm font-semibold text-gray-900">{conflict.target?.requirement_id}</div>
-                      <div className="text-sm text-gray-700 mt-1">{conflict.target?.title}</div>
+                      <div className="text-sm text-gray-800 mt-1">{conflict.target?.title}</div>
                       <div className="mt-2 flex gap-2">
-                        <span className="px-2 py-1 bg-white text-xs rounded">{conflict.target?.priority}</span>
-                        <span className="px-2 py-1 bg-white text-xs rounded">{conflict.target?.status}</span>
+                        <span className="px-2 py-1 bg-white text-xs font-medium text-gray-900 rounded border border-gray-200">{conflict.target?.priority}</span>
+                        <span className="px-2 py-1 bg-white text-xs font-medium text-gray-900 rounded border border-gray-200">{conflict.target?.status}</span>
                       </div>
                     </div>
                   </div>
                   <div className="mt-4 p-3 bg-white rounded border border-red-200">
-                    <div className="text-xs font-semibold text-gray-600 uppercase">Conflict Description</div>
-                    <div className="text-sm text-gray-900 mt-1">{conflict.description}</div>
+                    <div className="text-xs font-semibold text-gray-700 uppercase">Conflict Description</div>
+                    <div className="text-sm text-gray-900 mt-1 leading-relaxed">{conflict.description}</div>
                   </div>
                 </div>
               ))}
@@ -192,19 +192,19 @@ export default function ConflictsPage() {
                   <div className="text-sm font-semibold text-gray-900 mb-2">{issue.description}</div>
                   <div className="grid grid-cols-2 gap-4 mt-3">
                     <div>
-                      <div className="text-xs text-gray-600">Category</div>
-                      <div className="text-sm font-medium">{issue.category}</div>
+                      <div className="text-xs font-semibold text-gray-700 uppercase">Category</div>
+                      <div className="text-sm font-medium text-gray-900">{issue.category}</div>
                     </div>
                     <div>
-                      <div className="text-xs text-gray-600">Verification Method</div>
-                      <div className="text-sm font-medium">{issue.verification_method}</div>
+                      <div className="text-xs font-semibold text-gray-700 uppercase">Verification Method</div>
+                      <div className="text-sm font-medium text-gray-900">{issue.verification_method}</div>
                     </div>
                   </div>
                   <div className="mt-3">
-                    <div className="text-xs text-gray-600 mb-2">Detected Priorities:</div>
+                    <div className="text-xs font-semibold text-gray-700 uppercase mb-2">Detected Priorities:</div>
                     <div className="flex flex-wrap gap-2">
                       {issue.priorities?.map((priority: string, idx: number) => (
-                        <span key={idx} className="px-2 py-1 bg-white border border-orange-300 text-xs rounded">
+                        <span key={idx} className="px-2 py-1 bg-white border border-orange-300 text-xs font-medium text-gray-900 rounded">
                           {priority}
                         </span>
                       ))}
@@ -232,13 +232,13 @@ export default function ConflictsPage() {
                     </span>
                     <span className="text-sm text-gray-600">{dup.count} similar requirements</span>
                   </div>
-                  <div className="text-sm text-gray-700 mb-3">{dup.description}</div>
+                  <div className="text-sm font-medium text-gray-900 mb-3">{dup.description}</div>
                   <div className="space-y-2">
                     {dup.requirements?.slice(0, 3).map((req: any, idx: number) => (
                       <div key={idx} className="flex items-start gap-3 p-2 bg-white rounded border border-yellow-200">
                         <div className="text-xs font-semibold text-blue-600">{req.requirement_id}</div>
-                        <div className="flex-1 text-xs text-gray-700">{req.title}</div>
-                        <div className="text-xs px-2 py-1 bg-gray-100 rounded">{req.type}</div>
+                        <div className="flex-1 text-xs text-gray-800">{req.title}</div>
+                        <div className="text-xs px-2 py-1 bg-gray-100 text-gray-800 font-medium rounded">{req.type}</div>
                       </div>
                     ))}
                   </div>

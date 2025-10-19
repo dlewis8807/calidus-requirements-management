@@ -39,8 +39,9 @@ export default function UsersPage() {
         return;
       }
 
-      const data = await usersAPI.list();
-      setUsers(data as User[]);
+      const data: any = await usersAPI.list();
+      // Backend returns { items: User[], total: number, ... }
+      setUsers(data.items || data || []);
     } catch (error: any) {
       console.error('Failed to fetch users:', error);
       toast.error('Failed to load users');
@@ -172,7 +173,7 @@ export default function UsersPage() {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {users.map((user) => (
+                {users && users.length > 0 ? users.map((user) => (
                   <tr key={user.id} className="hover:bg-gray-50">
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="text-sm font-medium text-gray-900">{user.username}</div>
@@ -212,7 +213,13 @@ export default function UsersPage() {
                       </div>
                     </td>
                   </tr>
-                ))}
+                )) : (
+                  <tr>
+                    <td colSpan={6} className="px-6 py-12 text-center text-sm text-gray-500">
+                      No users found
+                    </td>
+                  </tr>
+                )}
               </tbody>
             </table>
           </div>
