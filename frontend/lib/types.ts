@@ -279,3 +279,65 @@ export interface ComplianceStats {
   by_regulation: Record<string, number>;
   by_authority: Record<string, number>;
 }
+
+// Risk Assessment Types
+export type RiskLevel = 'Critical' | 'High' | 'Medium' | 'Low';
+
+export interface RiskFactor {
+  factor_name: string;
+  weight: number;
+  score: number;
+  impact: number;
+  details?: string;
+}
+
+export interface RiskScore {
+  requirement_id: string;
+  total_risk_score: number;
+  risk_level: RiskLevel;
+  factors: RiskFactor[];
+  calculated_at: string;
+}
+
+export interface RequirementRisk {
+  id: number;
+  requirement_id: string;
+  title: string;
+  description: string;
+  type: RequirementType;
+  status: RequirementStatus;
+  priority: RequirementPriority;
+  category?: string;
+  risk_score: RiskScore;
+  created_at: string;
+  updated_at?: string;
+}
+
+export interface RiskDistribution {
+  critical: number;
+  high: number;
+  medium: number;
+  low: number;
+  total: number;
+}
+
+export interface RiskOverview {
+  distribution: RiskDistribution;
+  average_risk_score: number;
+  critical_requirements: number;
+  untested_requirements: number;
+  orphaned_requirements: number;
+  non_compliant_requirements: number;
+  top_risks: RequirementRisk[];
+}
+
+export interface RiskFilter {
+  min_risk_score?: number;
+  max_risk_score?: number;
+  risk_level?: RiskLevel;
+  requirement_type?: RequirementType;
+  priority?: RequirementPriority;
+  status?: RequirementStatus;
+  has_test_cases?: boolean;
+  has_traceability?: boolean;
+}

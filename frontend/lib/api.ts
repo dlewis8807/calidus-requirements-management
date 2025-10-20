@@ -241,3 +241,32 @@ export const complianceAPI = {
     return fetchAPI(`/api/compliance/gaps${queryString}`);
   },
 };
+
+// Risk Assessment API
+export const riskAPI = {
+  overview: (params?: Record<string, any>) => {
+    const cleaned = cleanParams(params);
+    const queryString = Object.keys(cleaned).length > 0 ? `?${new URLSearchParams(cleaned).toString()}` : '';
+    return fetchAPI(`/api/risk/overview${queryString}`);
+  },
+
+  requirements: (params?: Record<string, any>) => {
+    const cleaned = cleanParams(params);
+    const queryString = Object.keys(cleaned).length > 0 ? `?${new URLSearchParams(cleaned).toString()}` : '';
+    return fetchAPI(`/api/risk/requirements${queryString}`);
+  },
+
+  requirementRisk: (requirementId: string) => {
+    const encoded = encodeURIComponent(requirementId);
+    return fetchAPI(`/api/risk/requirements/${encoded}`);
+  },
+
+  requirementRiskById: (reqId: number) => {
+    return fetchAPI(`/api/risk/requirements/by-id/${reqId}`);
+  },
+
+  critical: (limit?: number) => {
+    const queryString = limit ? `?limit=${limit}` : '';
+    return fetchAPI(`/api/risk/critical${queryString}`);
+  },
+};

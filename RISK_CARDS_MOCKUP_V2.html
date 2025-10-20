@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALIDUS Risk Cards - Design V2 (Military Style)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        :root {
+            --on-track: #2D4F1E;      /* Dark military green */
+            --at-risk: #B45F06;       /* Military amber */
+            --critical: #8B0000;       /* Dark military red */
+            --completed: #4A5D23;      /* Olive green */
+            --background: #ffffff;
+            --foreground: #09090b;
+            --card: #ffffff;
+            --card-foreground: #09090b;
+            --muted: #f4f4f5;
+            --muted-foreground: #71717a;
+            --border: #e4e4e7;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fafafa;
+        }
+
+        .risk-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            transition: box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .risk-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .badge-critical { background-color: var(--critical); }
+        .badge-at-risk { background-color: var(--at-risk); }
+        .badge-low { background-color: var(--on-track); }
+        .badge-completed { background-color: var(--completed); }
+
+        .progress-bar {
+            width: 100%;
+            height: 0.5rem;
+            background-color: var(--muted);
+            border-radius: 9999px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+
+        .progress-critical { background-color: var(--critical); }
+        .progress-at-risk { background-color: var(--at-risk); }
+        .progress-low { background-color: var(--on-track); }
+
+        .icon {
+            width: 1rem;
+            height: 1rem;
+            color: var(--muted-foreground);
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+            border: 1px solid var(--border);
+            background: white;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--muted);
+        }
+
+        .btn-critical {
+            background-color: var(--critical);
+            color: white;
+            border-color: var(--critical);
+        }
+
+        .btn-critical:hover {
+            opacity: 0.9;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto py-8 px-4 max-w-7xl">
+
+        <!-- Header -->
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold mb-2" style="color: var(--foreground);">CALIDUS Risk Cards - Military Style</h1>
+            <p style="color: var(--muted-foreground);">Based on rd-dashboard reference design</p>
+        </div>
+
+        <!-- Risk Overview Summary -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <!-- Critical Risk Summary -->
+            <div class="risk-card p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="p-3 rounded-lg" style="background-color: #fef2f2;">
+                        <svg class="w-6 h-6" style="color: var(--critical);" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="text-3xl font-bold mb-1">12</div>
+                <div class="text-sm" style="color: var(--muted-foreground);">Critical Risk</div>
+            </div>
+
+            <!-- High Risk Summary -->
+            <div class="risk-card p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="p-3 rounded-lg" style="background-color: #fef3c7;">
+                        <svg class="w-6 h-6" style="color: var(--at-risk);" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="text-3xl font-bold mb-1">48</div>
+                <div class="text-sm" style="color: var(--muted-foreground);">At Risk</div>
+            </div>
+
+            <!-- Medium Risk Summary -->
+            <div class="risk-card p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="p-3 rounded-lg" style="background-color: #fef3c7;">
+                        <svg class="w-6 h-6" style="color: var(--at-risk);" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="text-3xl font-bold mb-1">156</div>
+                <div class="text-sm" style="color: var(--muted-foreground);">Under Review</div>
+            </div>
+
+            <!-- Low Risk Summary -->
+            <div class="risk-card p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="p-3 rounded-lg" style="background-color: #f0fdf4;">
+                        <svg class="w-6 h-6" style="color: var(--on-track);" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="text-3xl font-bold mb-1">16,284</div>
+                <div class="text-sm" style="color: var(--muted-foreground);">On Track</div>
+            </div>
+        </div>
+
+        <!-- Section Header -->
+        <div class="mb-6">
+            <h2 class="text-2xl font-bold" style="color: var(--foreground);">High-Risk Requirements</h2>
+            <p style="color: var(--muted-foreground);">Requirements needing immediate attention</p>
+        </div>
+
+        <!-- Risk Cards Grid -->
+        <div class="grid-3">
+
+            <!-- Critical Risk Card 1 -->
+            <div class="risk-card p-6">
+                <!-- Card Header -->
+                <div class="flex items-start justify-between mb-4">
+                    <h3 class="text-lg font-bold">AHLR-042</h3>
+                    <span class="badge badge-critical">Critical Risk</span>
+                </div>
+
+                <!-- Card Content -->
+                <div class="space-y-4">
+                    <!-- Title/Description -->
+                    <p class="text-sm font-medium">Emergency Landing System Requirements</p>
+
+                    <!-- Risk Score -->
+                    <div class="flex items-center space-x-2">
+                        <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                        <span class="text-sm">Risk Score: <strong>93/100</strong></span>
+                    </div>
+
+                    <!-- Priority -->
+                    <div class="flex items-center space-x-2">
+                        <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                        <span class="text-sm">Priority: <strong>CRITICAL</strong></span>
+                    </div>
+
+                    <!-- Status -->
+                    <div class="flex items-center space-x-2">
+                        <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        <span class="text-sm">Status: Draft</span>
+                    </div>
+
+                    <!-- Traceability -->
+                    <div class="flex items-center space-x-2">
+                        <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                        </svg>
+                        <span class="text-sm" style="color: var(--critical); font-weight: 600;">Orphaned (no traceability)</span>
+                    </div>
+
+                    <!-- Test Coverage -->
+                    <div class="flex items-center space-x-2">
+                        <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                        </svg>
+                        <span class="text-sm" style="color: var(--critical); font-weight: 600;">No test coverage</span>
+                    </div>
+
+                    <!-- Progress Bar -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm">
+                            <span style="color: var(--muted-foreground);">Risk Mitigation</span>
+                            <span class="font-medium">7%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill progress-critical" style="width: 7%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Action Button -->
+                    <button class="btn btn-critical w-full flex items-center justify-center space-x-2">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                        <span>View Risk Details</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Critical Risk Card 2 -->
+            <div class="risk-card p-6">
+                <div class="flex items-start justify-between mb-4">
+                    <h3 class="text-lg font-bold">CERT-089</h3>
+                    <span class="badge badge-critical">Critical Risk</span>
+                </div>
+
+                <div class="space-y-4">
+                    <p class="text-sm font-medium">DO-178C Level A Software Verification</p>
+
+                    <div class="flex items-center space-x-2">
+                        <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                        <span class="text-sm">Risk Score: <strong>87/100</strong></span>
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+                        <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                        <span class="text-sm">Priority: <strong>CRITICAL</strong></span>
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+                        <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        <span class="text-sm">Status: Under Review</span>
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+                        <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                        </svg>
+                        <span class="text-sm" style="color: var(--critical); font-weight: 600;">Missing parent requirement</span>
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+                        <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                        </svg>
+                        <span class="text-sm">Only 1 test case</span>
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm">
+                            <span style="color: var(--muted-foreground);">Risk Mitigation</span>
+                            <span class="font-medium">13%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill progress-critical" style="width: 13%"></div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-critical w-full flex items-center justify-center space-x-2">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                        <span>View Risk Details</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- At Risk Card -->
+            <div class="risk-card p-6">
+                <div class="flex items-start justify-between mb-4">
+                    <h3 class="text-lg font-bold">SYS-1256</h3>
+                    <span class="badge badge-at-risk">At Risk</span>
+                </div>
+
+                <div class="space-y-4">
+                    <p class="text-sm font-medium">Hydraulic System Pressure Monitoring</p>
+
+                    <div class="flex items-center space-x-2">
+                        <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                        <span class="text-sm">Risk Score: <strong>72/100</strong></span>
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+                        <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                        <span class="text-sm">Priority: <strong>HIGH</strong></span>
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+                        <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        <span class="text-sm">Status: Approved</span>
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+                        <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                        </svg>
+                        <span class="text-sm">Has traceability links</span>
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+                        <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                        </svg>
+                        <span class="text-sm" style="color: var(--at-risk); font-weight: 600;">No test coverage</span>
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm">
+                            <span style="color: var(--muted-foreground);">Risk Mitigation</span>
+                            <span class="font-medium">28%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill progress-at-risk" style="width: 28%"></div>
+                        </div>
+                    </div>
+
+                    <button class="btn w-full" style="background-color: var(--at-risk); color: white; border-color: var(--at-risk);">
+                        View Status Details
+                    </button>
+                </div>
+            </div>
+
+            <!-- On Track Card -->
+            <div class="risk-card p-6">
+                <div class="flex items-start justify-between mb-4">
+                    <h3 class="text-lg font-bold">TECH-8792</h3>
+                    <span class="badge badge-low">On Track</span>
+                </div>
+
+                <div class="space-y-4">
+                    <p class="text-sm font-medium">Interior Lighting Control System</p>
+
+                    <div class="flex items-center space-x-2">
+                        <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                        <span class="text-sm">Risk Score: <strong>18/100</strong></span>
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+                        <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span class="text-sm">Priority: <strong>LOW</strong></span>
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+                        <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        <span class="text-sm">Status: Approved</span>
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+                        <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                        </svg>
+                        <span class="text-sm">Full traceability</span>
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+                        <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                        </svg>
+                        <span class="text-sm">8 test cases</span>
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm">
+                            <span style="color: var(--muted-foreground);">Risk Mitigation</span>
+                            <span class="font-medium">82%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill progress-low" style="width: 82%"></div>
+                        </div>
+                    </div>
+
+                    <button class="btn w-full" style="background-color: var(--on-track); color: white; border-color: var(--on-track);">
+                        View Details
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Design Notes -->
+        <div class="mt-12 risk-card p-6">
+            <h3 class="text-lg font-bold mb-4">Design Notes (Military/Industrial Style)</h3>
+            <div class="space-y-3 text-sm" style="color: var(--muted-foreground);">
+                <p><strong>Color Scheme:</strong> Military/industrial colors matching rd-dashboard:</p>
+                <ul class="list-disc list-inside ml-4 space-y-1">
+                    <li><strong>Critical Risk:</strong> #8B0000 (Dark military red)</li>
+                    <li><strong>At Risk:</strong> #B45F06 (Military amber)</li>
+                    <li><strong>On Track:</strong> #2D4F1E (Dark military green)</li>
+                    <li><strong>Completed:</strong> #4A5D23 (Olive green)</li>
+                </ul>
+                <p><strong>Key Features:</strong></p>
+                <ul class="list-disc list-inside ml-4 space-y-1">
+                    <li>Clean, minimal design with shadcn/ui style</li>
+                    <li>Status badges in card headers</li>
+                    <li>Lucide React icons for visual indicators</li>
+                    <li>Progress bars for risk mitigation tracking</li>
+                    <li>Hover effects on cards</li>
+                    <li>3-column responsive grid (lg:grid-cols-3)</li>
+                    <li>Muted, professional color palette</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        console.log('✅ Risk Cards Mockup V2 - Military Style');
+        console.log('🎨 Based on rd-dashboard reference design');
+        console.log('🎨 Using military/industrial color scheme');
+    </script>
+</body>
+</html>

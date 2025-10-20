@@ -322,25 +322,66 @@ async def get_traceability_graph(
     """
     Get graph data for interactive visualization.
     Returns nodes (requirements) and edges (traceability links).
+    Builds a connected subgraph by starting from AHLR and following trace links.
     """
-    # Build requirements query
-    req_query = db.query(Requirement)
+    # Strategy: Build a connected subgraph instead of random nodes
+    # 1. Start with AHLR requirements (top-level)
+    # 2. Follow trace links to get connected requirements
+    # 3. This ensures meaningful connectivity in the graph
 
-    # Apply filters
-    if type:
-        req_query = req_query.filter(Requirement.type == type)
+    req_ids = set()
+    requirements_dict = {}
+
+    # Start with top-level requirements (AHLR or filtered type)
+    start_type = type if type else RequirementType.AHLR
+    start_query = db.query(Requirement).filter(Requirement.type == start_type)
+
     if status:
-        req_query = req_query.filter(Requirement.status == status)
+        start_query = start_query.filter(Requirement.status == status)
 
-    # Limit nodes for performance
-    requirements = req_query.limit(max_nodes).all()
+    # Get seed requirements (limit to prevent overload)
+    seed_limit = min(max_nodes // 4, 100)  # Start with 25% of max_nodes or 100
+    seed_requirements = start_query.limit(seed_limit).all()
+
+    # Add seed requirements
+    for req in seed_requirements:
+        req_ids.add(req.id)
+        requirements_dict[req.id] = req
+
+    # Expand by following trace links (breadth-first)
+    visited = set(req_ids)
+    to_explore = list(req_ids)
+
+    while to_explore and len(req_ids) < max_nodes:
+        current_id = to_explore.pop(0)
+
+        # Get all trace links from this requirement
+        child_links = db.query(TraceabilityLink).filter(
+            TraceabilityLink.target_id == current_id
+        ).limit(10).all()  # Limit children per node
+
+        for link in child_links:
+            if link.source_id not in visited and len(req_ids) < max_nodes:
+                # Add the connected requirement
+                connected_req = db.query(Requirement).filter(
+                    Requirement.id == link.source_id
+                ).first()
+
+                if connected_req:
+                    # Apply filters
+                    if type and connected_req.type != type:
+                        continue
+                    if status and connected_req.status != status:
+                        continue
+
+                    req_ids.add(connected_req.id)
+                    requirements_dict[connected_req.id] = connected_req
+                    visited.add(connected_req.id)
+                    to_explore.append(connected_req.id)
 
     # Build nodes array
     nodes = []
-    req_ids = set()
-
-    for req in requirements:
-        req_ids.add(req.id)
+    for req_id, req in requirements_dict.items():
         nodes.append({
             "id": f"req_{req.id}",
             "label": req.requirement_id,
@@ -355,8 +396,12 @@ async def get_traceability_graph(
 
     # Add test cases as nodes if requested
     if include_tests:
-        for req in requirements:
-            for test in req.test_cases[:5]:  # Limit test nodes per requirement
+        test_count = 0
+        max_tests = max_nodes // 2  # Limit tests to half of max_nodes
+        for req_id, req in requirements_dict.items():
+            for test in req.test_cases[:3]:  # Max 3 tests per requirement
+                if test_count >= max_tests:
+                    break
                 nodes.append({
                     "id": f"test_{test.id}",
                     "label": test.test_case_id,
@@ -365,8 +410,9 @@ async def get_traceability_graph(
                     "node_type": "test_case",
                     "requirement_id": req.id
                 })
+                test_count += 1
 
-    # Build edges array from traceability links
+    # Build edges array from traceability links (only include edges where both ends exist)
     edges = []
     trace_links = db.query(TraceabilityLink).filter(
         or_(
@@ -387,8 +433,12 @@ async def get_traceability_graph(
 
     # Add test case edges if included
     if include_tests:
-        for req in requirements:
-            for test in req.test_cases[:5]:
+        test_count = 0
+        max_tests = max_nodes // 2
+        for req_id, req in requirements_dict.items():
+            for test in req.test_cases[:3]:
+                if test_count >= max_tests:
+                    break
                 edges.append({
                     "id": f"test_link_{test.id}",
                     "source": f"req_{req.id}",
@@ -396,6 +446,7 @@ async def get_traceability_graph(
                     "link_type": "tests",
                     "description": "Test case"
                 })
+                test_count += 1
 
     return {
         "nodes": nodes,

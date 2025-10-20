@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALIDUS Risk Cards V3 - With Risk Table</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        :root {
+            --on-track: #2D4F1E;
+            --at-risk: #B45F06;
+            --critical: #8B0000;
+            --completed: #4A5D23;
+            --background: #ffffff;
+            --foreground: #09090b;
+            --card: #ffffff;
+            --border: #e4e4e7;
+            --muted: #f4f4f5;
+            --muted-foreground: #71717a;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fafafa;
+        }
+
+        .risk-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            transition: box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .risk-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .badge-critical { background-color: var(--critical); }
+        .badge-at-risk { background-color: var(--at-risk); }
+        .badge-low { background-color: var(--on-track); }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            text-align: left;
+            padding: 0.75rem 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--muted-foreground);
+            border-bottom: 1px solid var(--border);
+        }
+
+        td {
+            padding: 0.75rem 0.5rem;
+            font-size: 0.875rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .text-critical { color: var(--critical); font-weight: 600; }
+        .text-at-risk { color: var(--at-risk); font-weight: 600; }
+        .text-low { color: var(--on-track); font-weight: 600; }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+            border: 1px solid var(--border);
+            background: white;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn-critical {
+            background-color: var(--critical);
+            color: white;
+            border-color: var(--critical);
+        }
+
+        .btn-critical:hover { opacity: 0.9; }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+            gap: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto py-8 px-4 max-w-7xl">
+
+        <!-- Header -->
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold mb-2" style="color: var(--foreground);">CALIDUS Risk Cards V3</h1>
+            <p style="color: var(--muted-foreground);">With integrated risk factor tables (matching rd-dashboard Table component)</p>
+        </div>
+
+        <!-- Risk Cards Grid -->
+        <div class="grid-2">
+
+            <!-- Critical Risk Card with Table -->
+            <div class="risk-card p-6">
+                <div class="flex items-start justify-between mb-6">
+                    <div>
+                        <h3 class="text-lg font-bold mb-1">AHLR-042</h3>
+                        <p class="text-sm text-muted-foreground">Emergency Landing System Requirements</p>
+                    </div>
+                    <span class="badge badge-critical">Critical Risk</span>
+                </div>
+
+                <!-- Risk Overview -->
+                <div class="mb-6 p-4 rounded-lg" style="background-color: #fef2f2;">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-sm font-semibold" style="color: var(--critical);">Overall Risk Score</span>
+                        <span class="text-3xl font-bold" style="color: var(--critical);">93</span>
+                    </div>
+                    <div class="text-xs" style="color: var(--muted-foreground);">Immediate attention required</div>
+                </div>
+
+                <!-- Risk Factors Table -->
+                <div class="mb-6">
+                    <h4 class="text-sm font-semibold mb-3" style="color: var(--foreground);">Risk Factor Breakdown</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Factor</th>
+                                <th style="text-align: right;">Weight</th>
+                                <th style="text-align: right;">Score</th>
+                                <th style="text-align: right;">Impact</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-medium">Priority Level</td>
+                                <td style="text-align: right;">25%</td>
+                                <td style="text-align: right;" class="text-critical">100</td>
+                                <td style="text-align: right;" class="font-semibold">25.0</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">Status Risk</td>
+                                <td style="text-align: right;">20%</td>
+                                <td style="text-align: right;" class="text-critical">100</td>
+                                <td style="text-align: right;" class="font-semibold">20.0</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">Traceability</td>
+                                <td style="text-align: right;">25%</td>
+                                <td style="text-align: right;" class="text-critical">100</td>
+                                <td style="text-align: right;" class="font-semibold">25.0</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">Test Coverage</td>
+                                <td style="text-align: right;">20%</td>
+                                <td style="text-align: right;" class="text-critical">100</td>
+                                <td style="text-align: right;" class="font-semibold">20.0</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">Compliance</td>
+                                <td style="text-align: right;">10%</td>
+                                <td style="text-align: right;" class="text-at-risk">30</td>
+                                <td style="text-align: right;" class="font-semibold">3.0</td>
+                            </tr>
+                            <tr style="background-color: var(--muted);">
+                                <td class="font-bold">Total Risk Score</td>
+                                <td style="text-align: right;" class="font-bold">100%</td>
+                                <td style="text-align: right;"></td>
+                                <td style="text-align: right;" class="text-critical font-bold text-lg">93.0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex gap-2">
+                    <button class="btn btn-critical flex-1 flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                        <span>View Risk Details</span>
+                    </button>
+                    <button class="btn">Take Action</button>
+                </div>
+            </div>
+
+            <!-- At Risk Card with Table -->
+            <div class="risk-card p-6">
+                <div class="flex items-start justify-between mb-6">
+                    <div>
+                        <h3 class="text-lg font-bold mb-1">CERT-089</h3>
+                        <p class="text-sm text-muted-foreground">DO-178C Level A Software Verification</p>
+                    </div>
+                    <span class="badge badge-critical">Critical Risk</span>
+                </div>
+
+                <!-- Risk Overview -->
+                <div class="mb-6 p-4 rounded-lg" style="background-color: #fef2f2;">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-sm font-semibold" style="color: var(--critical);">Overall Risk Score</span>
+                        <span class="text-3xl font-bold" style="color: var(--critical);">87</span>
+                    </div>
+                    <div class="text-xs" style="color: var(--muted-foreground);">Immediate attention required</div>
+                </div>
+
+                <!-- Risk Factors Table -->
+                <div class="mb-6">
+                    <h4 class="text-sm font-semibold mb-3" style="color: var(--foreground);">Risk Factor Breakdown</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Factor</th>
+                                <th style="text-align: right;">Weight</th>
+                                <th style="text-align: right;">Score</th>
+                                <th style="text-align: right;">Impact</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-medium">Priority Level</td>
+                                <td style="text-align: right;">25%</td>
+                                <td style="text-align: right;" class="text-critical">100</td>
+                                <td style="text-align: right;" class="font-semibold">25.0</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">Status Risk</td>
+                                <td style="text-align: right;">20%</td>
+                                <td style="text-align: right;" class="text-at-risk">60</td>
+                                <td style="text-align: right;" class="font-semibold">12.0</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">Traceability</td>
+                                <td style="text-align: right;">25%</td>
+                                <td style="text-align: right;" class="text-critical">80</td>
+                                <td style="text-align: right;" class="font-semibold">20.0</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">Test Coverage</td>
+                                <td style="text-align: right;">20%</td>
+                                <td style="text-align: right;" class="text-critical">80</td>
+                                <td style="text-align: right;" class="font-semibold">16.0</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">Compliance</td>
+                                <td style="text-align: right;">10%</td>
+                                <td style="text-align: right;" class="text-critical">100</td>
+                                <td style="text-align: right;" class="font-semibold">10.0</td>
+                            </tr>
+                            <tr style="background-color: var(--muted);">
+                                <td class="font-bold">Total Risk Score</td>
+                                <td style="text-align: right;" class="font-bold">100%</td>
+                                <td style="text-align: right;"></td>
+                                <td style="text-align: right;" class="text-critical font-bold text-lg">83.0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex gap-2">
+                    <button class="btn btn-critical flex-1 flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                        <span>View Risk Details</span>
+                    </button>
+                    <button class="btn">Take Action</button>
+                </div>
+            </div>
+
+            <!-- At Risk Card -->
+            <div class="risk-card p-6">
+                <div class="flex items-start justify-between mb-6">
+                    <div>
+                        <h3 class="text-lg font-bold mb-1">SYS-1256</h3>
+                        <p class="text-sm text-muted-foreground">Hydraulic System Pressure Monitoring</p>
+                    </div>
+                    <span class="badge badge-at-risk">At Risk</span>
+                </div>
+
+                <!-- Risk Overview -->
+                <div class="mb-6 p-4 rounded-lg" style="background-color: #fef3c7;">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-sm font-semibold" style="color: var(--at-risk);">Overall Risk Score</span>
+                        <span class="text-3xl font-bold" style="color: var(--at-risk);">72</span>
+                    </div>
+                    <div class="text-xs" style="color: var(--muted-foreground);">Priority action needed</div>
+                </div>
+
+                <!-- Risk Factors Table -->
+                <div class="mb-6">
+                    <h4 class="text-sm font-semibold mb-3" style="color: var(--foreground);">Risk Factor Breakdown</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Factor</th>
+                                <th style="text-align: right;">Weight</th>
+                                <th style="text-align: right;">Score</th>
+                                <th style="text-align: right;">Impact</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-medium">Priority Level</td>
+                                <td style="text-align: right;">25%</td>
+                                <td style="text-align: right;" class="text-at-risk">75</td>
+                                <td style="text-align: right;" class="font-semibold">18.75</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">Status Risk</td>
+                                <td style="text-align: right;">20%</td>
+                                <td style="text-align: right;" class="text-low">20</td>
+                                <td style="text-align: right;" class="font-semibold">4.0</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">Traceability</td>
+                                <td style="text-align: right;">25%</td>
+                                <td style="text-align: right;" class="text-low">10</td>
+                                <td style="text-align: right;" class="font-semibold">2.5</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">Test Coverage</td>
+                                <td style="text-align: right;">20%</td>
+                                <td style="text-align: right;" class="text-critical">100</td>
+                                <td style="text-align: right;" class="font-semibold">20.0</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">Compliance</td>
+                                <td style="text-align: right;">10%</td>
+                                <td style="text-align: right;" class="text-low">10</td>
+                                <td style="text-align: right;" class="font-semibold">1.0</td>
+                            </tr>
+                            <tr style="background-color: var(--muted);">
+                                <td class="font-bold">Total Risk Score</td>
+                                <td style="text-align: right;" class="font-bold">100%</td>
+                                <td style="text-align: right;"></td>
+                                <td style="text-align: right;" class="text-at-risk font-bold text-lg">46.25</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex gap-2">
+                    <button class="btn flex-1" style="background-color: var(--at-risk); color: white; border-color: var(--at-risk);">
+                        View Status Details
+                    </button>
+                    <button class="btn">Add Tests</button>
+                </div>
+            </div>
+
+            <!-- Low Risk / On Track Card -->
+            <div class="risk-card p-6">
+                <div class="flex items-start justify-between mb-6">
+                    <div>
+                        <h3 class="text-lg font-bold mb-1">TECH-8792</h3>
+                        <p class="text-sm text-muted-foreground">Interior Lighting Control System</p>
+                    </div>
+                    <span class="badge badge-low">On Track</span>
+                </div>
+
+                <!-- Risk Overview -->
+                <div class="mb-6 p-4 rounded-lg" style="background-color: #f0fdf4;">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-sm font-semibold" style="color: var(--on-track);">Overall Risk Score</span>
+                        <span class="text-3xl font-bold" style="color: var(--on-track);">18</span>
+                    </div>
+                    <div class="text-xs" style="color: var(--muted-foreground);">Acceptable state</div>
+                </div>
+
+                <!-- Risk Factors Table -->
+                <div class="mb-6">
+                    <h4 class="text-sm font-semibold mb-3" style="color: var(--foreground);">Risk Factor Breakdown</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Factor</th>
+                                <th style="text-align: right;">Weight</th>
+                                <th style="text-align: right;">Score</th>
+                                <th style="text-align: right;">Impact</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-medium">Priority Level</td>
+                                <td style="text-align: right;">25%</td>
+                                <td style="text-align: right;" class="text-low">25</td>
+                                <td style="text-align: right;" class="font-semibold">6.25</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">Status Risk</td>
+                                <td style="text-align: right;">20%</td>
+                                <td style="text-align: right;" class="text-low">20</td>
+                                <td style="text-align: right;" class="font-semibold">4.0</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">Traceability</td>
+                                <td style="text-align: right;">25%</td>
+                                <td style="text-align: right;" class="text-low">10</td>
+                                <td style="text-align: right;" class="font-semibold">2.5</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">Test Coverage</td>
+                                <td style="text-align: right;">20%</td>
+                                <td style="text-align: right;" class="text-low">10</td>
+                                <td style="text-align: right;" class="font-semibold">2.0</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">Compliance</td>
+                                <td style="text-align: right;">10%</td>
+                                <td style="text-align: right;" class="text-low">10</td>
+                                <td style="text-align: right;" class="font-semibold">1.0</td>
+                            </tr>
+                            <tr style="background-color: var(--muted);">
+                                <td class="font-bold">Total Risk Score</td>
+                                <td style="text-align: right;" class="font-bold">100%</td>
+                                <td style="text-align: right;"></td>
+                                <td style="text-align: right;" class="text-low font-bold text-lg">15.75</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex gap-2">
+                    <button class="btn flex-1" style="background-color: var(--on-track); color: white; border-color: var(--on-track);">
+                        View Details
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Design Notes -->
+        <div class="risk-card p-6 mt-8">
+            <h3 class="text-lg font-bold mb-4">✅ Design Features - With Risk Table</h3>
+            <div class="space-y-3 text-sm" style="color: var(--muted-foreground);">
+                <p><strong>Risk Factor Table (NEW!):</strong></p>
+                <ul class="list-disc list-inside ml-4 space-y-1">
+                    <li>Shows breakdown of each risk factor (Priority, Status, Traceability, Test Coverage, Compliance)</li>
+                    <li>Weight column shows percentage contribution to overall score</li>
+                    <li>Score column shows individual factor score (0-100), color-coded by severity</li>
+                    <li>Impact column shows weighted contribution to final risk score</li>
+                    <li>Total row highlighted with background color</li>
+                </ul>
+                <p><strong>Matches rd-dashboard style:</strong></p>
+                <ul class="list-disc list-inside ml-4 space-y-1">
+                    <li>Uses shadcn/ui Table component structure</li>
+                    <li>Clean table headers with muted text</li>
+                    <li>Right-aligned numeric columns</li>
+                    <li>Border styling matches reference design</li>
+                    <li>Summary row with background highlight</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

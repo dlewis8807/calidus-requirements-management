@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALIDUS Risk Cards - Visual Mockup</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .risk-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .risk-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.12);
+        }
+
+        .pulse-dot {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .risk-factor-icon {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen p-8">
+        <!-- Header -->
+        <div class="max-w-7xl mx-auto mb-8">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-3xl font-bold text-gray-900">CALIDUS Risk Cards - Visual Mockup</h1>
+                    <p class="text-gray-600 mt-1">Interactive preview of the risk card design</p>
+                </div>
+                <div class="text-sm text-gray-500">
+                    <span class="font-semibold">Status:</span> Design Preview
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto space-y-8">
+
+            <!-- Section 1: Risk Overview Cards -->
+            <div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">📊 Risk Overview Section</h2>
+                <p class="text-gray-600 mb-6">This will appear at the top of the dashboard, showing the distribution of requirements by risk level.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <!-- Critical Risk Overview -->
+                    <div class="bg-gradient-to-br from-red-50 to-red-100 rounded-xl shadow-sm border-2 border-red-300 p-6 hover:shadow-lg transition-all">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="p-3 bg-red-500 rounded-lg">
+                                <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                </svg>
+                            </div>
+                            <span class="pulse-dot h-3 w-3 bg-red-500 rounded-full"></span>
+                        </div>
+                        <h3 class="text-4xl font-bold text-red-900 mb-1">12</h3>
+                        <p class="text-sm font-semibold text-red-700 uppercase tracking-wide">Critical Risk</p>
+                        <p class="text-xs text-red-600 mt-2">Immediate attention required</p>
+                    </div>
+
+                    <!-- High Risk Overview -->
+                    <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl shadow-sm border-2 border-orange-300 p-6 hover:shadow-lg transition-all">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="p-3 bg-orange-500 rounded-lg">
+                                <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="text-4xl font-bold text-orange-900 mb-1">48</h3>
+                        <p class="text-sm font-semibold text-orange-700 uppercase tracking-wide">High Risk</p>
+                        <p class="text-xs text-orange-600 mt-2">Priority action needed</p>
+                    </div>
+
+                    <!-- Medium Risk Overview -->
+                    <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl shadow-sm border-2 border-yellow-300 p-6 hover:shadow-lg transition-all">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="p-3 bg-yellow-500 rounded-lg">
+                                <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="text-4xl font-bold text-yellow-900 mb-1">156</h3>
+                        <p class="text-sm font-semibold text-yellow-700 uppercase tracking-wide">Medium Risk</p>
+                        <p class="text-xs text-yellow-600 mt-2">Monitor closely</p>
+                    </div>
+
+                    <!-- Low Risk Overview -->
+                    <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl shadow-sm border-2 border-green-300 p-6 hover:shadow-lg transition-all">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="p-3 bg-green-500 rounded-lg">
+                                <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="text-4xl font-bold text-green-900 mb-1">16,284</h3>
+                        <p class="text-sm font-semibold text-green-700 uppercase tracking-wide">Low Risk</p>
+                        <p class="text-xs text-green-600 mt-2">Acceptable state</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Critical & High Risk Cards -->
+            <div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">🔴 Critical & High Risk Requirements</h2>
+                <p class="text-gray-600 mb-6">These cards will display requirements that need immediate attention. Click on a card to view details.</p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+                    <!-- Critical Risk Card 1 -->
+                    <div class="risk-card bg-white rounded-xl shadow-lg border-l-8 border-red-500 p-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-bold bg-red-100 text-red-800 border border-red-300">
+                                    🔴 CRITICAL
+                                </span>
+                                <span class="px-3 py-1 rounded-lg text-xl font-bold bg-red-500 text-white shadow-lg">
+                                    93
+                                </span>
+                            </div>
+                            <span class="pulse-dot h-4 w-4 bg-red-500 rounded-full"></span>
+                        </div>
+
+                        <div class="mb-4">
+                            <h3 class="text-lg font-bold text-gray-900 mb-1">AHLR-042</h3>
+                            <p class="text-gray-700 font-medium">Emergency Landing System Requirements</p>
+                        </div>
+
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center text-sm text-gray-700">
+                                <span class="risk-factor-icon">⚠️</span>
+                                <span><strong>Priority:</strong> CRITICAL</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-700">
+                                <span class="risk-factor-icon">📝</span>
+                                <span><strong>Status:</strong> Draft (unstable)</span>
+                            </div>
+                            <div class="flex items-center text-sm text-red-600 font-semibold">
+                                <span class="risk-factor-icon">🔗</span>
+                                <span>Orphaned (no traceability)</span>
+                            </div>
+                            <div class="flex items-center text-sm text-red-600 font-semibold">
+                                <span class="risk-factor-icon">❌</span>
+                                <span>No test coverage</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-3 pt-4 border-t border-gray-200">
+                            <button class="flex-1 px-4 py-2 bg-red-500 text-white rounded-lg font-semibold hover:bg-red-600 transition-colors shadow-md">
+                                View Details
+                            </button>
+                            <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg font-semibold hover:bg-gray-200 transition-colors">
+                                Take Action
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Critical Risk Card 2 -->
+                    <div class="risk-card bg-white rounded-xl shadow-lg border-l-8 border-red-500 p-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-bold bg-red-100 text-red-800 border border-red-300">
+                                    🔴 CRITICAL
+                                </span>
+                                <span class="px-3 py-1 rounded-lg text-xl font-bold bg-red-500 text-white shadow-lg">
+                                    87
+                                </span>
+                            </div>
+                            <span class="pulse-dot h-4 w-4 bg-red-500 rounded-full"></span>
+                        </div>
+
+                        <div class="mb-4">
+                            <h3 class="text-lg font-bold text-gray-900 mb-1">CERT-089</h3>
+                            <p class="text-gray-700 font-medium">DO-178C Level A Software Verification</p>
+                        </div>
+
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center text-sm text-gray-700">
+                                <span class="risk-factor-icon">⚠️</span>
+                                <span><strong>Priority:</strong> CRITICAL</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-700">
+                                <span class="risk-factor-icon">📝</span>
+                                <span><strong>Status:</strong> Under Review</span>
+                            </div>
+                            <div class="flex items-center text-sm text-red-600 font-semibold">
+                                <span class="risk-factor-icon">⚠️</span>
+                                <span>Missing parent requirement</span>
+                            </div>
+                            <div class="flex items-center text-sm text-orange-600">
+                                <span class="risk-factor-icon">📊</span>
+                                <span>Only 1 test case</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-3 pt-4 border-t border-gray-200">
+                            <button class="flex-1 px-4 py-2 bg-red-500 text-white rounded-lg font-semibold hover:bg-red-600 transition-colors shadow-md">
+                                View Details
+                            </button>
+                            <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg font-semibold hover:bg-gray-200 transition-colors">
+                                Take Action
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- High Risk Card 1 -->
+                    <div class="risk-card bg-white rounded-xl shadow-md border-l-8 border-orange-500 p-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-bold bg-orange-100 text-orange-800 border border-orange-300">
+                                    🟠 HIGH
+                                </span>
+                                <span class="px-3 py-1 rounded-lg text-xl font-bold bg-orange-500 text-white shadow-lg">
+                                    72
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <h3 class="text-lg font-bold text-gray-900 mb-1">SYS-1256</h3>
+                            <p class="text-gray-700 font-medium">Hydraulic System Pressure Monitoring</p>
+                        </div>
+
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center text-sm text-gray-700">
+                                <span class="risk-factor-icon">⚠️</span>
+                                <span><strong>Priority:</strong> HIGH</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-700">
+                                <span class="risk-factor-icon">📝</span>
+                                <span><strong>Status:</strong> Approved</span>
+                            </div>
+                            <div class="flex items-center text-sm text-orange-600">
+                                <span class="risk-factor-icon">❌</span>
+                                <span>Missing test coverage (0 tests)</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <span class="risk-factor-icon">✅</span>
+                                <span>Has traceability links</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-3 pt-4 border-t border-gray-200">
+                            <button class="flex-1 px-4 py-2 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-600 transition-colors shadow-md">
+                                View Details
+                            </button>
+                            <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg font-semibold hover:bg-gray-200 transition-colors">
+                                Add Tests
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- High Risk Card 2 -->
+                    <div class="risk-card bg-white rounded-xl shadow-md border-l-8 border-orange-500 p-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-bold bg-orange-100 text-orange-800 border border-orange-300">
+                                    🟠 HIGH
+                                </span>
+                                <span class="px-3 py-1 rounded-lg text-xl font-bold bg-orange-500 text-white shadow-lg">
+                                    68
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <h3 class="text-lg font-bold text-gray-900 mb-1">TECH-4523</h3>
+                            <p class="text-gray-700 font-medium">Avionics Communication Protocol Implementation</p>
+                        </div>
+
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center text-sm text-gray-700">
+                                <span class="risk-factor-icon">⚠️</span>
+                                <span><strong>Priority:</strong> HIGH</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-700">
+                                <span class="risk-factor-icon">📝</span>
+                                <span><strong>Status:</strong> Draft</span>
+                            </div>
+                            <div class="flex items-center text-sm text-orange-600">
+                                <span class="risk-factor-icon">📊</span>
+                                <span>Limited test coverage (2 tests)</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <span class="risk-factor-icon">✅</span>
+                                <span>Has parent requirement</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-3 pt-4 border-t border-gray-200">
+                            <button class="flex-1 px-4 py-2 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-600 transition-colors shadow-md">
+                                View Details
+                            </button>
+                            <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg font-semibold hover:bg-gray-200 transition-colors">
+                                Review Draft
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Section 3: Medium & Low Risk Cards -->
+            <div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">🟡 Medium & Low Risk Examples</h2>
+                <p class="text-gray-600 mb-6">These requirements have moderate to low risk and are being monitored.</p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+                    <!-- Medium Risk Card -->
+                    <div class="risk-card bg-white rounded-xl shadow-sm border-l-4 border-yellow-500 p-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-bold bg-yellow-100 text-yellow-800 border border-yellow-300">
+                                    🟡 MEDIUM
+                                </span>
+                                <span class="px-3 py-1 rounded-lg text-lg font-bold bg-yellow-500 text-white">
+                                    52
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <h3 class="text-lg font-bold text-gray-900 mb-1">SYS-2341</h3>
+                            <p class="text-gray-700 font-medium">Cabin Pressure Control System Specifications</p>
+                        </div>
+
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center text-sm text-gray-700">
+                                <span class="risk-factor-icon">⚠️</span>
+                                <span><strong>Priority:</strong> MEDIUM</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-700">
+                                <span class="risk-factor-icon">📝</span>
+                                <span><strong>Status:</strong> Approved</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <span class="risk-factor-icon">📊</span>
+                                <span>3 test cases</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <span class="risk-factor-icon">✅</span>
+                                <span>Full traceability</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-3 pt-4 border-t border-gray-200">
+                            <button class="flex-1 px-4 py-2 bg-yellow-500 text-white rounded-lg font-semibold hover:bg-yellow-600 transition-colors">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Low Risk Card -->
+                    <div class="risk-card bg-white rounded-xl shadow-sm border-l-4 border-green-500 p-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-bold bg-green-100 text-green-800 border border-green-300">
+                                    🟢 LOW
+                                </span>
+                                <span class="px-3 py-1 rounded-lg text-lg font-bold bg-green-500 text-white">
+                                    18
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <h3 class="text-lg font-bold text-gray-900 mb-1">TECH-8792</h3>
+                            <p class="text-gray-700 font-medium">Interior Lighting Control System</p>
+                        </div>
+
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center text-sm text-gray-700">
+                                <span class="risk-factor-icon">✓</span>
+                                <span><strong>Priority:</strong> LOW</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-700">
+                                <span class="risk-factor-icon">✅</span>
+                                <span><strong>Status:</strong> Approved</span>
+                            </div>
+                            <div class="flex items-center text-sm text-green-700">
+                                <span class="risk-factor-icon">✅</span>
+                                <span>8 test cases (all passing)</span>
+                            </div>
+                            <div class="flex items-center text-sm text-green-700">
+                                <span class="risk-factor-icon">✅</span>
+                                <span>Fully compliant & traced</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-3 pt-4 border-t border-gray-200">
+                            <button class="flex-1 px-4 py-2 bg-green-500 text-white rounded-lg font-semibold hover:bg-green-600 transition-colors">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Section 4: Risk Badges for Lists -->
+            <div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">🏷️ Risk Badges for Requirements List</h2>
+                <p class="text-gray-600 mb-6">Small badges that will appear in the requirements table to quickly identify risk levels.</p>
+
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full">
+                            <thead>
+                                <tr class="border-b-2 border-gray-200">
+                                    <th class="text-left py-3 px-4 font-semibold text-gray-700">ID</th>
+                                    <th class="text-left py-3 px-4 font-semibold text-gray-700">Title</th>
+                                    <th class="text-left py-3 px-4 font-semibold text-gray-700">Type</th>
+                                    <th class="text-left py-3 px-4 font-semibold text-gray-700">Status</th>
+                                    <th class="text-left py-3 px-4 font-semibold text-gray-700">Risk</th>
+                                    <th class="text-left py-3 px-4 font-semibold text-gray-700">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                    <td class="py-3 px-4 font-mono text-sm">AHLR-042</td>
+                                    <td class="py-3 px-4">Emergency Landing System</td>
+                                    <td class="py-3 px-4"><span class="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-semibold">AHLR</span></td>
+                                    <td class="py-3 px-4"><span class="px-2 py-1 bg-yellow-100 text-yellow-700 rounded text-xs font-semibold">Draft</span></td>
+                                    <td class="py-3 px-4">
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-red-100 text-red-800 border border-red-300">
+                                            🔴 93
+                                        </span>
+                                    </td>
+                                    <td class="py-3 px-4"><button class="text-blue-600 hover:text-blue-800 text-sm font-medium">View</button></td>
+                                </tr>
+                                <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                    <td class="py-3 px-4 font-mono text-sm">SYS-1256</td>
+                                    <td class="py-3 px-4">Hydraulic System Pressure</td>
+                                    <td class="py-3 px-4"><span class="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-semibold">System</span></td>
+                                    <td class="py-3 px-4"><span class="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-semibold">Approved</span></td>
+                                    <td class="py-3 px-4">
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-orange-100 text-orange-800 border border-orange-300">
+                                            🟠 72
+                                        </span>
+                                    </td>
+                                    <td class="py-3 px-4"><button class="text-blue-600 hover:text-blue-800 text-sm font-medium">View</button></td>
+                                </tr>
+                                <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                    <td class="py-3 px-4 font-mono text-sm">SYS-2341</td>
+                                    <td class="py-3 px-4">Cabin Pressure Control</td>
+                                    <td class="py-3 px-4"><span class="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-semibold">System</span></td>
+                                    <td class="py-3 px-4"><span class="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-semibold">Approved</span></td>
+                                    <td class="py-3 px-4">
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-yellow-100 text-yellow-800 border border-yellow-300">
+                                            🟡 52
+                                        </span>
+                                    </td>
+                                    <td class="py-3 px-4"><button class="text-blue-600 hover:text-blue-800 text-sm font-medium">View</button></td>
+                                </tr>
+                                <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                    <td class="py-3 px-4 font-mono text-sm">TECH-8792</td>
+                                    <td class="py-3 px-4">Interior Lighting Control</td>
+                                    <td class="py-3 px-4"><span class="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs font-semibold">Technical</span></td>
+                                    <td class="py-3 px-4"><span class="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-semibold">Approved</span></td>
+                                    <td class="py-3 px-4">
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-100 text-green-800 border border-green-300">
+                                            🟢 18
+                                        </span>
+                                    </td>
+                                    <td class="py-3 px-4"><button class="text-blue-600 hover:text-blue-800 text-sm font-medium">View</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5: Full Dashboard Preview -->
+            <div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">📱 Full Dashboard Integration Preview</h2>
+                <p class="text-gray-600 mb-6">How the risk cards will integrate into the existing dashboard layout.</p>
+
+                <div class="bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl p-6 space-y-6">
+                    <!-- Simulated Dashboard -->
+                    <div class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl shadow-lg p-6 text-white">
+                        <h2 class="text-2xl font-bold mb-2">Welcome back, Admin!</h2>
+                        <p class="text-blue-100">Here's what's happening with your requirements today.</p>
+                    </div>
+
+                    <!-- Risk Overview (NEW) -->
+                    <div class="bg-white bg-opacity-50 rounded-lg p-4 border-2 border-blue-500">
+                        <div class="text-sm font-semibold text-blue-700 mb-2">🆕 NEW: Risk Overview Section</div>
+                        <div class="grid grid-cols-4 gap-3 opacity-75">
+                            <div class="bg-red-100 rounded-lg p-3 text-center">
+                                <div class="text-2xl font-bold text-red-900">12</div>
+                                <div class="text-xs text-red-700">Critical</div>
+                            </div>
+                            <div class="bg-orange-100 rounded-lg p-3 text-center">
+                                <div class="text-2xl font-bold text-orange-900">48</div>
+                                <div class="text-xs text-orange-700">High</div>
+                            </div>
+                            <div class="bg-yellow-100 rounded-lg p-3 text-center">
+                                <div class="text-2xl font-bold text-yellow-900">156</div>
+                                <div class="text-xs text-yellow-700">Medium</div>
+                            </div>
+                            <div class="bg-green-100 rounded-lg p-3 text-center">
+                                <div class="text-2xl font-bold text-green-900">16,284</div>
+                                <div class="text-xs text-green-700">Low</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Existing Key Metrics -->
+                    <div class="bg-white rounded-lg p-4">
+                        <div class="text-sm font-semibold text-gray-700 mb-2">✅ EXISTING: Key Metrics Cards</div>
+                        <div class="grid grid-cols-4 gap-3 opacity-50">
+                            <div class="bg-gray-100 rounded-lg p-3 h-20"></div>
+                            <div class="bg-gray-100 rounded-lg p-3 h-20"></div>
+                            <div class="bg-gray-100 rounded-lg p-3 h-20"></div>
+                            <div class="bg-gray-100 rounded-lg p-3 h-20"></div>
+                        </div>
+                    </div>
+
+                    <!-- High Risk Cards (NEW) -->
+                    <div class="bg-white bg-opacity-50 rounded-lg p-4 border-2 border-blue-500">
+                        <div class="text-sm font-semibold text-blue-700 mb-2">🆕 NEW: High-Risk Requirements Section</div>
+                        <div class="grid grid-cols-2 gap-3 opacity-75">
+                            <div class="bg-red-50 rounded-lg p-3 border-l-4 border-red-500 h-32"></div>
+                            <div class="bg-red-50 rounded-lg p-3 border-l-4 border-red-500 h-32"></div>
+                        </div>
+                    </div>
+
+                    <!-- Existing Charts -->
+                    <div class="bg-white rounded-lg p-4">
+                        <div class="text-sm font-semibold text-gray-700 mb-2">✅ EXISTING: Charts & Analytics</div>
+                        <div class="grid grid-cols-2 gap-3 opacity-50">
+                            <div class="bg-gray-100 rounded-lg p-3 h-32"></div>
+                            <div class="bg-gray-100 rounded-lg p-3 h-32"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Note -->
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-lg">
+                <div class="flex items-start">
+                    <div class="flex-shrink-0">
+                        <svg class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h3 class="text-lg font-semibold text-blue-900">📋 Design Feedback</h3>
+                        <div class="mt-2 text-sm text-blue-700 space-y-2">
+                            <p><strong>What you're seeing:</strong></p>
+                            <ul class="list-disc list-inside space-y-1 ml-2">
+                                <li>Risk overview cards showing distribution of risk levels</li>
+                                <li>Detailed risk cards for critical and high-risk requirements</li>
+                                <li>Risk badges for requirements lists</li>
+                                <li>How everything integrates into the existing dashboard</li>
+                            </ul>
+                            <p class="mt-4"><strong>Key Features:</strong></p>
+                            <ul class="list-disc list-inside space-y-1 ml-2">
+                                <li>Color-coded by risk level (Red → Orange → Yellow → Green)</li>
+                                <li>Hover effects for interactivity</li>
+                                <li>Clear visual hierarchy and information density</li>
+                                <li>Actionable buttons (View Details, Take Action)</li>
+                                <li>All existing functionality preserved</li>
+                            </ul>
+                            <p class="mt-4"><strong>Next Steps:</strong> Please review this mockup and let me know if you'd like any design adjustments before implementation!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Add some interactivity to demonstrate hover states
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('✅ Risk Cards Mockup Loaded Successfully');
+            console.log('💡 Hover over risk cards to see hover effects');
+            console.log('🎨 All designs use Tailwind CSS for consistency');
+        });
+    </script>
+</body>
+</html>

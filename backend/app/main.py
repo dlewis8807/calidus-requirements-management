@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.config import get_settings
-from app.api import auth, requirements, test_cases, traceability, users, compliance
+from app.api import auth, requirements, test_cases, traceability, users, compliance, risk
 
 settings = get_settings()
 
@@ -42,3 +42,4 @@ app.include_router(requirements.router, prefix="/api")
 app.include_router(test_cases.router, prefix="/api")
 app.include_router(traceability.router, prefix="/api")
 app.include_router(compliance.router)
+app.include_router(risk.router)
