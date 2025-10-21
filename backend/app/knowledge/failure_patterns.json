@@ -1,0 +1,313 @@
+{
+  "patterns": [
+    {
+      "rule_id": "WEIGHT_CALC_001",
+      "name": "Weight Calculation Discrepancy",
+      "category": "Weight and Balance",
+      "failure_patterns": [
+        "expected.*\\d+.*lbs.*got.*\\d+.*lbs",
+        "weight.*exceeds.*limit",
+        "takeoff.*weight.*invalid"
+      ],
+      "keywords": ["weight", "lbs", "exceeds", "maximum", "fuel", "passenger"],
+      "requirement_types": ["Certification", "System"],
+      "root_causes": [
+        {
+          "cause": "Fuel density calculation using standard day conditions instead of actual temperature",
+          "likelihood": 0.85,
+          "indicators": ["fuel", "density", "temperature"],
+          "affected_components": ["FuelCalculator", "WeightAndBalance"],
+          "regulatory_impact": "14 CFR §23.2005 compliance risk"
+        },
+        {
+          "cause": "Passenger weight average outdated (old FAA standard)",
+          "likelihood": 0.70,
+          "indicators": ["passenger", "average", "weight"],
+          "affected_components": ["PassengerWeightModule"]
+        }
+      ],
+      "suggestions": [
+        {
+          "priority": 1,
+          "action": "Update fuel density calculation to use actual ambient temperature",
+          "details": "Modify FuelCalculator to accept temperature parameter and use correct density tables",
+          "code_locations": [
+            "backend/services/fuel_calculator.py:45",
+            "backend/utils/density_tables.py"
+          ],
+          "verification_steps": [
+            "Review fuel density lookup table implementation",
+            "Verify temperature sensor integration",
+            "Test with extreme temperature values (-40°C to +50°C)"
+          ],
+          "estimated_effort_hours": 4.0
+        },
+        {
+          "priority": 2,
+          "action": "Update passenger weight average to current FAA standard (190 lbs)",
+          "details": "Update PASSENGER_WEIGHT_AVG constant per FAA AC 120-27F",
+          "code_locations": ["backend/config.py:23"],
+          "verification_steps": [
+            "Update configuration constant",
+            "Re-run all weight calculation tests",
+            "Update documentation"
+          ],
+          "estimated_effort_hours": 1.0
+        }
+      ]
+    },
+    {
+      "rule_id": "STALL_SPEED_001",
+      "name": "Stall Speed Exceedance",
+      "category": "Aerodynamics",
+      "failure_patterns": [
+        "stall.*speed.*exceeds",
+        "vs0.*greater than.*61",
+        "landing.*configuration.*invalid"
+      ],
+      "keywords": ["stall", "speed", "vs0", "knots", "kcas", "landing"],
+      "requirement_types": ["Technical", "Certification"],
+      "root_causes": [
+        {
+          "cause": "Flap deflection not reaching full landing position",
+          "likelihood": 0.80,
+          "indicators": ["flap", "deflection", "angle", "landing"],
+          "affected_components": ["FlapActuator", "FlightControlSystem"]
+        },
+        {
+          "cause": "Weight calculation including non-landing configuration items",
+          "likelihood": 0.65,
+          "indicators": ["weight", "landing", "configuration"],
+          "affected_components": ["WeightModule", "ConfigurationManager"]
+        }
+      ],
+      "suggestions": [
+        {
+          "priority": 1,
+          "action": "Verify flap actuator reaches full landing deflection",
+          "details": "Check flap position sensor readings and compare with design specification",
+          "code_locations": [
+            "backend/services/flap_control.py",
+            "backend/sensors/flap_position.py"
+          ],
+          "verification_steps": [
+            "Review flap position sensor calibration",
+            "Test flap deployment in landing configuration",
+            "Verify mechanical linkage integrity"
+          ],
+          "estimated_effort_hours": 6.0
+        }
+      ]
+    },
+    {
+      "rule_id": "AUTOPILOT_001",
+      "name": "Autopilot Engagement Failure",
+      "category": "AutoPilot",
+      "failure_patterns": [
+        "autopilot.*engagement.*failed",
+        "ap.*mode.*invalid",
+        "autopilot.*not responding"
+      ],
+      "keywords": ["autopilot", "engagement", "mode", "ap", "failed"],
+      "requirement_types": ["System", "Technical"],
+      "root_causes": [
+        {
+          "cause": "Sensor data not available or invalid before engagement",
+          "likelihood": 0.75,
+          "indicators": ["sensor", "data", "invalid", "unavailable"],
+          "affected_components": ["SensorModule", "AutopilotController"]
+        },
+        {
+          "cause": "Pre-engagement checks too strict or incorrect",
+          "likelihood": 0.60,
+          "indicators": ["check", "validation", "criteria"],
+          "affected_components": ["EngagementValidator"]
+        }
+      ],
+      "suggestions": [
+        {
+          "priority": 1,
+          "action": "Review autopilot engagement preconditions",
+          "details": "Verify all required sensors are available and within valid ranges",
+          "code_locations": [
+            "backend/autopilot/engagement.py",
+            "backend/autopilot/pre_checks.py"
+          ],
+          "verification_steps": [
+            "List all required sensors for AP engagement",
+            "Verify sensor health checks",
+            "Test edge cases (marginal sensor values)"
+          ],
+          "estimated_effort_hours": 5.0
+        }
+      ]
+    },
+    {
+      "rule_id": "AVIONICS_DISPLAY_001",
+      "name": "Display Refresh Rate Issue",
+      "category": "Avionics",
+      "failure_patterns": [
+        "display.*refresh.*slow",
+        "frame.*rate.*below",
+        "update.*delayed"
+      ],
+      "keywords": ["display", "refresh", "frame", "rate", "fps", "lag"],
+      "requirement_types": ["Technical", "System"],
+      "root_causes": [
+        {
+          "cause": "Graphics processing overload from rendering complex symbology",
+          "likelihood": 0.70,
+          "indicators": ["graphics", "rendering", "symbology", "cpu"],
+          "affected_components": ["DisplayRenderer", "GraphicsEngine"]
+        }
+      ],
+      "suggestions": [
+        {
+          "priority": 1,
+          "action": "Optimize display rendering pipeline",
+          "details": "Review rendering code for inefficiencies, consider GPU acceleration",
+          "code_locations": ["frontend/avionics/display_renderer.py"],
+          "verification_steps": [
+            "Profile rendering performance",
+            "Identify bottlenecks",
+            "Implement optimization"
+          ],
+          "estimated_effort_hours": 8.0
+        }
+      ]
+    },
+    {
+      "rule_id": "DATABASE_TIMEOUT_001",
+      "name": "Database Query Timeout",
+      "category": "Database",
+      "failure_patterns": [
+        "database.*timeout",
+        "query.*exceeded.*time",
+        "connection.*timeout"
+      ],
+      "keywords": ["database", "timeout", "query", "connection"],
+      "requirement_types": ["System", "Technical"],
+      "root_causes": [
+        {
+          "cause": "Missing database index on frequently queried columns",
+          "likelihood": 0.80,
+          "indicators": ["query", "slow", "index"],
+          "affected_components": ["Database", "QueryOptimizer"]
+        },
+        {
+          "cause": "Large dataset causing full table scan",
+          "likelihood": 0.70,
+          "indicators": ["table", "scan", "large"],
+          "affected_components": ["Database"]
+        }
+      ],
+      "suggestions": [
+        {
+          "priority": 1,
+          "action": "Add database indexes on queried columns",
+          "details": "Analyze query patterns and add appropriate indexes",
+          "code_locations": ["backend/models/", "alembic/versions/"],
+          "verification_steps": [
+            "Review slow query logs",
+            "Identify missing indexes",
+            "Create migration to add indexes",
+            "Measure query performance improvement"
+          ],
+          "estimated_effort_hours": 3.0
+        }
+      ]
+    },
+    {
+      "rule_id": "API_INTEGRATION_001",
+      "name": "External API Connection Failure",
+      "category": "Integration",
+      "failure_patterns": [
+        "connection.*refused",
+        "api.*unavailable",
+        "network.*error"
+      ],
+      "keywords": ["connection", "api", "network", "refused", "unavailable"],
+      "requirement_types": ["System", "Integration"],
+      "root_causes": [
+        {
+          "cause": "External service temporarily unavailable",
+          "likelihood": 0.60,
+          "indicators": ["unavailable", "503", "timeout"],
+          "affected_components": ["ExternalAPIClient", "NetworkModule"]
+        },
+        {
+          "cause": "API credentials expired or invalid",
+          "likelihood": 0.50,
+          "indicators": ["unauthorized", "401", "403", "credentials"],
+          "affected_components": ["AuthenticationModule"]
+        }
+      ],
+      "suggestions": [
+        {
+          "priority": 1,
+          "action": "Implement retry logic with exponential backoff",
+          "details": "Add retry mechanism for transient failures",
+          "code_locations": ["backend/services/api_client.py"],
+          "verification_steps": [
+            "Add retry decorator to API calls",
+            "Configure retry parameters",
+            "Test with simulated failures"
+          ],
+          "estimated_effort_hours": 2.0
+        },
+        {
+          "priority": 2,
+          "action": "Verify API credentials are current",
+          "details": "Check credential expiration and refresh if needed",
+          "code_locations": ["backend/config.py", ".env"],
+          "verification_steps": [
+            "Check credential expiration dates",
+            "Test API authentication",
+            "Update credentials if needed"
+          ],
+          "estimated_effort_hours": 1.0
+        }
+      ]
+    },
+    {
+      "rule_id": "VALIDATION_ERROR_001",
+      "name": "Data Validation Failure",
+      "category": "Validation",
+      "failure_patterns": [
+        "validation.*failed",
+        "invalid.*data",
+        "schema.*mismatch"
+      ],
+      "keywords": ["validation", "invalid", "schema", "format"],
+      "requirement_types": ["Technical", "System"],
+      "root_causes": [
+        {
+          "cause": "Input data format changed but validation schema not updated",
+          "likelihood": 0.75,
+          "indicators": ["format", "schema", "changed"],
+          "affected_components": ["ValidationModule", "SchemaDefinition"]
+        },
+        {
+          "cause": "Missing required fields in input data",
+          "likelihood": 0.65,
+          "indicators": ["required", "missing", "field"],
+          "affected_components": ["InputProcessor"]
+        }
+      ],
+      "suggestions": [
+        {
+          "priority": 1,
+          "action": "Update validation schema to match current data format",
+          "details": "Review schema definition and update to match API contract",
+          "code_locations": ["backend/schemas/", "backend/models/"],
+          "verification_steps": [
+            "Compare current data format with schema",
+            "Update schema definitions",
+            "Add test cases for new format"
+          ],
+          "estimated_effort_hours": 2.5
+        }
+      ]
+    }
+  ]
+}

@@ -232,31 +232,32 @@ async def get_test_case(
 
     tc_response = _build_test_case_response(test_case)
 
+    req_response = RequirementResponse(
+        id=test_case.requirement.id,
+        requirement_id=test_case.requirement.requirement_id,
+        type=test_case.requirement.type,
+        category=test_case.requirement.category,
+        title=test_case.requirement.title,
+        description=test_case.requirement.description,
+        priority=test_case.requirement.priority,
+        status=test_case.requirement.status,
+        verification_method=test_case.requirement.verification_method,
+        regulatory_document=test_case.requirement.regulatory_document,
+        regulatory_section=test_case.requirement.regulatory_section,
+        regulatory_page=test_case.requirement.regulatory_page,
+        file_path=test_case.requirement.file_path,
+        version=test_case.requirement.version,
+        created_by_id=test_case.requirement.created_by_id,
+        created_at=test_case.requirement.created_at,
+        updated_at=test_case.requirement.updated_at,
+        test_case_count=0,
+        parent_trace_count=0,
+        child_trace_count=0
+    )
+
     return TestCaseWithRequirement(
         **tc_response.model_dump(),
-        requirement=RequirementResponse(
-            id=test_case.requirement.id,
-            requirement_id=test_case.requirement.requirement_id,
-            type=test_case.requirement.type,
-            category=test_case.requirement.category,
-            title=test_case.requirement.title,
-            description=test_case.requirement.description,
-            priority=test_case.requirement.priority,
-            status=test_case.requirement.status,
-            verification_method=test_case.requirement.verification_method,
-            regulatory_document=test_case.requirement.regulatory_document,
-            regulatory_section=test_case.requirement.regulatory_section,
-            regulatory_page=test_case.requirement.regulatory_page,
-            file_path=test_case.requirement.file_path,
-            version=test_case.requirement.version,
-            revision_notes=test_case.requirement.revision_notes,
-            created_by_id=test_case.requirement.created_by_id,
-            created_at=test_case.requirement.created_at,
-            updated_at=test_case.requirement.updated_at,
-            test_case_count=0,
-            parent_trace_count=0,
-            child_trace_count=0
-        )
+        requirement=req_response.model_dump()
     )
 
 

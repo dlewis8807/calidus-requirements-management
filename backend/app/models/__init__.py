@@ -19,6 +19,11 @@ from app.models.traceability import (
     TraceabilityLink,
     TraceLinkType
 )
+from app.models.test_suggestion import (
+    TestCaseSuggestion,
+    SuggestionFeedback,
+    FailurePattern
+)
 
 __all__ = [
     "User",
@@ -32,4 +37,7 @@ __all__ = [
     "TestCasePriority",
     "TraceabilityLink",
     "TraceLinkType",
+    "TestCaseSuggestion",
+    "SuggestionFeedback",
+    "FailurePattern",
 ]

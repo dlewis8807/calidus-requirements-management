@@ -71,6 +71,7 @@ class TestCase(Base):
     # Relationships
     requirement = relationship("Requirement", back_populates="test_cases")
     created_by = relationship("User", back_populates="test_cases")
+    suggestions = relationship("TestCaseSuggestion", back_populates="test_case", cascade="all, delete-orphan")
 
     def __repr__(self):
         return f"<TestCase {self.test_case_id}: {self.title}>"

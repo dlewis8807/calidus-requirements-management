@@ -1,0 +1,68 @@
+{
+  "rules": [
+    {
+      "rule_id": "FAA_PART23_WEIGHT",
+      "regulation": "14 CFR §23.2005",
+      "title": "Maximum Takeoff Weight Limits",
+      "description": "Aircraft must not exceed 12,500 lbs for Part 23 certification",
+      "failure_indicators": ["weight", "exceeds", "12500", "lbs"],
+      "remediation": "Review weight calculations and ensure all components are properly accounted for"
+    },
+    {
+      "rule_id": "FAA_PART23_STALL",
+      "regulation": "14 CFR §23.2110",
+      "title": "Stall Speed Requirements",
+      "description": "VS0 must not exceed 61 KCAS in landing configuration",
+      "failure_indicators": ["stall", "vs0", "61", "knots"],
+      "remediation": "Verify flap configuration and weight assumptions for stall speed calculation"
+    },
+    {
+      "rule_id": "DO178C_TIMING",
+      "regulation": "DO-178C",
+      "title": "Real-Time Performance Requirements",
+      "description": "Critical functions must meet timing requirements",
+      "failure_indicators": ["timeout", "delay", "latency", "response time"],
+      "remediation": "Analyze execution timing and optimize critical code paths"
+    },
+    {
+      "rule_id": "FAA_PART23_AUTOPILOT",
+      "regulation": "14 CFR §23.2510",
+      "title": "Autopilot System Requirements",
+      "description": "Autopilot must have appropriate failure annunciation",
+      "failure_indicators": ["autopilot", "engagement", "failure", "annunciation"],
+      "remediation": "Verify autopilot engagement criteria and failure detection logic"
+    },
+    {
+      "rule_id": "EASA_CS23_FUEL",
+      "regulation": "CS-23 §23.955",
+      "title": "Fuel System Requirements",
+      "description": "Fuel system must function properly under all conditions",
+      "failure_indicators": ["fuel", "system", "pressure", "flow"],
+      "remediation": "Check fuel system components and sensor readings"
+    },
+    {
+      "rule_id": "FAA_PART23_PERFORMANCE",
+      "regulation": "14 CFR §23.2115",
+      "title": "Performance Data",
+      "description": "Performance data must be determined for weight, altitude, and temperature",
+      "failure_indicators": ["performance", "altitude", "temperature", "weight"],
+      "remediation": "Verify performance calculations account for environmental conditions"
+    },
+    {
+      "rule_id": "DO178C_ROBUSTNESS",
+      "regulation": "DO-178C Table A-4",
+      "title": "Robustness Testing",
+      "description": "Software must handle abnormal inputs and conditions",
+      "failure_indicators": ["exception", "crash", "abnormal", "invalid input"],
+      "remediation": "Add input validation and error handling for edge cases"
+    },
+    {
+      "rule_id": "FAA_PART23_DISPLAY",
+      "regulation": "14 CFR §23.2605",
+      "title": "Flight and Navigation Instruments",
+      "description": "Instruments must be visible and readable under all conditions",
+      "failure_indicators": ["display", "visibility", "readability", "refresh"],
+      "remediation": "Optimize display rendering and ensure proper contrast ratios"
+    }
+  ]
+}
