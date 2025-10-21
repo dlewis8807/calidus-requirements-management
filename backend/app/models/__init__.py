@@ -24,6 +24,13 @@ from app.models.test_suggestion import (
     SuggestionFeedback,
     FailurePattern
 )
+from app.models.impact_analysis import (
+    ImpactAnalysisReport,
+    ChangeRequest,
+    RiskLevel,
+    ChangeRequestStatus
+)
+from app.models.coverage import CoverageSnapshot
 
 __all__ = [
     "User",
@@ -40,4 +47,9 @@ __all__ = [
     "TestCaseSuggestion",
     "SuggestionFeedback",
     "FailurePattern",
+    "ImpactAnalysisReport",
+    "ChangeRequest",
+    "RiskLevel",
+    "ChangeRequestStatus",
+    "CoverageSnapshot",
 ]

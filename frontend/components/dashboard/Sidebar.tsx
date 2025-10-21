@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useState } from 'react';
 import {
   HomeIcon,
   DocumentTextIcon,
@@ -12,6 +13,10 @@ import {
   ArrowLeftOnRectangleIcon,
   ExclamationTriangleIcon,
   ShieldExclamationIcon,
+  BoltIcon,
+  ChartBarIcon,
+  ChevronDownIcon,
+  ChevronRightIcon,
 } from '@heroicons/react/24/outline';
 
 interface SidebarProps {
@@ -19,20 +24,71 @@ interface SidebarProps {
   onClose: () => void;
 }
 
-const navigation = [
+interface NavItem {
+  name: string;
+  href?: string;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  adminOnly?: boolean;
+  children?: Array<{
+    name: string;
+    href: string;
+    icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  }>;
+}
+
+const navigation: NavItem[] = [
   { name: 'Dashboard', href: '/dashboard', icon: HomeIcon },
-  { name: 'Requirements', href: '/dashboard/requirements', icon: DocumentTextIcon },
-  { name: 'Test Cases', href: '/dashboard/test-cases', icon: BeakerIcon },
+  {
+    name: 'Requirements',
+    href: '/dashboard/requirements',
+    icon: DocumentTextIcon,
+    children: [
+      { name: 'Impact Analysis', href: '/dashboard/impact-analysis', icon: BoltIcon },
+      { name: 'Conflicts', href: '/dashboard/conflicts', icon: ExclamationTriangleIcon },
+      { name: 'Compliance', href: '/dashboard/compliance', icon: DocumentTextIcon },
+    ]
+  },
+  {
+    name: 'Test Cases',
+    href: '/dashboard/test-cases',
+    icon: BeakerIcon,
+    children: [
+      { name: 'Coverage', href: '/dashboard/coverage', icon: ChartBarIcon },
+    ]
+  },
   { name: 'Traceability', href: '/dashboard/traceability', icon: ArrowsRightLeftIcon },
   { name: 'Risk Assessment', href: '/dashboard/risk', icon: ShieldExclamationIcon },
-  { name: 'Conflicts', href: '/dashboard/conflicts', icon: ExclamationTriangleIcon },
-  { name: 'Compliance', href: '/dashboard/compliance', icon: DocumentTextIcon },
   { name: 'Users', href: '/dashboard/admin/users', icon: UserGroupIcon, adminOnly: true },
   { name: 'Settings', href: '/dashboard/settings', icon: Cog6ToothIcon },
 ];
 
 export default function Sidebar({ isOpen, onClose }: SidebarProps) {
   const pathname = usePathname();
+  const [expandedItems, setExpandedItems] = useState<string[]>([]);
+
+  // Auto-expand parent items if child is active
+  useState(() => {
+    const expanded: string[] = [];
+    navigation.forEach(item => {
+      if (item.children) {
+        const hasActiveChild = item.children.some(child =>
+          pathname === child.href || pathname?.startsWith(child.href + '/')
+        );
+        if (hasActiveChild) {
+          expanded.push(item.name);
+        }
+      }
+    });
+    setExpandedItems(expanded);
+  });
+
+  const toggleExpanded = (itemName: string) => {
+    setExpandedItems(prev =>
+      prev.includes(itemName)
+        ? prev.filter(name => name !== itemName)
+        : [...prev, itemName]
+    );
+  };
 
   const handleLogout = () => {
     localStorage.removeItem('token');
@@ -81,31 +137,88 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
           {/* Navigation */}
           <nav className="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
             {navigation.map((item) => {
-              const isActive = pathname === item.href || pathname?.startsWith(item.href + '/');
+              const isActive = item.href && (pathname === item.href || pathname?.startsWith(item.href + '/'));
+              const isExpanded = expandedItems.includes(item.name);
+              const hasChildren = item.children && item.children.length > 0;
+
               return (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className={`
-                    flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-colors
-                    ${isActive
-                      ? 'bg-blue-50 text-blue-600'
-                      : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
-                    }
-                  `}
-                  style={isActive ? { backgroundColor: '#EBF3FE', color: '#3B7DDD' } : {}}
-                >
-                  <item.icon
-                    className={`mr-3 h-5 w-5 ${isActive ? 'text-blue-600' : 'text-gray-400'}`}
-                    style={isActive ? { color: '#3B7DDD' } : {}}
-                  />
-                  {item.name}
-                  {item.adminOnly && (
-                    <span className="ml-auto px-2 py-0.5 text-xs font-semibold bg-orange-100 text-orange-700 rounded">
-                      Admin
-                    </span>
+                <div key={item.name}>
+                  {/* Parent Item */}
+                  <div className="flex items-center">
+                    {item.href ? (
+                      <Link
+                        href={item.href}
+                        className={`
+                          flex items-center flex-1 px-4 py-3 text-sm font-medium rounded-lg transition-colors
+                          ${isActive && !hasChildren
+                            ? 'bg-blue-50 text-blue-600'
+                            : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
+                          }
+                        `}
+                        style={isActive && !hasChildren ? { backgroundColor: '#EBF3FE', color: '#3B7DDD' } : {}}
+                      >
+                        <item.icon
+                          className={`mr-3 h-5 w-5 ${isActive && !hasChildren ? 'text-blue-600' : 'text-gray-400'}`}
+                          style={isActive && !hasChildren ? { color: '#3B7DDD' } : {}}
+                        />
+                        {item.name}
+                        {item.adminOnly && (
+                          <span className="ml-auto px-2 py-0.5 text-xs font-semibold bg-orange-100 text-orange-700 rounded">
+                            Admin
+                          </span>
+                        )}
+                      </Link>
+                    ) : (
+                      <div className="flex items-center flex-1 px-4 py-3 text-sm font-medium text-gray-700">
+                        <item.icon className="mr-3 h-5 w-5 text-gray-400" />
+                        {item.name}
+                      </div>
+                    )}
+
+                    {/* Expand/Collapse Button */}
+                    {hasChildren && (
+                      <button
+                        onClick={() => toggleExpanded(item.name)}
+                        className="p-2 hover:bg-gray-100 rounded transition-colors"
+                      >
+                        {isExpanded ? (
+                          <ChevronDownIcon className="h-4 w-4 text-gray-500" />
+                        ) : (
+                          <ChevronRightIcon className="h-4 w-4 text-gray-500" />
+                        )}
+                      </button>
+                    )}
+                  </div>
+
+                  {/* Child Items */}
+                  {hasChildren && isExpanded && (
+                    <div className="ml-6 mt-1 space-y-1">
+                      {item.children!.map((child) => {
+                        const isChildActive = pathname === child.href || pathname?.startsWith(child.href + '/');
+                        return (
+                          <Link
+                            key={child.name}
+                            href={child.href}
+                            className={`
+                              flex items-center px-4 py-2 text-sm rounded-lg transition-colors
+                              ${isChildActive
+                                ? 'bg-blue-50 text-blue-600 font-medium'
+                                : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
+                              }
+                            `}
+                            style={isChildActive ? { backgroundColor: '#EBF3FE', color: '#3B7DDD' } : {}}
+                          >
+                            <child.icon
+                              className={`mr-3 h-4 w-4 ${isChildActive ? 'text-blue-600' : 'text-gray-400'}`}
+                              style={isChildActive ? { color: '#3B7DDD' } : {}}
+                            />
+                            {child.name}
+                          </Link>
+                        );
+                      })}
+                    </div>
                   )}
-                </Link>
+                </div>
               );
             })}
           </nav>

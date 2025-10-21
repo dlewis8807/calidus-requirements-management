@@ -218,29 +218,29 @@ export default function RequirementsPage() {
             </div>
           ) : data && data.requirements.length > 0 ? (
             <>
-              <div className="overflow-x-auto">
-                <table className="min-w-full divide-y divide-gray-200">
+              <div className="overflow-x-auto max-w-full">
+                <table className="w-full divide-y divide-gray-200 table-fixed">
                   <thead className="bg-gray-50">
                     <tr>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="w-32 px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Requirement ID
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Title
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="w-28 px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Type
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="w-28 px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Status
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="w-24 px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Priority
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="w-20 px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Tests
                       </th>
-                      <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="w-28 px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Actions
                       </th>
                     </tr>
@@ -248,7 +248,7 @@ export default function RequirementsPage() {
                   <tbody className="bg-white divide-y divide-gray-200">
                     {data.requirements.map((req) => (
                       <tr key={req.id} className="hover:bg-gray-50">
-                        <td className="px-6 py-4 whitespace-nowrap">
+                        <td className="px-4 py-3 whitespace-nowrap">
                           <button
                             onClick={() => setSelectedRequirementId(req.requirement_id)}
                             className="text-sm font-medium text-blue-600 hover:text-blue-800 hover:underline cursor-pointer"
@@ -256,54 +256,54 @@ export default function RequirementsPage() {
                             {req.requirement_id}
                           </button>
                         </td>
-                        <td className="px-6 py-4">
-                          <div className="text-sm text-gray-900 max-w-md truncate">
+                        <td className="px-4 py-3">
+                          <div className="text-sm text-gray-900 truncate" title={req.title}>
                             {req.title}
                           </div>
                           {req.category && (
-                            <div className="text-xs text-gray-500 mt-1">
+                            <div className="text-xs text-gray-500 mt-1 truncate" title={req.category}>
                               {req.category}
                             </div>
                           )}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <span className={`inline-flex items-center px-2.5 py-1 text-xs font-medium rounded border ${getTypeBadge(req.type)}`}>
+                        <td className="px-4 py-3 whitespace-nowrap">
+                          <span className={`inline-flex items-center px-2 py-0.5 text-xs font-medium rounded border ${getTypeBadge(req.type)}`}>
                             {getTypeLabel(req.type)}
                           </span>
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
+                        <td className="px-4 py-3 whitespace-nowrap">
                           <Badge variant={getStatusBadge(req.status)}>
                             {getStatusLabel(req.status)}
                           </Badge>
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
+                        <td className="px-4 py-3 whitespace-nowrap">
                           <Badge variant={getPriorityBadge(req.priority)}>
                             {req.priority}
                           </Badge>
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                          {req.test_case_count || 0} tests
+                        <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
+                          {req.test_case_count || 0}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                          <div className="flex items-center justify-end space-x-2">
+                        <td className="px-4 py-3 whitespace-nowrap text-right text-sm font-medium">
+                          <div className="flex items-center justify-end space-x-1">
                             <Link
                               href={`/dashboard/requirements/${req.id}`}
-                              className="text-blue-600 hover:text-blue-900"
+                              className="text-blue-600 hover:text-blue-900 p-1"
                               title="View"
                             >
-                              <EyeIcon className="h-5 w-5" />
+                              <EyeIcon className="h-4 w-4" />
                             </Link>
                             <button
-                              className="text-gray-600 hover:text-gray-900"
+                              className="text-gray-600 hover:text-gray-900 p-1"
                               title="Edit"
                             >
-                              <PencilIcon className="h-5 w-5" />
+                              <PencilIcon className="h-4 w-4" />
                             </button>
                             <button
-                              className="text-red-600 hover:text-red-900"
+                              className="text-red-600 hover:text-red-900 p-1"
                               title="Delete"
                             >
-                              <TrashIcon className="h-5 w-5" />
+                              <TrashIcon className="h-4 w-4" />
                             </button>
                           </div>
                         </td>

@@ -89,7 +89,7 @@ class Requirement(Base):
     # Relationships
     created_by = relationship("User", back_populates="requirements")
     test_cases = relationship("TestCase", back_populates="requirement", cascade="all, delete-orphan")
-    
+
     # Traceability relationships
     parent_traces = relationship(
         "TraceabilityLink",
@@ -103,6 +103,10 @@ class Requirement(Base):
         back_populates="source",
         cascade="all, delete-orphan"
     )
+
+    # Impact analysis relationships
+    impact_reports = relationship("ImpactAnalysisReport", back_populates="requirement", cascade="all, delete-orphan")
+    change_requests = relationship("ChangeRequest", back_populates="requirement", cascade="all, delete-orphan")
 
     def __repr__(self):
         return f"<Requirement {self.requirement_id}: {self.title}>"

@@ -19,3 +19,4 @@ class User(Base):
     # Relationships
     requirements = relationship("Requirement", back_populates="created_by")
     test_cases = relationship("TestCase", back_populates="created_by")
+    coverage_snapshots = relationship("CoverageSnapshot", back_populates="created_by")

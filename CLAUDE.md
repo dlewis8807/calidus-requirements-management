@@ -6,11 +6,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **CALIDUS** is an AI-powered Requirements Management & Traceability Assistant for aerospace engineering projects. The system manages 15,000+ requirements in ENOVIA PLM systems with automated traceability, compliance checking, and test coverage analysis across UAE, USA, and EU aerospace regulations.
 
-**Current Status**: Phase 2, Week 5 (COMPLETE) - Compliance Dashboard & Risk Assessment Implemented ✅
+**Current Status**: Phase 2, Week 7 (COMPLETE) - Test Coverage Analyzer Implemented ✅
 
 **Repository**: https://github.com/zozisteam/cls-requirement_management
 
-**Last Updated**: October 21, 2025
+**Last Updated**: October 22, 2025
 
 ---
 
@@ -31,21 +31,28 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - ✅ `/dashboard/requirements` - Requirements list with filters
 - ✅ `/dashboard/requirements/[id]` - Requirement detail view
 - ✅ `/dashboard/test-cases` - Test cases management
-- ✅ `/dashboard/test-cases/[id]` - Test case detail with AI failure analysis (NEW)
+- ✅ `/dashboard/test-cases/[id]` - Test case detail with AI failure analysis
+- ✅ `/dashboard/coverage` - Test coverage analyzer with heatmap & AI suggestions (NEW)
 - ✅ `/dashboard/traceability` - Traceability matrix and gap analysis
 - ✅ `/dashboard/traceability/graph` - Interactive network graph
-- ✅ `/dashboard/compliance` - Compliance dashboard with regulatory mapping (NEW)
-- ✅ `/dashboard/risk-assessment` - Risk assessment dashboard with risk cards (NEW)
+- ✅ `/dashboard/impact-analysis` - Impact analysis for requirement changes
+- ✅ `/dashboard/conflicts` - Requirement conflicts and inconsistencies detection
+- ✅ `/dashboard/compliance` - Compliance dashboard with regulatory mapping
+- ✅ `/dashboard/risk` - Risk assessment dashboard with risk cards
 - ✅ `/dashboard/admin/users` - User management (admin only)
 
 **Backend** (http://localhost:8000):
 - ✅ `/api/auth/*` - Authentication endpoints
 - ✅ `/api/requirements/*` - Requirements CRUD
-- ✅ `/api/test-cases/*` - Test cases CRUD & intelligent failure analysis (NEW)
-- ✅ `/api/test-cases/{id}/analyze` - AI-powered test failure analysis (NEW)
+- ✅ `/api/test-cases/*` - Test cases CRUD & intelligent failure analysis
+- ✅ `/api/test-cases/{id}/analyze` - AI-powered test failure analysis
+- ✅ `/api/coverage/*` - Test coverage analysis with heatmap & AI suggestions (NEW)
+- ✅ `/api/coverage/analyze` - Comprehensive coverage analysis endpoint (NEW)
+- ✅ `/api/coverage/suggestions/{id}` - AI-generated test suggestions (NEW)
 - ✅ `/api/traceability/*` - Traceability operations & graph
 - ✅ `/api/compliance/*` - Compliance checking and regulatory mapping
-- ✅ `/api/risk-assessment/*` - Risk assessment and analysis
+- ✅ `/api/risk/*` - Risk assessment and analysis
+- ✅ `/api/impact-analysis/*` - Impact analysis for requirement changes
 - ✅ `/api/users/*` - User management
 - ✅ `/docs` - Swagger API documentation
 - ✅ `/redoc` - ReDoc API documentation
@@ -885,17 +892,21 @@ docker compose up -d
 - ✅ Risk cards with severity scoring
 - ✅ Regulatory compliance tracking
 
-### 📅 Phase 2, Week 6: Impact Analysis (NOT STARTED)
-- Impact analysis algorithm
-- Upstream/downstream traversal
-- Risk scoring
-- Change request workflow
+### ✅ Phase 2, Week 6: Impact Analysis (COMPLETE)
+- ✅ Impact analysis algorithm with graph traversal
+- ✅ Upstream/downstream dependency tracking
+- ✅ Risk scoring based on change propagation
+- ✅ Change request workflow with review process
+- ✅ Interactive impact visualization dashboard
 
-### 📅 Phase 2, Week 7: Test Coverage Analyzer (NOT STARTED)
-- Coverage heatmap (type × priority)
-- Gap identification
-- Test suggestions
-- Coverage trends
+### ✅ Phase 2, Week 7: Test Coverage Analyzer (COMPLETE)
+- ✅ Coverage heatmap visualization (type × priority matrix)
+- ✅ Gap identification with filters (5,102 uncovered requirements)
+- ✅ AI-powered test suggestions with confidence scoring
+- ✅ Coverage trends with snapshot history
+- ✅ Cascading sidebar navigation (Requirements → Impact/Conflicts/Compliance, Test Cases → Coverage)
+- ✅ Export functionality (CSV export for gaps)
+- ✅ Interactive tooltips and detailed statistics
 
 ### 📅 Phase 3 (Weeks 8-10): AI/ML Integration
 - NLP models (Sentence Transformers)
@@ -965,6 +976,6 @@ docker compose up -d
 
 ---
 
-**Last Updated**: October 21, 2025
-**Current Phase**: Phase 2, Week 5 (COMPLETE) - Compliance Dashboard & Risk Assessment Implemented
-**Status**: 16,600 requirements | 28,523 test cases | 15,093 trace links | Full compliance tracking & risk assessment ✅
+**Last Updated**: October 22, 2025
+**Current Phase**: Phase 2, Week 7 (COMPLETE) - Test Coverage Analyzer Implemented
+**Status**: 16,600 requirements | 28,523 test cases | 15,093 trace links | 69.3% test coverage | Full traceability & compliance ✅

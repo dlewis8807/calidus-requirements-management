@@ -341,3 +341,123 @@ export interface RiskFilter {
   has_test_cases?: boolean;
   has_traceability?: boolean;
 }
+
+// ============================================================================
+// Impact Analysis Types
+// ============================================================================
+
+export interface ImpactNode {
+  requirement_id: string;
+  id: number;
+  title: string;
+  type: string;
+  priority: string;
+  depth: number;
+  path: string[];
+  test_case_count: number;
+  regulatory: boolean;
+}
+
+export interface RiskScore {
+  score: number;
+  level: string;  // LOW, MEDIUM, HIGH, CRITICAL
+  factors: {
+    depth: number;
+    breadth: number;
+    critical: number;
+    test: number;
+    regulatory: number;
+    history: number;
+  };
+  explanation: string;
+}
+
+export interface ImpactAnalysisStats {
+  total_affected: number;
+  upstream_count: number;
+  downstream_count: number;
+  ahlr_count: number;
+  system_count: number;
+  technical_count: number;
+  certification_count: number;
+  critical_count: number;
+  high_count: number;
+  medium_count: number;
+  low_count: number;
+  max_depth: number;
+}
+
+export interface ImpactAnalysisResult {
+  requirement: Requirement;
+  upstream: ImpactNode[];
+  downstream: ImpactNode[];
+  risk_score: RiskScore;
+  stats: ImpactAnalysisStats;
+  affected_test_cases: number[];
+  regulatory_implications: string[];
+  recommendations: string[];
+  estimated_effort_hours: number;
+}
+
+export interface ImpactAnalysisReport {
+  id: number;
+  requirement_id: number;
+  requirement: Requirement;
+  analyzed_by_id: number;
+  analyzed_by?: {
+    id: number;
+    username: string;
+    email: string;
+  };
+  risk_score: number;
+  risk_level: string;
+  upstream_count: number;
+  downstream_count: number;
+  test_case_count: number;
+  regulatory_impact: boolean;
+  upstream_tree: ImpactNode[];
+  downstream_tree: ImpactNode[];
+  affected_requirements: number[];
+  affected_test_cases: number[];
+  recommendations: string[];
+  regulatory_implications: string[];
+  risk_factors: Record<string, number>;
+  estimated_effort_hours: number;
+  stats: ImpactAnalysisStats;
+  created_at: string;
+}
+
+export enum ChangeRequestStatus {
+  PENDING = "PENDING",
+  APPROVED = "APPROVED",
+  REJECTED = "REJECTED",
+  IMPLEMENTED = "IMPLEMENTED",
+}
+
+export interface ChangeRequest {
+  id: number;
+  requirement_id: number;
+  requirement?: Requirement;
+  impact_report_id?: number;
+  impact_report?: ImpactAnalysisReport;
+  title: string;
+  description: string;
+  justification?: string;
+  proposed_changes?: Record<string, any>;
+  status: ChangeRequestStatus;
+  requested_by_id: number;
+  requested_by?: {
+    id: number;
+    username: string;
+    email: string;
+  };
+  reviewed_by_id?: number;
+  reviewed_by?: {
+    id: number;
+    username: string;
+    email: string;
+  };
+  review_comments?: string;
+  created_at: string;
+  reviewed_at?: string;
+}

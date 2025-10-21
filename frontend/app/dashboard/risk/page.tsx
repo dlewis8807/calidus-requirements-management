@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import DashboardLayout from '@/components/dashboard/DashboardLayout';
 import { RiskOverview as RiskOverviewComponent } from '@/components/risk/RiskOverview';
 import { RiskCard } from '@/components/risk/RiskCard';
 import { riskAPI } from '@/lib/api';
@@ -75,17 +76,17 @@ export default function RiskDashboardPage() {
 
   if (loading) {
     return (
-      <div className="p-6 lg:p-8">
+      <DashboardLayout title="Risk Assessment">
         <div className="flex items-center justify-center h-64">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
         </div>
-      </div>
+      </DashboardLayout>
     );
   }
 
   if (error) {
     return (
-      <div className="p-6 lg:p-8">
+      <DashboardLayout title="Risk Assessment">
         <div className="bg-red-50 border border-red-200 rounded-lg p-4">
           <div className="flex items-center gap-2 text-red-800">
             <AlertTriangle className="w-5 h-5" />
@@ -99,22 +100,22 @@ export default function RiskDashboardPage() {
             Retry
           </button>
         </div>
-      </div>
+      </DashboardLayout>
     );
   }
 
   if (!overview) {
     return (
-      <div className="p-6 lg:p-8">
+      <DashboardLayout title="Risk Assessment">
         <div className="text-center text-gray-500 py-12">
           <p>No risk data available</p>
         </div>
-      </div>
+      </DashboardLayout>
     );
   }
 
   return (
-    <div className="p-6 lg:p-8">
+    <DashboardLayout title="Risk Assessment">
       <div className="space-y-6">
         {/* Back Button */}
         <div>
@@ -238,6 +239,6 @@ export default function RiskDashboardPage() {
           </ul>
         </div>
       </div>
-    </div>
+    </DashboardLayout>
   );
 }
