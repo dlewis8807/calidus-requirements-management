@@ -115,32 +115,31 @@ export default function RequirementsPage() {
 
   return (
     <DashboardLayout title="Requirements">
-      <div className="space-y-4">
+      <div className="space-y-6">
         {/* Header Actions */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-3 sm:space-y-0">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
           <div>
-            <h2 className="text-2xl font-bold text-gray-900">Requirements</h2>
-            <p className="mt-1 text-sm text-gray-600">
+            <h2 className="text-3xl font-bold text-gray-900">Requirements</h2>
+            <p className="mt-2 text-base text-gray-600">
               Manage and track all project requirements
             </p>
           </div>
           <div className="flex items-center space-x-3">
             <button
               onClick={() => setFilterPanelOpen(true)}
-              className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              className="inline-flex items-center px-5 py-2.5 border border-gray-200 rounded-xl text-sm font-semibold text-gray-700 bg-white hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all shadow-card"
             >
-              <FunnelIcon className="h-5 w-5 mr-2 text-gray-400" />
+              <FunnelIcon className="h-5 w-5 mr-2 text-gray-500" />
               Filters
               {activeFilterCount > 0 && (
-                <span className="ml-2 px-2 py-0.5 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">
+                <span className="ml-2 px-2.5 py-0.5 bg-primary-100 text-primary-700 text-xs font-bold rounded-full">
                   {activeFilterCount}
                 </span>
               )}
             </button>
             <Link
               href="/dashboard/requirements/new"
-              className="inline-flex items-center px-4 py-2 border border-transparent rounded-lg text-sm font-medium text-white shadow-sm hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2"
-              style={{ backgroundColor: '#3B7DDD' }}
+              className="inline-flex items-center px-5 py-2.5 border border-transparent rounded-xl text-sm font-semibold text-white shadow-card hover:shadow-card-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all bg-primary-500 hover:bg-primary-600"
             >
               <PlusIcon className="h-5 w-5 mr-2" />
               New Requirement
@@ -211,53 +210,53 @@ export default function RequirementsPage() {
         )}
 
         {/* Table */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+        <div className="bg-white rounded-card-lg shadow-card border border-gray-100 overflow-hidden">
           {loading ? (
             <div className="flex items-center justify-center h-64">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-500"></div>
             </div>
           ) : data && data.requirements.length > 0 ? (
             <>
               <div className="overflow-x-auto max-w-full">
-                <table className="w-full divide-y divide-gray-200 table-fixed">
+                <table className="w-full divide-y divide-gray-100 table-fixed">
                   <thead className="bg-gray-50">
                     <tr>
-                      <th className="w-32 px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="w-32 px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
                         Requirement ID
                       </th>
-                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
                         Title
                       </th>
-                      <th className="w-28 px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="w-28 px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
                         Type
                       </th>
-                      <th className="w-28 px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="w-28 px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
                         Status
                       </th>
-                      <th className="w-24 px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="w-24 px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
                         Priority
                       </th>
-                      <th className="w-20 px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="w-20 px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
                         Tests
                       </th>
-                      <th className="w-28 px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="w-28 px-6 py-4 text-right text-xs font-bold text-gray-700 uppercase tracking-wider">
                         Actions
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="bg-white divide-y divide-gray-200">
+                  <tbody className="bg-white divide-y divide-gray-100">
                     {data.requirements.map((req) => (
-                      <tr key={req.id} className="hover:bg-gray-50">
-                        <td className="px-4 py-3 whitespace-nowrap">
+                      <tr key={req.id} className="hover:bg-gray-50 transition-colors">
+                        <td className="px-6 py-4 whitespace-nowrap">
                           <button
                             onClick={() => setSelectedRequirementId(req.requirement_id)}
-                            className="text-sm font-medium text-blue-600 hover:text-blue-800 hover:underline cursor-pointer"
+                            className="text-sm font-semibold text-primary-600 hover:text-primary-700 hover:underline cursor-pointer"
                           >
                             {req.requirement_id}
                           </button>
                         </td>
-                        <td className="px-4 py-3">
-                          <div className="text-sm text-gray-900 truncate" title={req.title}>
+                        <td className="px-6 py-4">
+                          <div className="text-sm font-medium text-gray-900 truncate" title={req.title}>
                             {req.title}
                           </div>
                           {req.category && (
@@ -266,41 +265,41 @@ export default function RequirementsPage() {
                             </div>
                           )}
                         </td>
-                        <td className="px-4 py-3 whitespace-nowrap">
-                          <span className={`inline-flex items-center px-2 py-0.5 text-xs font-medium rounded border ${getTypeBadge(req.type)}`}>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <span className={`inline-flex items-center px-2.5 py-1 text-xs font-semibold rounded-lg border ${getTypeBadge(req.type)}`}>
                             {getTypeLabel(req.type)}
                           </span>
                         </td>
-                        <td className="px-4 py-3 whitespace-nowrap">
+                        <td className="px-6 py-4 whitespace-nowrap">
                           <Badge variant={getStatusBadge(req.status)}>
                             {getStatusLabel(req.status)}
                           </Badge>
                         </td>
-                        <td className="px-4 py-3 whitespace-nowrap">
+                        <td className="px-6 py-4 whitespace-nowrap">
                           <Badge variant={getPriorityBadge(req.priority)}>
                             {req.priority}
                           </Badge>
                         </td>
-                        <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-700">
                           {req.test_case_count || 0}
                         </td>
-                        <td className="px-4 py-3 whitespace-nowrap text-right text-sm font-medium">
-                          <div className="flex items-center justify-end space-x-1">
+                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                          <div className="flex items-center justify-end space-x-2">
                             <Link
                               href={`/dashboard/requirements/${req.id}`}
-                              className="text-blue-600 hover:text-blue-900 p-1"
+                              className="text-primary-600 hover:text-primary-700 p-1.5 hover:bg-primary-50 rounded-lg transition-colors"
                               title="View"
                             >
                               <EyeIcon className="h-4 w-4" />
                             </Link>
                             <button
-                              className="text-gray-600 hover:text-gray-900 p-1"
+                              className="text-gray-600 hover:text-gray-700 p-1.5 hover:bg-gray-100 rounded-lg transition-colors"
                               title="Edit"
                             >
                               <PencilIcon className="h-4 w-4" />
                             </button>
                             <button
-                              className="text-red-600 hover:text-red-900 p-1"
+                              className="text-red-600 hover:text-red-700 p-1.5 hover:bg-red-50 rounded-lg transition-colors"
                               title="Delete"
                             >
                               <TrashIcon className="h-4 w-4" />

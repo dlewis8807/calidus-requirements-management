@@ -78,7 +78,7 @@ export default function RiskDashboardPage() {
     return (
       <DashboardLayout title="Risk Assessment">
         <div className="flex items-center justify-center h-64">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-500"></div>
         </div>
       </DashboardLayout>
     );
@@ -87,15 +87,15 @@ export default function RiskDashboardPage() {
   if (error) {
     return (
       <DashboardLayout title="Risk Assessment">
-        <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-          <div className="flex items-center gap-2 text-red-800">
-            <AlertTriangle className="w-5 h-5" />
-            <span className="font-medium">Error loading risk data</span>
+        <div className="bg-red-50 border border-red-100 rounded-card-lg shadow-card p-8">
+          <div className="flex items-center gap-3 text-red-800">
+            <AlertTriangle className="w-6 h-6" />
+            <span className="font-semibold text-lg">Error loading risk data</span>
           </div>
-          <p className="text-sm text-red-600 mt-1">{error}</p>
+          <p className="text-sm text-red-600 mt-3">{error}</p>
           <button
             onClick={loadRiskData}
-            className="mt-3 px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors"
+            className="mt-5 px-5 py-2.5 bg-red-600 text-white rounded-xl hover:bg-red-700 transition-colors shadow-card font-semibold"
           >
             Retry
           </button>
@@ -107,8 +107,8 @@ export default function RiskDashboardPage() {
   if (!overview) {
     return (
       <DashboardLayout title="Risk Assessment">
-        <div className="text-center text-gray-500 py-12">
-          <p>No risk data available</p>
+        <div className="bg-white rounded-card-lg shadow-card border border-gray-100 text-center text-gray-500 py-16">
+          <p className="text-lg font-medium">No risk data available</p>
         </div>
       </DashboardLayout>
     );
@@ -116,29 +116,29 @@ export default function RiskDashboardPage() {
 
   return (
     <DashboardLayout title="Risk Assessment">
-      <div className="space-y-6">
+      <div className="space-y-8">
         {/* Back Button */}
         <div>
           <button
             onClick={() => router.push('/dashboard')}
-            className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors cursor-pointer"
+            className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-semibold transition-colors cursor-pointer"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft className="w-5 h-5" />
             Go back to Dashboard
           </button>
         </div>
 
         {/* Page Header */}
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Risk Assessment Dashboard</h1>
-            <p className="text-gray-600 mt-1">
+            <h1 className="text-4xl font-bold text-gray-900">Risk Assessment Dashboard</h1>
+            <p className="text-gray-600 mt-2 text-base">
               Comprehensive risk analysis across {overview.distribution.total} requirements
             </p>
           </div>
           <button
             onClick={loadRiskData}
-            className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+            className="px-5 py-2.5 bg-primary-500 text-white rounded-xl hover:bg-primary-600 transition-colors shadow-card font-semibold"
           >
             Refresh Data
           </button>
@@ -148,13 +148,13 @@ export default function RiskDashboardPage() {
         <RiskOverviewComponent overview={overview} onRiskLevelClick={handleRiskLevelClick} />
 
         {/* Risk Cards Section */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <div className="flex items-center justify-between mb-6">
+        <div className="bg-white rounded-card-lg shadow-card border border-gray-100 p-8">
+          <div className="flex items-center justify-between mb-8">
             <div>
-              <h2 className="text-xl font-semibold text-gray-900">
+              <h2 className="text-2xl font-bold text-gray-900">
                 {selectedRiskLevel ? `${selectedRiskLevel} Risk Requirements` : 'Top Risk Requirements'}
               </h2>
-              <p className="text-sm text-gray-600 mt-1">
+              <p className="text-sm font-medium text-gray-600 mt-2">
                 {selectedRiskLevel
                   ? `Showing ${filteredRisks.length} requirements with ${selectedRiskLevel.toLowerCase()} risk level`
                   : `Top ${filteredRisks.length} highest risk requirements`}
@@ -164,7 +164,7 @@ export default function RiskDashboardPage() {
             {selectedRiskLevel && (
               <button
                 onClick={handleClearFilters}
-                className="flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition-colors"
+                className="flex items-center gap-2 px-5 py-2.5 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition-colors font-semibold shadow-card"
               >
                 <X className="w-4 h-4" />
                 Clear Filter
@@ -187,51 +187,51 @@ export default function RiskDashboardPage() {
               ))}
             </div>
           ) : (
-            <div className="text-center text-gray-500 py-12">
-              <p>No requirements found with the selected filters</p>
+            <div className="text-center text-gray-500 py-16">
+              <p className="text-lg font-medium">No requirements found with the selected filters</p>
             </div>
           )}
         </div>
 
         {/* Action Items Section */}
-        <div className="bg-amber-50 border border-amber-200 rounded-lg p-6">
-          <h3 className="text-lg font-semibold text-amber-900 mb-4 flex items-center gap-2">
-            <AlertTriangle className="w-5 h-5" />
+        <div className="bg-amber-50 border border-amber-100 rounded-card-lg shadow-card p-8">
+          <h3 className="text-xl font-bold text-amber-900 mb-6 flex items-center gap-3">
+            <AlertTriangle className="w-6 h-6" />
             Recommended Actions
           </h3>
-          <ul className="space-y-2 text-sm text-amber-800">
+          <ul className="space-y-4 text-sm text-amber-800">
             {overview.untested_requirements > 0 && (
-              <li className="flex items-start gap-2">
-                <span className="font-semibold mt-0.5">•</span>
-                <span>
-                  <strong>{overview.untested_requirements} requirements</strong> have no test cases.
+              <li className="flex items-start gap-3">
+                <span className="font-bold mt-0.5">•</span>
+                <span className="font-medium">
+                  <strong className="font-bold">{overview.untested_requirements} requirements</strong> have no test cases.
                   Consider creating test cases to reduce risk.
                 </span>
               </li>
             )}
             {overview.orphaned_requirements > 0 && (
-              <li className="flex items-start gap-2">
-                <span className="font-semibold mt-0.5">•</span>
-                <span>
-                  <strong>{overview.orphaned_requirements} requirements</strong> have no traceability links.
+              <li className="flex items-start gap-3">
+                <span className="font-bold mt-0.5">•</span>
+                <span className="font-medium">
+                  <strong className="font-bold">{overview.orphaned_requirements} requirements</strong> have no traceability links.
                   Establish parent-child relationships to improve traceability.
                 </span>
               </li>
             )}
             {overview.non_compliant_requirements > 0 && (
-              <li className="flex items-start gap-2">
-                <span className="font-semibold mt-0.5">•</span>
-                <span>
-                  <strong>{overview.non_compliant_requirements} requirements</strong> are non-compliant.
+              <li className="flex items-start gap-3">
+                <span className="font-bold mt-0.5">•</span>
+                <span className="font-medium">
+                  <strong className="font-bold">{overview.non_compliant_requirements} requirements</strong> are non-compliant.
                   Review and address compliance issues immediately.
                 </span>
               </li>
             )}
             {overview.critical_requirements > 0 && (
-              <li className="flex items-start gap-2">
-                <span className="font-semibold mt-0.5">•</span>
-                <span>
-                  <strong>{overview.critical_requirements} requirements</strong> have critical priority.
+              <li className="flex items-start gap-3">
+                <span className="font-bold mt-0.5">•</span>
+                <span className="font-medium">
+                  <strong className="font-bold">{overview.critical_requirements} requirements</strong> have critical priority.
                   Focus testing and verification efforts on these items.
                 </span>
               </li>

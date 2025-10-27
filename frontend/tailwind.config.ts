@@ -31,6 +31,23 @@ const config: Config = {
           800: '#173259',
           900: '#0B192D',
         },
+        // Modern pastel palette for charts (Quicken-inspired)
+        chart: {
+          mint: '#A7F3D0',
+          teal: '#5EEAD4',
+          sky: '#7DD3FC',
+          lavender: '#C4B5FD',
+          rose: '#FECDD3',
+          amber: '#FDE68A',
+        },
+      },
+      borderRadius: {
+        'card': '16px',
+        'card-lg': '20px',
+      },
+      boxShadow: {
+        'card': '0 1px 3px 0 rgba(0, 0, 0, 0.03), 0 1px 2px 0 rgba(0, 0, 0, 0.02)',
+        'card-hover': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
       },
     },
   },

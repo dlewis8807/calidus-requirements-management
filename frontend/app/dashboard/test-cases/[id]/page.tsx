@@ -27,7 +27,13 @@ export default function TestCaseDetailPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetchTestCase();
+    // Only fetch if we have a valid ID
+    if (!isNaN(testCaseId) && testCaseId > 0) {
+      fetchTestCase();
+    } else {
+      setError('Invalid test case ID');
+      setLoading(false);
+    }
   }, [testCaseId]);
 
   const fetchTestCase = async () => {

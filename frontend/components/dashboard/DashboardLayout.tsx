@@ -23,7 +23,7 @@ export default function DashboardLayout({ children, title }: DashboardLayoutProp
         <Topbar onMenuClick={() => setSidebarOpen(true)} title={title} />
 
         {/* Page content */}
-        <main className="py-6 px-4 sm:px-6 lg:px-8">
+        <main className="py-8 px-6 sm:px-8 lg:px-10">
           {children}
         </main>
       </div>
