@@ -35,20 +35,9 @@ services:
           name: calidus-postgres
           property: connectionString
       - key: REDIS_URL
-        fromService:
-          type: redis
-          name: calidus-redis
-          property: connectionString
+        value: redis://localhost:6379/0  # Placeholder - Redis optional
       - key: ANTHROPIC_API_KEY
         sync: false  # Set this manually in Render dashboard
-
-  # Redis Cache (optional, but recommended)
-  - type: redis
-    name: calidus-redis
-    plan: free
-    region: oregon
-    maxmemoryPolicy: allkeys-lru
-    ipAllowList: []  # Allow all Render services in this account
 
 databases:
   # PostgreSQL Database
