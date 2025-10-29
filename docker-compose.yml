@@ -35,6 +35,7 @@ services:
       - DATABASE_URL=postgresql://calidus:calidus123@db:5432/calidus
       - TEST_DATABASE_URL=postgresql://calidus:calidus123@db:5432/calidus_test
       - REDIS_URL=redis://redis:6379/0
+      - ANTHROPIC_API_KEY=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
     volumes:
       - ./backend:/app
     depends_on:

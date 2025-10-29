@@ -1,0 +1,1118 @@
+═══════════════════════════════════════════════════════════════════════════════
+                        PROFESSIONAL SERVICES AGREEMENT
+                  REQUIREMENTS MANAGEMENT SYSTEM DEVELOPMENT
+═══════════════════════════════════════════════════════════════════════════════
+
+This Professional Services Agreement ("Agreement") is entered into as of the
+28th day of October, 2025 ("Effective Date"), by and between:
+
+CALIDUS AEROSPACE
+("Client" or "CALIDUS")
+An aerospace engineering company organized under the laws of the United Arab Emirates
+Principal Address: 8th Floor Al Bustan Office Tower, Airport Road, 29th Rabdan Street, Abu Dhabi, UAE
+
+AND
+
+RUYA AI FZCO  Trade License DMCC980534
+("Consultant" or "RUYA AI")
+A technology consulting firm specializing in AI-powered enterprise solutions
+Principal Address:
+Unit No: UT-12-CO-190
+DMCC Business Centre
+Level No 12
+Uptown Tower
+Dubai
+United Arab Emirates
+
+Collectively referred to as the "Parties" and individually as a "Party."
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                              1. RECITALS
+═══════════════════════════════════════════════════════════════════════════════
+
+WHEREAS, CALIDUS is an aerospace engineering company engaged in the design,
+development, and certification of aircraft systems requiring sophisticated
+requirements management and traceability capabilities;
+
+WHEREAS, RUYA AI is a technology consultancy with specialized expertise in
+artificial intelligence, web application development, and aagentic regulatory
+compliance systems;
+
+WHEREAS, CALIDUS desires to engage RUYA AI to design, develop, and deploy an
+AI-powered Requirements Management & Traceability System (the "System") to
+manage aerospace requirements, test cases, regulatory compliance, and
+traceability across multiple international aviation authorities;
+
+WHEREAS, RUYA AI represents that it has the necessary expertise, resources,
+and technical capabilities to provide the professional services described herein;
+
+NOW THEREFORE, in consideration of the mutual covenants and agreements set forth
+herein, and for other good and valuable consideration, the receipt and sufficiency
+of which are hereby acknowledged, the Parties agree as follows:
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                         2. SCOPE OF SERVICES
+═══════════════════════════════════════════════════════════════════════════════
+
+2.1 PROJECT OVERVIEW
+
+RUYA AI shall consult on the design, develop, test, deploy, and maintain an AI-Powered
+Requirements Management & Traceability Assistant system for CALIDUS, including
+but not limited to the following components:
+
+   a) Backend API Infrastructure
+      - FastAPI-based RESTful API
+      - PostgreSQL database management system
+      - Redis caching layer
+      - JWT-based authentication and authorization
+      - Role-based access control (Admin, Engineer, Viewer)
+
+   b) Frontend Web Application
+      - Next.js 14 responsive web interface
+      - Real-time data visualization dashboards
+      - Interactive traceability graph with Cytoscape.js
+      - Requirement and test case management interfaces
+      - Compliance and risk assessment dashboards
+
+   c) AI-Powered Features
+      - "Ask Ahmed" conversational AI assistant
+      - Air-gapped, secured and on-premises private engineering based LLM integration for requirement analysis
+      - Natural language processing for requirement queries
+      - Predictive compliance risk analysis
+      - Test coverage gap identification
+      - Impact analysis and change request workflows
+
+   d) Integration Capabilities
+      - ENOVIA PLM integration simulation
+      - RESTful API endpoints for third-party integrations
+      - Bulk data import/export functionality
+      - Regulatory document mapping (FAA, EASA, UAE GCAA)
+
+   e) Regulatory Compliance Features
+      - Multi-jurisdiction compliance tracking (UAE, USA, EU)
+      - Regulation mapping to 14 CFR Part 23, EASA CS-23, UAE GCAA standards
+      - Compliance gap analysis and reporting
+      - Audit trail and version control
+
+2.2 DELIVERABLES
+
+Phase 1: Foundation & Core Backend (Weeks 1-2)
+   ✓ Backend API with authentication [COMPLETED]
+   ✓ Database schema and migrations [COMPLETED]
+   ✓ Docker environment setup [COMPLETED]
+   ✓ User management with role-based access [COMPLETED]
+   ✓ 96% test coverage baseline [COMPLETED]
+
+Phase 2: Enhanced Backend & Data (Weeks 3-4)
+   ✓ Requirements CRUD operations (16,501 requirements) [COMPLETED]
+   ✓ Test cases CRUD operations (28,523 test cases) [COMPLETED]
+   ✓ Traceability link management (15,093 links) [COMPLETED]
+   ✓ Synthetic aerospace data generation [COMPLETED]
+   ✓ Performance optimization (<200ms response time) [COMPLETED]
+
+Phase 3: Frontend Application (Weeks 5-7)
+   ✓ Dashboard with data visualization [COMPLETED]
+   ✓ Requirements list view with advanced filtering [COMPLETED]
+   ✓ Test cases management interface [COMPLETED]
+   ✓ User management interface (admin) [COMPLETED]
+   ✓ Real-time API integration [COMPLETED]
+   ✓ Interactive traceability graph [COMPLETED]
+   ✓ Risk assessment dashboard [COMPLETED]
+
+Phase 4: AI Integration (Weeks 8-10)
+   ✓ Ask Ahmed AI assistant with database query tools [COMPLETED]
+   ✓ Conversational interface with streaming responses [COMPLETED]
+   ✓ Real-time test execution data analysis [COMPLETED]
+   ✓ Predictive analysis prompts and recommendations [COMPLETED]
+   ⏳ NLP models for requirement categorization [IN PROGRESS]
+   ⏳ Vector database for semantic search [PLANNED]
+
+Phase 5: Advanced Features (Weeks 11-14)
+   ⏳ Impact analysis algorithm and visualization [PLANNED]
+   ⏳ Change request workflow automation [PLANNED]
+   ⏳ Test coverage heatmap and trend analysis [PLANNED]
+   ⏳ Compliance dashboard with regulatory mapping [PLANNED]
+
+Phase 6: Production Deployment (Weeks 15-16)
+   ⏳ Production environment setup (AWS/Azure/GCP) [PLANNED]
+   ⏳ Performance optimization and load testing [PLANNED]
+   ⏳ Security audit and penetration testing [PLANNED]
+   ⏳ User acceptance testing (UAT) [PLANNED]
+   ⏳ Documentation finalization [PLANNED]
+   ⏳ Training and knowledge transfer [PLANNED]
+
+2.3 TECHNICAL SPECIFICATIONS
+
+   Backend Technology Stack:
+   - Python 3.11 with FastAPI framework
+   - PostgreSQL 15 database
+   - Redis 7 for caching and session management
+   - SQLAlchemy 2.0 ORM
+   - Alembic for database migrations
+   - JWT authentication with bcrypt password hashing
+   - pytest for testing with 80%+ coverage requirement
+
+   Frontend Technology Stack:
+   - Next.js 14 with TypeScript
+   - Tailwind CSS for styling
+   - Axios for HTTP client
+   - Recharts/Cytoscape.js for data visualization
+   - Server-side rendering (SSR) and static generation
+   - Responsive design for mobile and desktop
+
+   AI/ML Integration:
+   - K2 Think pre-trained API
+   - Server-sent events (SSE) for streaming responses
+   - Tool calling for database queries
+   - Context window management
+   - Prompt engineering for aerospace domain
+
+   Infrastructure:
+   - Docker containerization
+   - Docker Compose for local development
+   - CI/CD pipeline with GitHub Actions
+   - Automated testing and deployment
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                    3. PROJECT TIMELINE AND SCHEDULE
+═══════════════════════════════════════════════════════════════════════════════
+
+3.1 PROJECT DURATION
+
+Commencement Date: November 1, 2025
+Estimated Completion Date: January 31, 2026
+Total Project Duration: 12 weeks (3 months)
+
+3.2 MILESTONE SCHEDULE
+
+┌────────────┬──────────────────────────────────────────┬──────────────┬──────────┐
+│ Milestone  │ Deliverable                              │ Target Date  │ Status   │
+├────────────┼──────────────────────────────────────────┼──────────────┼──────────┤
+│ M1         │ Backend API & Authentication             │ Oct 14, 2025 │ Complete │
+│ M2         │ Database Schema & Core Models            │ Oct 21, 2025 │ Complete │
+│ M3         │ Requirements & Test Cases CRUD           │ Oct 28, 2025 │ Complete │
+│ M4         │ Traceability Management                  │ Nov 4, 2025  │ Complete │
+│ M5         │ Frontend Dashboard & UI                  │ Nov 18, 2025 │ Complete │
+│ M6         │ Interactive Traceability Graph           │ Nov 25, 2025 │ Complete │
+│ M7         │ Risk Assessment Dashboard                │ Dec 2, 2025  │ Complete │
+│ M8         │ AI Assistant (Ask Ahmed) Integration     │ Dec 9, 2025  │ Complete │
+│ M9         │ Compliance & Impact Analysis             │ Dec 16, 2025 │ Pending  │
+│ M10        │ Test Coverage & Reporting                │ Dec 23, 2025 │ Pending  │
+│ M11        │ Production Deployment                    │ Jan 13, 2026 │ Pending  │
+│ M12        │ UAT, Training & Final Delivery           │ Jan 31, 2026 │ Pending  │
+└────────────┴──────────────────────────────────────────┴──────────────┴──────────┘
+
+3.3 SPRINT SCHEDULE (AGILE METHODOLOGY)
+
+The project follows a two-week sprint cycle:
+
+Sprint 1 (Oct 1-14):  Backend foundation, authentication, testing framework
+Sprint 2 (Oct 15-28): Database models, CRUD operations, data generation
+Sprint 3 (Oct 29-Nov 11): Frontend dashboard, requirements interface
+Sprint 4 (Nov 12-25): Traceability features, graph visualization
+Sprint 5 (Nov 26-Dec 9): Risk assessment, AI assistant integration
+Sprint 6 (Dec 10-23): Compliance dashboard, impact analysis
+Sprint 7 (Dec 24-Jan 6): Test coverage analyzer, advanced reporting
+Sprint 8 (Jan 7-20): Production deployment, optimization, security
+Sprint 9 (Jan 21-31): UAT, bug fixes, training, knowledge transfer
+
+3.4 WEEKLY REPORTING
+
+RUYA AI shall provide weekly progress reports every Friday by 5:00 PM GST,
+including:
+   - Completed work items and deliverables
+   - Work in progress and percentage completion
+   - Upcoming tasks for the following week
+   - Blockers, risks, and mitigation strategies
+   - Resource utilization and man-hours consumed
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                      4. RESOURCE ALLOCATION
+═══════════════════════════════════════════════════════════════════════════════
+
+4.1 MAN-HOURS ESTIMATE
+
+Total Estimated Man-Hours: 1,920 hours (12 FTE-months)
+
+Breakdown by Role:
+
+┌─────────────────────────┬──────────────┬──────────────┬────────────────┐
+│ Role                    │ Rate/Hour    │ Hours        │ Total Cost     │
+├─────────────────────────┼──────────────┼──────────────┼────────────────┤
+│ Senior Full-Stack Dev   │ AED 550.50   │ 640 hours    │ AED 352,320    │
+│ Backend Developer       │ AED 440.40   │ 480 hours    │ AED 211,392    │
+│ Frontend Developer      │ AED 440.40   │ 400 hours    │ AED 176,160    │
+│ AI/ML Engineer          │ AED 513.80   │ 240 hours    │ AED 123,312    │
+│ DevOps Engineer         │ AED 477.10   │ 160 hours    │ AED 76,336     │
+│ QA/Test Engineer        │ AED 367.00   │ 200 hours    │ AED 73,400     │
+│ UI/UX Designer          │ AED 403.70   │ 120 hours    │ AED 48,444     │
+│ Project Manager         │ AED 513.80   │ 160 hours    │ AED 82,208     │
+│ Solutions Architect     │ AED 587.20   │ 80 hours     │ AED 46,976     │
+├─────────────────────────┼──────────────┼──────────────┼────────────────┤
+│ TOTAL                   │              │ 2,480 hours  │ AED 1,190,548  │
+└─────────────────────────┴──────────────┴──────────────┴────────────────┘
+
+4.2 TEAM COMPOSITION
+
+Core Development Team:
+   - 1 Senior Full-Stack Developer (Lead)
+   - 1 Backend Developer (Python/FastAPI)
+   - 1 Frontend Developer (Next.js/React)
+   - 1 AI/ML Engineer (Claude API integration)
+
+Supporting Team:
+   - 1 DevOps Engineer (Infrastructure, CI/CD)
+   - 1 QA/Test Engineer (Testing, quality assurance)
+   - 1 UI/UX Designer (Interface design, user experience)
+   - 1 Project Manager (Coordination, reporting)
+   - 1 Solutions Architect (Technical leadership, architecture)
+
+4.3 AVAILABILITY AND WORKING HOURS
+
+   - Standard working hours: Sunday to Thursday, 9:00 AM - 6:00 PM GST
+   - Core team availability: 40 hours per week per FTE
+   - Support and maintenance: 24/7 critical issue response
+   - Maximum response time for critical issues: 4 hours
+   - Maximum response time for non-critical issues: 24 hours
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                        5. FEES AND PAYMENT TERMS
+═══════════════════════════════════════════════════════════════════════════════
+
+5.1 TOTAL PROJECT FEE
+
+The total fee for the project is One Million One Hundred Ninety Thousand Five
+Hundred Forty-Eight United Arab Emirates Dirhams (AED 1,190,548.00), inclusive
+of all labor, materials, third-party services, and expenses.
+
+5.2 PAYMENT SCHEDULE
+
+Payment shall be made according to the following milestone-based schedule:
+
+┌────────────┬──────────────────────────────────────┬────────────────┬──────────┐
+│ Payment #  │ Milestone                            │ Amount (AED)   │ Due Date │
+├────────────┼──────────────────────────────────────┼────────────────┼──────────┤
+│ P1         │ Contract Signing (25%)               │ AED 297,637    │ Oct 1    │
+│ P2         │ M4 Completion: Core Backend (20%)    │ AED 238,109.60 │ Nov 4    │
+│ P3         │ M6 Completion: Frontend UI (20%)     │ AED 238,109.60 │ Nov 25   │
+│ P4         │ M8 Completion: AI Integration (15%)  │ AED 178,582.20 │ Dec 9    │
+│ P5         │ M10 Completion: Advanced Features(10%)│ AED 119,054.80│ Dec 23   │
+│ P6         │ M12 Final Delivery & Acceptance (10%)│ AED 119,054.80 │ Jan 31   │
+├────────────┼──────────────────────────────────────┼────────────────┼──────────┤
+│ TOTAL      │                                      │ AED 1,190,548  │          │
+└────────────┴──────────────────────────────────────┴────────────────┴──────────┘
+
+5.3 PAYMENT TERMS
+
+   - Invoices shall be submitted by RUYA AI within 5 business days of milestone
+     completion
+   - Payment shall be made by CALIDUS within 15 business days of invoice receipt
+   - Payments shall be made via wire transfer to the account specified by RUYA AI
+   - Late payments shall incur interest at 2% per month or the maximum rate
+     permitted by law, whichever is lower
+
+5.4 ADDITIONAL SERVICES
+
+Any work beyond the scope defined in Section 2 shall be considered additional
+services and shall be billed at the following rates:
+   - Development work: AED 440.40-587.20/hour (depending on role)
+   - Support and maintenance: AED 367.00/hour
+   - Training and consultation: AED 513.80/hour
+
+Additional services require written approval from CALIDUS before commencement.
+
+5.5 HARDWARE PROCUREMENT FOR AIR-GAPPED ON-PREMISES DEPLOYMENT
+
+Given CALIDUS's requirement for an air-gapped, secure on-premises deployment,
+RUYA AI shall procure, configure, and install the necessary hardware infrastructure.
+The hardware shall be based on NVIDIA Blackwell architecture to support AI/LLM
+operations, database management, and system operations.
+
+5.5.1 HARDWARE SPECIFICATIONS AND BUDGET
+
+Total Hardware Budget: Nine Hundred Ninety-Five Thousand United Arab Emirates
+Dirhams (AED 995,000.00)
+
+┌──────────┬────────────────────────────────────────────────┬─────────┬──────────────┐
+│ Item #   │ Component Description                          │ Qty     │ Cost (AED)   │
+├──────────┼────────────────────────────────────────────────┼─────────┼──────────────┤
+│ A. AI COMPUTE INFRASTRUCTURE - NVIDIA BLACKWELL ARCHITECTURE                      │
+├──────────┼────────────────────────────────────────────────┼─────────┼──────────────┤
+│ A1       │ NVIDIA DGX B200 System                         │ 1       │ AED 550,000  │
+│          │ - 8x NVIDIA B200 GPUs (Blackwell)              │         │              │
+│          │ - 1.4TB GPU Memory (HBM3e)                     │         │              │
+│          │ - 2x Intel Xeon Platinum CPUs (96 cores)       │         │              │
+│          │ - 2TB System RAM (DDR5)                        │         │              │
+│          │ - 30TB NVMe SSD Storage (OS & cache)           │         │              │
+│          │ - 8x 400Gb/s NVIDIA ConnectX-7 NICs            │         │              │
+│          │ - Optimized for LLM inference & training       │         │              │
+│          │ - Supports K2 Think and private LLM models     │         │              │
+├──────────┼────────────────────────────────────────────────┼─────────┼──────────────┤
+│ B. DATABASE & APPLICATION SERVERS                                                 │
+├──────────┼────────────────────────────────────────────────┼─────────┼──────────────┤
+│ B1       │ Dell PowerEdge R760 Server (Primary DB)        │ 1       │ AED 73,400   │
+│          │ - 2x Intel Xeon Gold 6448Y (64 cores total)    │         │              │
+│          │ - 512GB DDR5 ECC RAM                           │         │              │
+│          │ - 8x 3.84TB NVMe SSD (RAID 10)                 │         │              │
+│          │ - Dual 10GbE + Dual 25GbE NICs                 │         │              │
+│          │ - For PostgreSQL database                      │         │              │
+├──────────┼────────────────────────────────────────────────┼─────────┼──────────────┤
+│ B2       │ Dell PowerEdge R660 Server (Application)       │ 1       │ AED 55,050   │
+│          │ - 2x Intel Xeon Silver 4410Y (24 cores)        │         │              │
+│          │ - 256GB DDR5 ECC RAM                           │         │              │
+│          │ - 4x 1.92TB NVMe SSD (RAID 10)                 │         │              │
+│          │ - Dual 10GbE NICs                              │         │              │
+│          │ - For FastAPI backend, Redis, services         │         │              │
+├──────────┼────────────────────────────────────────────────┼─────────┼──────────────┤
+│ C. STORAGE INFRASTRUCTURE                                                         │
+├──────────┼────────────────────────────────────────────────┼─────────┼──────────────┤
+│ C1       │ Dell PowerVault ME5024 Storage Array           │ 1       │ AED 88,080   │
+│          │ - 24x 7.68TB SSD drives (184TB usable)         │         │              │
+│          │ - Dual active controllers                      │         │              │
+│          │ - 32GB cache per controller                    │         │              │
+│          │ - 4x 25GbE iSCSI ports                         │         │              │
+│          │ - For requirements data, documents, backups    │         │              │
+├──────────┼────────────────────────────────────────────────┼─────────┼──────────────┤
+│ D. NETWORK INFRASTRUCTURE                                                         │
+├──────────┼────────────────────────────────────────────────┼─────────┼──────────────┤
+│ D1       │ NVIDIA Spectrum-4 SN5600 Switch                │ 1       │ AED 73,400   │
+│          │ - 64x 400GbE OSFP ports                        │         │              │
+│          │ - 51.2Tbps switching capacity                  │         │              │
+│          │ - Optimized for AI/ML workloads                │         │              │
+│          │ - RoCE v2 support for GPU Direct RDMA          │         │              │
+├──────────┼────────────────────────────────────────────────┼─────────┼──────────────┤
+│ D2       │ Dell PowerSwitch S5248F-ON (Management)        │ 1       │ AED 14,680   │
+│          │ - 48x 25GbE SFP28 + 4x 100GbE QSFP28           │         │              │
+│          │ - For management network                       │         │              │
+├──────────┼────────────────────────────────────────────────┼─────────┼──────────────┤
+│ D3       │ Network Cables & Transceivers                  │ 1 lot   │ AED 11,010   │
+│          │ - 8x 400GbE OSFP DAC cables (3m)               │         │              │
+│          │ - 12x 25GbE SFP28 transceivers                 │         │              │
+│          │ - 4x 100GbE QSFP28 transceivers                │         │              │
+│          │ - Cat6a Ethernet cables                        │         │              │
+├──────────┼────────────────────────────────────────────────┼─────────┼──────────────┤
+│ E. POWER & ENVIRONMENTAL                                                          │
+├──────────┼────────────────────────────────────────────────┼─────────┼──────────────┤
+│ E1       │ APC Smart-UPS SRT 20kVA                        │ 2       │ AED 58,720   │
+│          │ - 20kVA/18kW capacity each (40kVA total)       │         │              │
+│          │ - Extended battery runtime module              │         │              │
+│          │ - Network management card                      │         │              │
+│          │ - For all critical systems                     │         │              │
+├──────────┼────────────────────────────────────────────────┼─────────┼──────────────┤
+│ E2       │ Dell VxRail D560F Rack & PDU                   │ 1       │ AED 22,020   │
+│          │ - 42U server rack with cable management        │         │              │
+│          │ - 2x Intelligent PDUs (16A, C13/C19)           │         │              │
+│          │ - Rack monitoring and environmental sensors    │         │              │
+├──────────┼────────────────────────────────────────────────┼─────────┼──────────────┤
+│ E3       │ Precision Cooling Unit (In-Row)                │ 1       │ AED 29,360   │
+│          │ - 20kW cooling capacity                        │         │              │
+│          │ - For DGX B200 thermal management              │         │              │
+│          │ - Hot aisle containment compatible             │         │              │
+├──────────┼────────────────────────────────────────────────┼─────────┼──────────────┤
+│ F. SECURITY & MANAGEMENT                                                          │
+├──────────┼────────────────────────────────────────────────┼─────────┼──────────────┤
+│ F1       │ Hardware Security Module (HSM)                 │ 1       │ AED 11,010   │
+│          │ - Thales Luna Network HSM                      │         │              │
+│          │ - FIPS 140-2 Level 3 certified                 │         │              │
+│          │ - For encryption key management                │         │              │
+├──────────┼────────────────────────────────────────────────┼─────────┼──────────────┤
+│ F2       │ KVM & Management Console                       │ 1       │ AED 7,340    │
+│          │ - 1U LCD console with keyboard & trackpad      │         │              │
+│          │ - 8-port digital KVM switch                    │         │              │
+├──────────┼────────────────────────────────────────────────┼─────────┼──────────────┤
+│ G. INSTALLATION & CONFIGURATION                                                   │
+├──────────┼────────────────────────────────────────────────┼─────────┼──────────────┤
+│ G1       │ Professional Installation Services             │ 1       │ AED 11,010   │
+│          │ - Rack & stack all equipment                   │         │              │
+│          │ - Cable management & labeling                  │         │              │
+│          │ - Initial power-on & testing                   │         │              │
+│          │ - Environmental verification                   │         │              │
+├──────────┼────────────────────────────────────────────────┼─────────┼──────────────┤
+│ G2       │ NVIDIA AI Enterprise Software Suite            │ 1       │ Included     │
+│          │ - NVIDIA Base Command for cluster mgmt         │         │              │
+│          │ - NVIDIA GPU Operator                          │         │              │
+│          │ - NVIDIA Container Toolkit                     │         │              │
+│          │ - Optimized AI frameworks & libraries          │         │              │
+│          │ - 3-year enterprise support included           │         │              │
+├──────────┼────────────────────────────────────────────────┼─────────┼──────────────┤
+│          │ SUBTOTAL - HARDWARE                            │         │ AED 995,000  │
+├──────────┼────────────────────────────────────────────────┼─────────┼──────────────┤
+│          │ TOTAL PROJECT COST (Services + Hardware)       │         │ AED 2,185,548│
+└──────────┴────────────────────────────────────────────────┴─────────┴──────────────┘
+
+5.5.2 HARDWARE DELIVERY AND INSTALLATION SCHEDULE
+
+Hardware procurement and installation shall follow this timeline:
+
+Week 1-2:   Hardware procurement and vendor coordination
+Week 3-4:   Equipment delivery to CALIDUS facility
+Week 5:     Physical installation, rack mounting, cabling
+Week 6:     Power and network infrastructure setup
+Week 7-8:   System configuration and integration testing
+Week 9:     Software deployment and AI model installation
+Week 10:    Performance testing and optimization
+Week 11-12: User acceptance testing and training
+
+5.5.3 TECHNICAL SPECIFICATIONS - AI COMPUTE PLATFORM
+
+The NVIDIA DGX B200 system provides:
+
+AI Performance:
+   - 72 PetaFLOPS FP4 sparse performance
+   - 36 PetaFLOPS FP8 performance
+   - Optimized for LLM inference (100B+ parameter models)
+   - Supports K2 Think, Llama 3, GPT-style models
+   - Real-time inference: <100ms latency for requirements analysis
+
+Memory & Storage:
+   - 1.4TB total GPU memory (HBM3e)
+   - 2TB system memory (DDR5)
+   - 30TB NVMe storage for model weights and cache
+   - 184TB external storage for requirements database
+
+Network:
+   - 8x 400Gb/s NVIDIA ConnectX-7 NICs
+   - Total bandwidth: 3.2Tb/s
+   - GPU Direct RDMA for zero-copy transfers
+   - Optimized for distributed AI workloads
+
+Security Features:
+   - Secure Boot with UEFI
+   - TPM 2.0 for hardware-based encryption
+   - Network isolation for air-gapped operation
+   - FIPS 140-2 compliant HSM integration
+   - Role-based access control at firmware level
+
+5.5.4 SYSTEM ARCHITECTURE - AIR-GAPPED DEPLOYMENT
+
+The hardware shall be configured as a completely isolated, air-gapped system:
+
+Network Isolation:
+   ✓ No internet connectivity (physical and logical isolation)
+   ✓ Dedicated management network (VLAN segregation)
+   ✓ Firewall rules blocking all external access
+   ✓ USB/removable media controls at BIOS level
+
+Data Security:
+   ✓ Full disk encryption (AES-256) on all storage
+   ✓ HSM-managed encryption keys
+   ✓ Encrypted backups with offline retention
+   ✓ Secure boot chain verification
+
+AI Model Deployment:
+   ✓ Pre-trained LLM models loaded offline
+   ✓ Fine-tuned for aerospace requirements domain
+   ✓ No external API dependencies
+   ✓ All inference performed on-premises
+
+Redundancy & High Availability:
+   ✓ Dual power supplies on all critical systems
+   ✓ UPS backup for graceful shutdown (30+ minutes)
+   ✓ RAID storage protection (RAID 10)
+   ✓ Hot-swappable components
+   ✓ Automated health monitoring
+
+5.5.5 PERFORMANCE GUARANTEES
+
+RUYA AI guarantees the following performance metrics for the deployed system:
+
+AI Inference Performance:
+   - Requirement analysis: <100ms per requirement
+   - Batch processing: 1,000 requirements per minute
+   - Concurrent users: 50+ simultaneous users
+   - Ask Ahmed response time: <2 seconds first token
+
+Database Performance:
+   - Query response time: <50ms (95th percentile)
+   - Concurrent connections: 500+
+   - Write throughput: 10,000 transactions/second
+   - Backup/restore: <30 minutes for full database
+
+System Availability:
+   - Uptime: 99.9% (excluding scheduled maintenance)
+   - Mean Time Between Failures (MTBF): >50,000 hours
+   - Mean Time To Repair (MTTR): <4 hours
+   - Scheduled maintenance window: 4 hours/month
+
+5.5.6 WARRANTY AND SUPPORT
+
+All hardware components include:
+   - 3-year manufacturer warranty (parts and labor)
+   - Next Business Day (NBD) on-site service
+   - 24/7 phone support for critical issues
+   - NVIDIA AI Enterprise support (3 years)
+   - Firmware and driver updates (offline delivery)
+
+RUYA AI shall provide:
+   - 12 months on-site technical support post-installation
+   - Quarterly preventive maintenance visits
+   - Performance optimization and tuning
+   - Knowledge transfer to CALIDUS IT staff
+
+5.5.7 PAYMENT TERMS - HARDWARE
+
+Hardware payment shall be made according to the following schedule:
+
+┌────────────┬────────────────────────────────────┬────────────────┬──────────┐
+│ Payment #  │ Milestone                          │ Amount (AED)   │ Due Date │
+├────────────┼────────────────────────────────────┼────────────────┼──────────┤
+│ H1         │ Hardware Order Placement (50%)     │ AED 497,500    │ Week 1   │
+│ H2         │ Equipment Delivery (30%)           │ AED 298,500    │ Week 4   │
+│ H3         │ Installation Complete (15%)        │ AED 149,250    │ Week 8   │
+│ H4         │ Final Acceptance (5%)              │ AED 49,750     │ Week 12  │
+├────────────┼────────────────────────────────────┼────────────────┼──────────┤
+│ TOTAL      │                                    │ AED 995,000    │          │
+└────────────┴────────────────────────────────────┴────────────────┴──────────┘
+
+5.5.8 ACCEPTANCE CRITERIA - HARDWARE
+
+Hardware shall be deemed accepted when:
+   ✓ All equipment installed and operational
+   ✓ Performance benchmarks met or exceeded
+   ✓ Security requirements validated
+   ✓ 72-hour burn-in test completed successfully
+   ✓ Full system backup/restore tested
+   ✓ Documentation delivered (architecture diagrams, runbooks)
+   ✓ CALIDUS IT staff trained on system operation
+
+5.5.9 ENVIRONMENTAL REQUIREMENTS
+
+CALIDUS shall provide:
+   - Dedicated server room (minimum 50 sq meters)
+   - Ambient temperature: 18-27°C (64-80°F)
+   - Relative humidity: 20-80% (non-condensing)
+   - Power: 3-phase 400V, 100A minimum
+   - Raised floor or adequate cable routing
+   - Fire suppression system (FM-200 or equivalent)
+   - Physical access control (biometric/card reader)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                   6. INTELLECTUAL PROPERTY RIGHTS
+═══════════════════════════════════════════════════════════════════════════════
+
+6.1 OWNERSHIP OF DELIVERABLES
+
+Upon receipt of full payment, all intellectual property rights, including but
+not limited to copyrights, patents, trade secrets, and any other proprietary
+rights in the System and all related deliverables ("Work Product") shall be
+assigned to and become the exclusive property of CALIDUS.
+
+Work Product includes:
+   a) Source code (frontend and backend)
+   b) Database schemas and data structures
+   c) API documentation and specifications
+   d) User interface designs and assets
+   e) Technical documentation and guides
+   f) Training materials and user manuals
+   g) Test cases, scripts, and automation frameworks
+   h) Configuration files and deployment scripts
+
+6.2 RUYA AI RETAINED RIGHTS
+
+RUYA AI retains ownership of:
+   a) Pre-existing intellectual property and tools
+   b) General methodologies, processes, and frameworks
+   c) Non-client-specific code libraries and utilities
+   d) Knowledge and experience gained during the project
+
+6.3 LICENSE GRANT
+
+RUYA AI hereby grants CALIDUS a perpetual, irrevocable, worldwide, royalty-free,
+non-exclusive license to use any RUYA AI pre-existing intellectual property
+incorporated into the Work Product.
+
+6.4 THIRD-PARTY COMPONENTS
+
+The System incorporates certain open-source and third-party components, including:
+   - FastAPI (MIT License)
+   - Next.js (MIT License)
+   - PostgreSQL (PostgreSQL License)
+   - Anthropic Claude API (subject to Anthropic Terms of Service)
+   - Other open-source libraries listed in requirements.txt and package.json
+
+CALIDUS acknowledges that use of these components is subject to their respective
+licenses and terms of service.
+
+6.5 SOURCE CODE DELIVERY
+
+Upon final acceptance and full payment, RUYA AI shall deliver to CALIDUS:
+   a) Complete source code for frontend and backend
+   b) Database migration scripts and seed data
+   c) Comprehensive README and setup documentation
+   d) API documentation (Swagger/OpenAPI)
+   e) Deployment guides and infrastructure-as-code
+   f) Access credentials to all project repositories
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                    7. CONFIDENTIALITY AND DATA PROTECTION
+═══════════════════════════════════════════════════════════════════════════════
+
+7.1 DEFINITION OF CONFIDENTIAL INFORMATION
+
+"Confidential Information" means all information disclosed by one Party (the
+"Disclosing Party") to the other Party (the "Receiving Party"), whether orally,
+in writing, or by any other means, that is designated as confidential or that
+reasonably should be understood to be confidential given the nature of the
+information and the circumstances of disclosure, including but not limited to:
+
+   a) Technical information, including designs, specifications, software, data
+   b) Business information, including financial data, customer lists, strategies
+   c) Proprietary information, including trade secrets, know-how, inventions
+   d) Aerospace requirements, test data, and regulatory compliance information
+   e) Source code, algorithms, and implementation details
+   f) Security measures, authentication mechanisms, and access controls
+
+7.2 OBLIGATIONS OF RECEIVING PARTY
+
+The Receiving Party agrees to:
+   a) Hold all Confidential Information in strict confidence
+   b) Not disclose Confidential Information to any third party without prior
+      written consent
+   c) Use Confidential Information solely for the purpose of performing this
+      Agreement
+   d) Protect Confidential Information using the same degree of care as it uses
+      for its own confidential information, but no less than reasonable care
+   e) Limit access to Confidential Information to employees and contractors who
+      have a legitimate need to know
+
+7.3 EXCLUSIONS
+
+Confidential Information does not include information that:
+   a) Was publicly known prior to disclosure
+   b) Becomes publicly known through no breach of this Agreement
+   c) Was rightfully received from a third party without breach
+   d) Was independently developed without use of Confidential Information
+   e) Is required to be disclosed by law or court order (with notice to Disclosing
+      Party)
+
+7.4 DATA PROTECTION AND SECURITY
+
+RUYA AI shall:
+   a) Implement industry-standard security measures to protect CALIDUS data
+   b) Encrypt sensitive data in transit (TLS/SSL) and at rest (AES-256)
+   c) Implement role-based access controls and authentication mechanisms
+   d) Maintain audit logs of all system access and data modifications
+   e) Conduct regular security assessments and vulnerability scans
+   f) Immediately notify CALIDUS of any data breach or security incident
+   g) Comply with applicable data protection regulations (GDPR, UAE data laws)
+
+7.5 RETURN OF CONFIDENTIAL INFORMATION
+
+Upon termination or expiration of this Agreement, or upon request by the
+Disclosing Party, the Receiving Party shall promptly return or destroy all
+Confidential Information and certify such destruction in writing.
+
+7.6 SURVIVAL
+
+The obligations under this Section 7 shall survive termination of this Agreement
+for a period of five (5) years.
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                      8. WARRANTIES AND REPRESENTATIONS
+═══════════════════════════════════════════════════════════════════════════════
+
+8.1 RUYA AI WARRANTIES
+
+RUYA AI warrants and represents that:
+
+   a) AUTHORITY: RUYA AI has full power and authority to enter into and perform
+      this Agreement.
+
+   b) ORIGINAL WORK: All Work Product delivered under this Agreement shall be
+      original work of RUYA AI or properly licensed, and shall not infringe upon
+      any third-party intellectual property rights.
+
+   c) PROFESSIONAL STANDARDS: All services shall be performed in a professional
+      and workmanlike manner, consistent with industry best practices and
+      standards.
+
+   d) FUNCTIONALITY: The System shall substantially conform to the specifications
+      set forth in Section 2 and shall be free from material defects.
+
+   e) MALICIOUS CODE: The System shall be free from viruses, malware, backdoors,
+      time bombs, or other malicious code at the time of delivery.
+
+   f) COMPLIANCE: The System shall comply with all applicable laws and regulations,
+      including UAE data protection laws and international aerospace standards.
+
+   g) TEAM QUALIFICATIONS: All personnel assigned to the project shall have the
+      necessary skills, qualifications, and experience to perform the assigned
+      tasks.
+
+8.2 CALIDUS WARRANTIES
+
+CALIDUS warrants and represents that:
+
+   a) AUTHORITY: CALIDUS has full power and authority to enter into this Agreement.
+
+   b) COOPERATION: CALIDUS shall provide timely access to necessary information,
+      resources, and personnel required for RUYA AI to perform the services.
+
+   c) REQUIREMENTS: All requirements, specifications, and data provided by CALIDUS
+      shall be accurate and complete to the best of CALIDUS's knowledge.
+
+   d) PAYMENT: CALIDUS has the financial capability to make all payments required
+      under this Agreement.
+
+8.3 WARRANTY PERIOD
+
+RUYA AI warrants that the System shall be free from material defects for a period
+of ninety (90) days following final acceptance ("Warranty Period"). During the
+Warranty Period, RUYA AI shall, at no additional cost to CALIDUS, correct any
+defects or non-conformities reported by CALIDUS.
+
+8.4 DISCLAIMER
+
+EXCEPT AS EXPRESSLY SET FORTH IN THIS AGREEMENT, RUYA AI MAKES NO OTHER
+WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
+RUYA AI DOES NOT WARRANT THAT THE SYSTEM WILL OPERATE UNINTERRUPTED OR ERROR-FREE.
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                    9. LIMITATION OF LIABILITY
+═══════════════════════════════════════════════════════════════════════════════
+
+9.1 LIMITATION ON DAMAGES
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL EITHER
+PARTY BE LIABLE TO THE OTHER PARTY FOR ANY INDIRECT, INCIDENTAL, SPECIAL,
+CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF
+PROFITS, LOSS OF DATA, LOSS OF BUSINESS OPPORTUNITIES, OR BUSINESS INTERRUPTION,
+ARISING OUT OF OR RELATED TO THIS AGREEMENT, WHETHER BASED ON CONTRACT, TORT,
+STRICT LIABILITY, OR ANY OTHER LEGAL THEORY, EVEN IF ADVISED OF THE POSSIBILITY
+OF SUCH DAMAGES.
+
+9.2 LIMITATION ON TOTAL LIABILITY
+
+EXCEPT FOR BREACHES OF SECTION 7 (CONFIDENTIALITY) OR SECTION 6 (INTELLECTUAL
+PROPERTY), THE TOTAL CUMULATIVE LIABILITY OF RUYA AI TO CALIDUS FOR ALL CLAIMS
+ARISING OUT OF OR RELATED TO THIS AGREEMENT SHALL NOT EXCEED THE TOTAL FEES
+PAID BY CALIDUS TO RUYA AI UNDER THIS AGREEMENT.
+
+9.3 EXCLUSIONS
+
+The limitations set forth in this Section 9 shall not apply to:
+   a) Gross negligence or willful misconduct
+   b) Death or personal injury caused by negligence
+   c) Fraud or fraudulent misrepresentation
+   d) Breaches of confidentiality obligations
+   e) Intellectual property infringement claims
+   f) Violations that cannot be limited by applicable law
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                       10. INDEMNIFICATION
+═══════════════════════════════════════════════════════════════════════════════
+
+10.1 RUYA AI INDEMNIFICATION
+
+RUYA AI shall indemnify, defend, and hold harmless CALIDUS, its affiliates,
+officers, directors, employees, and agents from and against any and all third-party
+claims, damages, losses, liabilities, costs, and expenses (including reasonable
+attorneys' fees) arising out of or related to:
+
+   a) Infringement or misappropriation of any third-party intellectual property
+      rights by the Work Product;
+   b) RUYA AI's breach of any representation, warranty, or covenant in this
+      Agreement;
+   c) RUYA AI's negligence, willful misconduct, or violation of applicable law;
+   d) Personal injury or property damage caused by RUYA AI's personnel.
+
+10.2 CALIDUS INDEMNIFICATION
+
+CALIDUS shall indemnify, defend, and hold harmless RUYA AI, its affiliates,
+officers, directors, employees, and agents from and against any and all third-party
+claims, damages, losses, liabilities, costs, and expenses (including reasonable
+attorneys' fees) arising out of or related to:
+
+   a) CALIDUS's use of the System in violation of applicable laws or regulations;
+   b) CALIDUS's breach of any representation, warranty, or covenant in this
+      Agreement;
+   c) Infringement claims arising from CALIDUS-provided requirements, specifications,
+      or content;
+   d) Claims by CALIDUS's customers, partners, or end-users related to the System.
+
+10.3 INDEMNIFICATION PROCEDURE
+
+The indemnified party shall:
+   a) Promptly notify the indemnifying party in writing of any claim;
+   b) Cooperate with the indemnifying party in the defense of the claim;
+   c) Allow the indemnifying party to control the defense and settlement;
+   d) Not admit liability or settle the claim without the indemnifying party's
+      consent.
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                    11. ACCEPTANCE TESTING AND CRITERIA
+═══════════════════════════════════════════════════════════════════════════════
+
+11.1 ACCEPTANCE PROCESS
+
+Upon completion of each milestone, RUYA AI shall notify CALIDUS in writing and
+provide access to the deliverables for testing and review. CALIDUS shall have
+ten (10) business days to review and test the deliverables.
+
+11.2 ACCEPTANCE CRITERIA
+
+Deliverables shall be deemed accepted if they:
+   a) Substantially conform to the specifications in Section 2;
+   b) Pass all functional and non-functional acceptance tests;
+   c) Are free from critical defects that prevent normal operation;
+   d) Meet performance requirements (e.g., <200ms API response time);
+   e) Comply with security and data protection requirements.
+
+11.3 REJECTION AND REMEDIATION
+
+If CALIDUS rejects deliverables, CALIDUS shall provide a detailed written notice
+of deficiencies within the acceptance period. RUYA AI shall have fifteen (15)
+business days to remediate the deficiencies and resubmit for acceptance.
+
+11.4 FINAL ACCEPTANCE
+
+Final acceptance shall occur when:
+   a) All milestones have been individually accepted;
+   b) User Acceptance Testing (UAT) has been completed successfully;
+   c) All documentation has been delivered;
+   d) Training has been completed;
+   e) CALIDUS provides written final acceptance.
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                      12. TERM AND TERMINATION
+═══════════════════════════════════════════════════════════════════════════════
+
+12.1 TERM
+
+This Agreement shall commence on the Effective Date and continue until January 31,
+2026, unless earlier terminated in accordance with this Section 12.
+
+12.2 TERMINATION FOR CONVENIENCE
+
+Either Party may terminate this Agreement for convenience upon thirty (30) days'
+written notice to the other Party. In such event, CALIDUS shall pay RUYA AI for:
+   a) All completed milestones;
+   b) All work-in-progress at a pro-rata rate based on percentage completion;
+   c) Reasonable wind-down costs.
+
+12.3 TERMINATION FOR CAUSE
+
+Either Party may terminate this Agreement immediately upon written notice if the
+other Party:
+   a) Materially breaches this Agreement and fails to cure within thirty (30)
+      days of written notice;
+   b) Becomes insolvent, files for bankruptcy, or makes an assignment for the
+      benefit of creditors;
+   c) Ceases to conduct business in the normal course;
+   d) Is subject to a change of control that the non-breaching Party reasonably
+      believes would adversely affect performance.
+
+12.4 EFFECTS OF TERMINATION
+
+Upon termination:
+   a) RUYA AI shall immediately cease all work on the project;
+   b) RUYA AI shall deliver all completed Work Product to CALIDUS;
+   c) CALIDUS shall pay all undisputed amounts due;
+   d) Each Party shall return or destroy the other Party's Confidential Information;
+   e) Sections 6, 7, 8, 9, 10, 13, and 14 shall survive termination.
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                      13. DISPUTE RESOLUTION
+═══════════════════════════════════════════════════════════════════════════════
+
+13.1 GOOD FAITH NEGOTIATIONS
+
+In the event of any dispute arising out of or related to this Agreement, the
+Parties shall first attempt to resolve the dispute through good faith negotiations
+between senior executives of each Party for a period of thirty (30) days.
+
+13.2 MEDIATION
+
+If the dispute is not resolved through negotiations, the Parties shall submit
+the dispute to mediation administered by the Dubai International Arbitration
+Centre (DIAC) before resorting to arbitration or litigation.
+
+13.3 ARBITRATION
+
+If mediation is unsuccessful, any dispute shall be finally resolved by binding
+arbitration administered by DIAC in accordance with its Arbitration Rules. The
+arbitration shall be conducted in English in Dubai, United Arab Emirates, by a
+single arbitrator appointed in accordance with DIAC rules.
+
+13.4 GOVERNING LAW
+
+This Agreement shall be governed by and construed in accordance with the laws of
+the Emirate of Dubai and the federal laws of the United Arab Emirates, without
+regard to conflicts of law principles.
+
+13.5 INJUNCTIVE RELIEF
+
+Notwithstanding the foregoing, either Party may seek injunctive or other equitable
+relief in any court of competent jurisdiction to protect its intellectual property
+rights or confidential information.
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                    14. GENERAL PROVISIONS
+═══════════════════════════════════════════════════════════════════════════════
+
+14.1 ENTIRE AGREEMENT
+
+This Agreement constitutes the entire agreement between the Parties concerning
+the subject matter hereof and supersedes all prior or contemporaneous agreements,
+understandings, negotiations, and discussions, whether oral or written.
+
+14.2 AMENDMENTS
+
+No amendment, modification, or waiver of this Agreement shall be effective unless
+in writing and signed by authorized representatives of both Parties.
+
+14.3 ASSIGNMENT
+
+Neither Party may assign this Agreement without the prior written consent of the
+other Party, except that either Party may assign this Agreement to a successor
+in connection with a merger, acquisition, or sale of all or substantially all of
+its assets, provided that the assignee agrees in writing to be bound by the terms
+of this Agreement.
+
+14.4 INDEPENDENT CONTRACTORS
+
+The Parties are independent contractors. This Agreement does not create a
+partnership, joint venture, agency, employment, or fiduciary relationship between
+the Parties.
+
+14.5 FORCE MAJEURE
+
+Neither Party shall be liable for any failure or delay in performance due to
+causes beyond its reasonable control, including but not limited to acts of God,
+war, terrorism, epidemics, government actions, or natural disasters. The affected
+Party shall promptly notify the other Party and use reasonable efforts to mitigate
+the effects.
+
+14.6 NOTICES
+
+All notices under this Agreement shall be in writing and delivered by:
+   a) Personal delivery;
+   b) Registered or certified mail, return receipt requested;
+   c) Internationally recognized courier service;
+   d) Email with confirmation of receipt.
+
+Notices to CALIDUS:
+   CALIDUS AEROSPACE LLC
+   Attention: [Legal/Contracts Department]
+   Email: [contracts@calidus.aero]
+   Address: Al Ain, Abu Dhabi, United Arab Emirates
+
+Notices to RUYA AI:
+   RUYA AI CONSULTANCY LLC
+   Attention: [Legal/Contracts Department]
+   Email: [legal@ruyaai.com]
+   Address: [RUYA AI Business Address]
+
+14.7 SEVERABILITY
+
+If any provision of this Agreement is held to be invalid, illegal, or unenforceable,
+the remaining provisions shall continue in full force and effect, and the invalid
+provision shall be modified to the minimum extent necessary to make it valid and
+enforceable.
+
+14.8 WAIVER
+
+No waiver of any provision of this Agreement shall be effective unless in writing
+and signed by the waiving Party. No waiver shall constitute a waiver of any other
+provision or subsequent breach.
+
+14.9 COUNTERPARTS
+
+This Agreement may be executed in counterparts, each of which shall be deemed an
+original and all of which together shall constitute one and the same instrument.
+Electronic signatures shall have the same force and effect as original signatures.
+
+14.10 HEADINGS
+
+Section headings are for convenience only and shall not affect the interpretation
+of this Agreement.
+
+14.11 PUBLICITY
+
+Neither Party shall issue any press release or public announcement concerning this
+Agreement or the relationship between the Parties without the prior written consent
+of the other Party, except as required by law.
+
+14.12 EXPORT CONTROL
+
+Each Party shall comply with all applicable export control laws and regulations,
+including but not limited to the U.S. Export Administration Regulations and UAE
+export control laws.
+
+14.13 COMPLIANCE WITH LAWS
+
+Each Party shall comply with all applicable federal, state, local, and foreign
+laws, regulations, and ordinances in performing its obligations under this
+Agreement.
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                          15. EXECUTION
+═══════════════════════════════════════════════════════════════════════════════
+
+IN WITNESS WHEREOF, the Parties have executed this Agreement as of the Effective
+Date.
+
+
+CALIDUS AEROSPACE LLC                    RUYA AI CONSULTANCY LLC
+
+
+By: _________________________            By: _________________________
+    [Authorized Signatory]                   [Authorized Signatory]
+
+Name: _______________________            Name: _______________________
+
+Title: ______________________            Title: ______________________
+
+Date: _______________________            Date: _______________________
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+                    SCHEDULE A: TECHNICAL SPECIFICATIONS
+                              (ATTACHMENT)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+[Technical specifications, API documentation, database schemas, and system
+architecture diagrams to be attached as Schedule A]
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+                     SCHEDULE B: SERVICE LEVEL AGREEMENT
+                              (ATTACHMENT)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+System Availability: 99.9% uptime (excluding scheduled maintenance)
+Performance: API response time <200ms for 95th percentile
+Support Response Times:
+   - Critical issues: 4 hours
+   - High priority: 24 hours
+   - Medium priority: 3 business days
+   - Low priority: 5 business days
+
+Scheduled Maintenance Windows: Fridays 22:00-02:00 GST
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+                    END OF PROFESSIONAL SERVICES AGREEMENT
+
+═══════════════════════════════════════════════════════════════════════════════

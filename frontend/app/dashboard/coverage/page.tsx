@@ -62,7 +62,7 @@ export default function CoverageDashboard() {
       setLoading(true);
       setError(null);
       const data = await coverageAPI.analyze();
-      setCoverage(data);
+      setCoverage(data as CoverageAnalysis);
     } catch (err: any) {
       console.error('Error loading coverage analysis:', err);
       setError(err.message || 'Failed to load coverage analysis');

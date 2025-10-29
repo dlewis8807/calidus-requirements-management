@@ -24,6 +24,9 @@ class Settings(BaseSettings):
     # CORS
     cors_origins: list = ["http://localhost:3000", "http://localhost:3001", "http://localhost:3002"]
 
+    # AI / Anthropic
+    anthropic_api_key: str = ""
+
     class Config:
         env_file = ".env"
         case_sensitive = False

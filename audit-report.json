@@ -1,0 +1,240 @@
+{
+  "timestamp": "2025-10-28T12:24:29.400Z",
+  "stats": {
+    "pagesChecked": 6,
+    "linksChecked": 30,
+    "designElementsChecked": 0,
+    "issuesFound": 32
+  },
+  "issues": {
+    "critical": [],
+    "warning": [
+      {
+        "category": "Design",
+        "page": "frontend/app/dashboard/admin/users/page.tsx",
+        "description": "Hardcoded colors found: #3B7DDD, #2F66BD",
+        "recommendation": "Use Tailwind color classes (e.g., bg-primary-500) instead of hex colors",
+        "timestamp": "2025-10-28T12:24:29.388Z"
+      },
+      {
+        "category": "Design",
+        "page": "frontend/app/dashboard/compliance/page.tsx",
+        "description": "Hardcoded colors found: #3B7DDD, #10B981, #F59E0B, #EF4444, #8B5CF6, #8884d8",
+        "recommendation": "Use Tailwind color classes (e.g., bg-primary-500) instead of hex colors",
+        "timestamp": "2025-10-28T12:24:29.388Z"
+      },
+      {
+        "category": "Design",
+        "page": "frontend/app/dashboard/layout.tsx",
+        "description": "Hardcoded colors found: #363636, #10B981, #EF4444",
+        "recommendation": "Use Tailwind color classes (e.g., bg-primary-500) instead of hex colors",
+        "timestamp": "2025-10-28T12:24:29.388Z"
+      },
+      {
+        "category": "Design",
+        "page": "frontend/app/dashboard/requirements/[id]/page.tsx",
+        "description": "Hardcoded colors found: #3B7DDD",
+        "recommendation": "Use Tailwind color classes (e.g., bg-primary-500) instead of hex colors",
+        "timestamp": "2025-10-28T12:24:29.388Z"
+      },
+      {
+        "category": "Design",
+        "page": "frontend/app/dashboard/test-cases/page.tsx",
+        "description": "Hardcoded colors found: #3B7DDD",
+        "recommendation": "Use Tailwind color classes (e.g., bg-primary-500) instead of hex colors",
+        "timestamp": "2025-10-28T12:24:29.388Z"
+      },
+      {
+        "category": "Design",
+        "page": "frontend/app/dashboard/traceability/graph/page.tsx",
+        "description": "Hardcoded colors found: #3b82f6, #10b981, #f59e0b, #ef4444, #6b7280, #cbd5e1, #8b5cf6",
+        "recommendation": "Use Tailwind color classes (e.g., bg-primary-500) instead of hex colors",
+        "timestamp": "2025-10-28T12:24:29.388Z"
+      },
+      {
+        "category": "Design",
+        "page": "frontend/app/dashboard/traceability/page.tsx",
+        "description": "Hardcoded colors found: #3B7DDD, #2F66BD",
+        "recommendation": "Use Tailwind color classes (e.g., bg-primary-500) instead of hex colors",
+        "timestamp": "2025-10-28T12:24:29.388Z"
+      },
+      {
+        "category": "Design",
+        "page": "frontend/app/demo/page.tsx",
+        "description": "Hardcoded colors found: #3B7DDD",
+        "recommendation": "Use Tailwind color classes (e.g., bg-primary-500) instead of hex colors",
+        "timestamp": "2025-10-28T12:24:29.388Z"
+      },
+      {
+        "category": "Design",
+        "page": "frontend/app/login/page.tsx",
+        "description": "Hardcoded colors found: #88898D, #3B7DDD, #EBF3FE",
+        "recommendation": "Use Tailwind color classes (e.g., bg-primary-500) instead of hex colors",
+        "timestamp": "2025-10-28T12:24:29.388Z"
+      },
+      {
+        "category": "Design",
+        "page": "frontend/app/page.tsx",
+        "description": "Hardcoded colors found: #2C5DBB, #3B7DDD, #EBF3FE, #C8C9CD, #A8A9AD",
+        "recommendation": "Use Tailwind color classes (e.g., bg-primary-500) instead of hex colors",
+        "timestamp": "2025-10-28T12:24:29.388Z"
+      },
+      {
+        "category": "Design",
+        "page": "frontend/components/admin/UserModal.tsx",
+        "description": "Hardcoded colors found: #3B7DDD",
+        "recommendation": "Use Tailwind color classes (e.g., bg-primary-500) instead of hex colors",
+        "timestamp": "2025-10-28T12:24:29.388Z"
+      },
+      {
+        "category": "Design",
+        "page": "frontend/components/common/Button.tsx",
+        "description": "Hardcoded colors found: #3B7DDD, #2F66BD, #A8A9AD, #8F9095",
+        "recommendation": "Use Tailwind color classes (e.g., bg-primary-500) instead of hex colors",
+        "timestamp": "2025-10-28T12:24:29.388Z"
+      },
+      {
+        "category": "Design",
+        "page": "frontend/components/common/LoadingSpinner.tsx",
+        "description": "Hardcoded colors found: #3B7DDD",
+        "recommendation": "Use Tailwind color classes (e.g., bg-primary-500) instead of hex colors",
+        "timestamp": "2025-10-28T12:24:29.388Z"
+      },
+      {
+        "category": "Design",
+        "page": "frontend/components/common/Pagination.tsx",
+        "description": "Hardcoded colors found: #3B7DDD",
+        "recommendation": "Use Tailwind color classes (e.g., bg-primary-500) instead of hex colors",
+        "timestamp": "2025-10-28T12:24:29.388Z"
+      },
+      {
+        "category": "Design",
+        "page": "frontend/components/common/SearchBar.tsx",
+        "description": "Hardcoded colors found: #3B7DDD",
+        "recommendation": "Use Tailwind color classes (e.g., bg-primary-500) instead of hex colors",
+        "timestamp": "2025-10-28T12:24:29.388Z"
+      },
+      {
+        "category": "Design",
+        "page": "frontend/components/coverage/CoverageTrendChart.tsx",
+        "description": "Hardcoded colors found: #e5e7eb, #6b7280, #3b82f6, #1f2937, #d1d5db, #fbbf24",
+        "recommendation": "Use Tailwind color classes (e.g., bg-primary-500) instead of hex colors",
+        "timestamp": "2025-10-28T12:24:29.388Z"
+      },
+      {
+        "category": "Design",
+        "page": "frontend/components/dashboard/Sidebar.tsx",
+        "description": "Hardcoded colors found: #EBF3FE, #3B7DDD",
+        "recommendation": "Use Tailwind color classes (e.g., bg-primary-500) instead of hex colors",
+        "timestamp": "2025-10-28T12:24:29.388Z"
+      },
+      {
+        "category": "Design",
+        "page": "frontend/components/dashboard/charts/RequirementChart.tsx",
+        "description": "Hardcoded colors found: #9333EA, #3B7DDD, #6366F1, #10B981, #8884d8",
+        "recommendation": "Use Tailwind color classes (e.g., bg-primary-500) instead of hex colors",
+        "timestamp": "2025-10-28T12:24:29.388Z"
+      },
+      {
+        "category": "Design",
+        "page": "frontend/components/dashboard/charts/StatusChart.tsx",
+        "description": "Hardcoded colors found: #10B981, #F59E0B, #3B7DDD, #6B7280",
+        "recommendation": "Use Tailwind color classes (e.g., bg-primary-500) instead of hex colors",
+        "timestamp": "2025-10-28T12:24:29.388Z"
+      },
+      {
+        "category": "Design",
+        "page": "frontend/components/dashboard/charts/TestCoverageChart.tsx",
+        "description": "Hardcoded colors found: #10B981, #EF4444, #3B7DDD",
+        "recommendation": "Use Tailwind color classes (e.g., bg-primary-500) instead of hex colors",
+        "timestamp": "2025-10-28T12:24:29.388Z"
+      },
+      {
+        "category": "Design",
+        "page": "frontend/components/requirements/FilterPanel.tsx",
+        "description": "Hardcoded colors found: #3B7DDD",
+        "recommendation": "Use Tailwind color classes (e.g., bg-primary-500) instead of hex colors",
+        "timestamp": "2025-10-28T12:24:29.388Z"
+      },
+      {
+        "category": "Design",
+        "page": "frontend/components/requirements/RequirementTable.tsx",
+        "description": "Hardcoded colors found: #3B7DDD, #2F66BD",
+        "recommendation": "Use Tailwind color classes (e.g., bg-primary-500) instead of hex colors",
+        "timestamp": "2025-10-28T12:24:29.388Z"
+      },
+      {
+        "category": "Design",
+        "page": "frontend/components/risk/RiskCard.tsx",
+        "description": "Hardcoded colors found: #8B0000, #B45F06, #4A5D23, #2D4F1E, #666666",
+        "recommendation": "Use Tailwind color classes (e.g., bg-primary-500) instead of hex colors",
+        "timestamp": "2025-10-28T12:24:29.388Z"
+      },
+      {
+        "category": "Design",
+        "page": "frontend/components/risk/RiskOverview.tsx",
+        "description": "Hardcoded colors found: #8B0000, #B45F06, #4A5D23, #2D4F1E, #666666, #e5e7eb",
+        "recommendation": "Use Tailwind color classes (e.g., bg-primary-500) instead of hex colors",
+        "timestamp": "2025-10-28T12:24:29.388Z"
+      },
+      {
+        "category": "Design",
+        "page": "frontend/components/test-cases/ExecutionModal.tsx",
+        "description": "Hardcoded colors found: #3B7DDD",
+        "recommendation": "Use Tailwind color classes (e.g., bg-primary-500) instead of hex colors",
+        "timestamp": "2025-10-28T12:24:29.388Z"
+      },
+      {
+        "category": "Design",
+        "page": "frontend/components/test-cases/TestCaseTable.tsx",
+        "description": "Hardcoded colors found: #3B7DDD, #2F66BD",
+        "recommendation": "Use Tailwind color classes (e.g., bg-primary-500) instead of hex colors",
+        "timestamp": "2025-10-28T12:24:29.388Z"
+      },
+      {
+        "category": "Design",
+        "page": "frontend/components/traceability/MatrixTable.tsx",
+        "description": "Hardcoded colors found: #3B7DDD",
+        "recommendation": "Use Tailwind color classes (e.g., bg-primary-500) instead of hex colors",
+        "timestamp": "2025-10-28T12:24:29.388Z"
+      }
+    ],
+    "info": [
+      {
+        "category": "Design",
+        "page": "frontend/app/dashboard/requirements/[id]/page.tsx",
+        "description": "Button with unusual styling: inline-flex items-center px-3 py-1.5 border border-transparent rounded-md text-s...",
+        "recommendation": "Consider using standard button patterns (primary, secondary, danger)",
+        "timestamp": "2025-10-28T12:24:29.393Z"
+      },
+      {
+        "category": "Design",
+        "page": "frontend/app/dashboard/test-cases/page.tsx",
+        "description": "Button with unusual styling: text-green-600 hover:text-green-900...",
+        "recommendation": "Consider using standard button patterns (primary, secondary, danger)",
+        "timestamp": "2025-10-28T12:24:29.393Z"
+      },
+      {
+        "category": "Design",
+        "page": "frontend/app/dashboard/test-cases/page.tsx",
+        "description": "Button with unusual styling: text-gray-600 hover:text-gray-900...",
+        "recommendation": "Consider using standard button patterns (primary, secondary, danger)",
+        "timestamp": "2025-10-28T12:24:29.393Z"
+      },
+      {
+        "category": "Design",
+        "page": "frontend/app/dashboard/test-cases/page.tsx",
+        "description": "Button with unusual styling: text-red-600 hover:text-red-900...",
+        "recommendation": "Consider using standard button patterns (primary, secondary, danger)",
+        "timestamp": "2025-10-28T12:24:29.393Z"
+      },
+      {
+        "category": "Design",
+        "page": "frontend/app/login/page.tsx",
+        "description": "Button with unusual styling: w-full py-3 text-white rounded-lg font-semibold transition-colors disabled:opaci...",
+        "recommendation": "Consider using standard button patterns (primary, secondary, danger)",
+        "timestamp": "2025-10-28T12:24:29.393Z"
+      }
+    ]
+  }
+}

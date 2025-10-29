@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import RequirementModal from '@/components/RequirementModal';
+import AskAhmedModal from '@/components/chat/AskAhmedModal';
 
 // Types for our data
 interface Requirement {
@@ -42,6 +43,7 @@ export default function Demo() {
 
   // Modal state
   const [selectedRequirementId, setSelectedRequirementId] = useState<string | null>(null);
+  const [isAhmedOpen, setIsAhmedOpen] = useState(false);
 
   // ENOVIA form state
   const [enoviaUrl, setEnoviaUrl] = useState('https://enovia.calidus.aero');
@@ -78,7 +80,7 @@ export default function Demo() {
           },
           body: JSON.stringify({
             username: 'admin',
-            password: 'Admin123!'
+            password: 'demo2024'
           })
         });
 
@@ -535,6 +537,69 @@ export default function Demo() {
                 </div>
               </div>
             </div>
+
+            {/* Ask Ahmed AI Assistant Section */}
+            <div className="mt-8 p-8 bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 rounded-xl border-2 border-indigo-200 shadow-lg">
+              <div className="flex items-start space-x-6">
+                <div className="flex-shrink-0">
+                  <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                    </svg>
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                    Need Predictive Analysis?
+                  </h3>
+                  <p className="text-gray-700 mb-4 leading-relaxed">
+                    Ask Ahmed, our AI-powered requirements assistant, can help you perform deep predictive analysis on any requirement.
+                    Get instant insights on compliance risk, test coverage gaps, regulatory conflicts, and impact analysis.
+                  </p>
+                  <div className="space-y-2 mb-6">
+                    <div className="flex items-start space-x-2">
+                      <svg className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span className="text-sm text-gray-700">Predict compliance risks before they become issues</span>
+                    </div>
+                    <div className="flex items-start space-x-2">
+                      <svg className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span className="text-sm text-gray-700">Identify test coverage gaps and suggest test cases</span>
+                    </div>
+                    <div className="flex items-start space-x-2">
+                      <svg className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span className="text-sm text-gray-700">Analyze impact of requirement changes across the system</span>
+                    </div>
+                    <div className="flex items-start space-x-2">
+                      <svg className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span className="text-sm text-gray-700">Get regulatory guidance for FAA, EASA, and UAE GCAA standards</span>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => setIsAhmedOpen(true)}
+                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl space-x-3"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                    </svg>
+                    <span>Ask Ahmed for Predictive Analysis</span>
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </button>
+                  <p className="text-xs text-gray-500 mt-3">
+                    Try asking: &quot;What are the highest risk requirements?&quot; or &quot;Which requirements have incomplete test coverage?&quot;
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         )}
 
@@ -680,6 +745,12 @@ export default function Demo() {
           onRequirementClick={handleRequirementClick}
         />
       )}
+
+      {/* Ask Ahmed Modal */}
+      <AskAhmedModal
+        isOpen={isAhmedOpen}
+        onClose={() => setIsAhmedOpen(false)}
+      />
     </div>
   );
 }

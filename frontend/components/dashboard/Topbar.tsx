@@ -1,6 +1,8 @@
 'use client';
 
-import { Bars3Icon, BellIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import { useState } from 'react';
+import { Bars3Icon, BellIcon, MagnifyingGlassIcon, SparklesIcon } from '@heroicons/react/24/outline';
+import AskAhmedModal from '@/components/chat/AskAhmedModal';
 
 interface TopbarProps {
   onMenuClick: () => void;
@@ -8,6 +10,7 @@ interface TopbarProps {
 }
 
 export default function Topbar({ onMenuClick, title = 'Dashboard' }: TopbarProps) {
+  const [chatOpen, setChatOpen] = useState(false);
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
       <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
@@ -38,6 +41,23 @@ export default function Topbar({ onMenuClick, title = 'Dashboard' }: TopbarProps
             </div>
           </div>
 
+          {/* Ask Ahmed Button */}
+          <button
+            onClick={() => setChatOpen(true)}
+            className="hidden sm:flex items-center px-4 py-2 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-lg hover:from-primary-600 hover:to-primary-700 transition-all shadow-card hover:shadow-card-hover font-semibold"
+          >
+            <SparklesIcon className="h-5 w-5 mr-2" />
+            Ask Ahmed
+          </button>
+
+          {/* Ask Ahmed Button (Mobile) */}
+          <button
+            onClick={() => setChatOpen(true)}
+            className="sm:hidden p-2 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-lg hover:from-primary-600 hover:to-primary-700 transition-all"
+          >
+            <SparklesIcon className="h-6 w-6" />
+          </button>
+
           {/* Notifications */}
           <button className="p-2 text-gray-400 hover:text-gray-500 hover:bg-gray-100 rounded-lg relative">
             <BellIcon className="h-6 w-6" />
@@ -56,6 +76,9 @@ export default function Topbar({ onMenuClick, title = 'Dashboard' }: TopbarProps
           </div>
         </div>
       </div>
+
+      {/* Ask Ahmed Modal */}
+      <AskAhmedModal isOpen={chatOpen} onClose={() => setChatOpen(false)} />
     </header>
   );
 }

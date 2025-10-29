@@ -63,3 +63,10 @@ async def login(login_data: LoginRequest, db: Session = Depends(get_db)):
 async def read_users_me(current_user: User = Depends(get_current_active_user)):
     """Get current user information"""
     return current_user
+
+
+@router.post("/refresh", response_model=Token)
+async def refresh_token(current_user: User = Depends(get_current_active_user)):
+    """Refresh access token for authenticated user"""
+    access_token = create_access_token(data={"sub": current_user.username})
+    return {"access_token": access_token, "token_type": "bearer"}

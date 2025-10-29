@@ -122,7 +122,7 @@ export default function ImpactAnalysisPage() {
 
       setAnalyzingId(reqId);
       const result = await impactAnalysisAPI.analyze(reqId);
-      setAnalysis(result);
+      setAnalysis(result as ImpactAnalysisResult);
       loadRecentData(); // Refresh recent reports
     } catch (err: any) {
       setError(err.message || 'Failed to analyze impact');
@@ -254,7 +254,7 @@ export default function ImpactAnalysisPage() {
 
               {searchQuery && searchResults.length === 0 && searchQuery.trim().length >= 2 && (
                 <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg p-4 text-center text-gray-500 text-sm">
-                  No requirements found matching "{searchQuery}"
+                  No requirements found matching &quot;{searchQuery}&quot;
                 </div>
               )}
             </div>
@@ -329,7 +329,7 @@ export default function ImpactAnalysisPage() {
                   {Object.entries(analysis.risk_score.factors).map(([factor, value]) => (
                     <div key={factor} className="bg-gray-50 rounded-lg p-3">
                       <div className="text-xs text-gray-600 capitalize">{factor}</div>
-                      <div className="text-lg font-semibold text-gray-900">{value.toFixed(0)}</div>
+                      <div className="text-lg font-semibold text-gray-900">{(value as unknown as number).toFixed(0)}</div>
                     </div>
                   ))}
                 </div>

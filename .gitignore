@@ -43,6 +43,13 @@ build/
 .env.test.local
 .env.production.local
 
+# Next.js
+.next/
+out/
+
+# Vercel
+.vercel
+
 # IDEs
 .vscode/
 .idea/

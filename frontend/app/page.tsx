@@ -173,6 +173,14 @@ export default function Home() {
             <p className="text-xs text-calidus-silver-dark mt-2">
               Compliant with DO-178C, AS9100, FAA, EASA, and UAE GCAA regulations
             </p>
+            <div className="mt-4 pt-4 border-t border-gray-100">
+              <Link
+                href="/consultancy-agreement"
+                className="text-xs text-gray-400 hover:text-gray-600 transition-colors"
+              >
+                RUYA Consultancy Agreement
+              </Link>
+            </div>
           </div>
         </div>
       </footer>

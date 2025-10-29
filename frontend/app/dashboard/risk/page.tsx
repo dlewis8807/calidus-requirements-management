@@ -37,8 +37,9 @@ export default function RiskDashboardPage() {
       setLoading(true);
       setError(null);
       const data = await riskAPI.overview();
-      setOverview(data);
-      setFilteredRisks(data.top_risks);
+      const typedData = data as RiskOverviewType;
+      setOverview(typedData);
+      setFilteredRisks(typedData.top_risks);
     } catch (err: any) {
       setError(err.message || 'Failed to load risk data');
       console.error('Error loading risk data:', err);
@@ -55,7 +56,7 @@ export default function RiskDashboardPage() {
         risk_level: selectedRiskLevel,
         limit: 50,
       });
-      setFilteredRisks(data);
+      setFilteredRisks(data as RequirementRisk[]);
     } catch (err: any) {
       console.error('Error loading filtered risks:', err);
     }

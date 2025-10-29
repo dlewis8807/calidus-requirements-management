@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.config import get_settings
-from app.api import auth, requirements, test_cases, traceability, users, compliance, risk, test_suggestions, impact_analysis, coverage
+from app.api import auth, requirements, test_cases, traceability, users, compliance, risk, test_suggestions, impact_analysis, coverage, chat
 
 settings = get_settings()
 
@@ -46,3 +46,4 @@ app.include_router(compliance.router)
 app.include_router(risk.router)
 app.include_router(impact_analysis.router)
 app.include_router(coverage.router)
+app.include_router(chat.router, prefix="/api", tags=["chat"])

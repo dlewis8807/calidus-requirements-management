@@ -3,38 +3,69 @@
  * Centralized API calls to the backend
  */
 
+import { fetchWithAuth as fetchWithAuthRefresh, getAuthToken, refreshAuthToken } from './auth-utils';
+
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
-// Get auth token from localStorage
-const getAuthToken = (): string | null => {
-  if (typeof window === 'undefined') return null;
-  return localStorage.getItem('access_token') || localStorage.getItem('token') || localStorage.getItem('demo_token');
-};
-
-// Generic fetch wrapper with auth
+// Generic fetch wrapper with auth and automatic token refresh
 async function fetchAPI<T>(
   endpoint: string,
   options: RequestInit = {}
 ): Promise<T> {
   const token = getAuthToken();
 
+  if (!token) {
+    throw new Error('No authentication token found');
+  }
+
   const headers: Record<string, string> = {
     'Content-Type': 'application/json',
     ...(options.headers as Record<string, string>),
   };
 
-  if (token) {
-    headers['Authorization'] = `Bearer ${token}`;
-  }
-
-  const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+  // First attempt
+  let response = await fetch(`${API_BASE_URL}${endpoint}`, {
     ...options,
-    headers,
+    headers: {
+      ...headers,
+      'Authorization': `Bearer ${token}`,
+    },
   });
+
+  // If 401, try to refresh token and retry once
+  if (response.status === 401) {
+    const newToken = await refreshAuthToken();
+
+    if (!newToken) {
+      // Refresh failed, redirect to login
+      if (typeof window !== 'undefined') {
+        window.location.href = '/login?expired=true';
+      }
+      throw new Error('Authentication expired. Please log in again.');
+    }
+
+    // Retry with new token
+    response = await fetch(`${API_BASE_URL}${endpoint}`, {
+      ...options,
+      headers: {
+        ...headers,
+        'Authorization': `Bearer ${newToken}`,
+      },
+    });
+  }
 
   if (!response.ok) {
     const error = await response.json().catch(() => ({ detail: 'Unknown error' }));
-    throw new Error(error.detail || `API Error: ${response.status}`);
+
+    // Create an enhanced error object with the full error data
+    const apiError: any = new Error(
+      typeof error.detail === 'string'
+        ? error.detail
+        : JSON.stringify(error.detail || `API Error: ${response.status}`)
+    );
+    apiError.status = response.status;
+    apiError.data = error;
+    throw apiError;
   }
 
   return response.json();

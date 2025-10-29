@@ -116,12 +116,12 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
       >
         <div className="flex flex-col h-full">
           {/* Logo */}
-          <div className="flex items-center justify-between h-16 px-6 border-b border-gray-200">
+          <div className="flex items-center justify-between h-20 px-6 border-b border-gray-200">
             <Link href="/dashboard" className="flex items-center">
               <img
                 src="/images/CLS-AEROSPACE-LOGO.svg"
                 alt="CALIDUS"
-                className="h-10"
+                className="h-20"
               />
             </Link>
             <button

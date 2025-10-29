@@ -221,7 +221,7 @@ export default function RequirementsPage() {
                 <table className="w-full divide-y divide-gray-100 table-fixed">
                   <thead className="bg-gray-50">
                     <tr>
-                      <th className="w-32 px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
+                      <th className="w-44 px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider whitespace-nowrap">
                         Requirement ID
                       </th>
                       <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
