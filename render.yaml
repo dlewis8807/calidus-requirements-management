@@ -48,6 +48,7 @@ services:
     plan: free
     region: oregon
     maxmemoryPolicy: allkeys-lru
+    ipAllowList: []  # Allow all Render services in this account
 
 databases:
   # PostgreSQL Database
