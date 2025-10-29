@@ -1,0 +1,58 @@
+services:
+  # FastAPI Backend
+  - type: web
+    name: calidus-backend
+    env: python
+    region: oregon
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: APP_NAME
+        value: CALIDUS API
+      - key: APP_VERSION
+        value: 1.0.0
+      - key: DEBUG
+        value: false
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ALGORITHM
+        value: HS256
+      - key: ACCESS_TOKEN_EXPIRE_MINUTES
+        value: 60
+      - key: REFRESH_TOKEN_EXPIRE_DAYS
+        value: 7
+      - key: CORS_ORIGINS
+        value: '["https://frontend-gh4y3nf66-bitgallerys-projects.vercel.app"]'
+      - key: DATABASE_URL
+        fromDatabase:
+          name: calidus-postgres
+          property: connectionString
+      - key: TEST_DATABASE_URL
+        fromDatabase:
+          name: calidus-postgres
+          property: connectionString
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: calidus-redis
+          property: connectionString
+      - key: ANTHROPIC_API_KEY
+        sync: false  # Set this manually in Render dashboard
+
+databases:
+  # PostgreSQL Database
+  - name: calidus-postgres
+    databaseName: calidus
+    user: calidus
+    plan: free
+    region: oregon
+
+  # Redis Cache (optional, but recommended)
+  - type: redis
+    name: calidus-redis
+    plan: free
+    region: oregon
+    maxmemoryPolicy: allkeys-lru
