@@ -42,6 +42,13 @@ services:
       - key: ANTHROPIC_API_KEY
         sync: false  # Set this manually in Render dashboard
 
+  # Redis Cache (optional, but recommended)
+  - type: redis
+    name: calidus-redis
+    plan: free
+    region: oregon
+    maxmemoryPolicy: allkeys-lru
+
 databases:
   # PostgreSQL Database
   - name: calidus-postgres
@@ -49,10 +56,3 @@ databases:
     user: calidus
     plan: free
     region: oregon
-
-  # Redis Cache (optional, but recommended)
-  - type: redis
-    name: calidus-redis
-    plan: free
-    region: oregon
-    maxmemoryPolicy: allkeys-lru
